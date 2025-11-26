@@ -16,8 +16,8 @@ export default function Home() {
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <a href="#about" className="hover:text-primary transition-colors">About</a>
-            <a href="#events" className="hover:text-primary transition-colors">Events</a>
-            <a href="#community" className="hover:text-primary transition-colors">Community</a>
+            <a href="https://www.meetup.com/code-coffee-auckland/events/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Events</a>
+            <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Community</a>
           </div>
         </div>
       </nav>
@@ -43,12 +43,22 @@ export default function Home() {
               Auckland's premier community for developers, creators, and thinkers. Where technology meets conversation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 h-14 px-8 text-lg rounded-full shadow-xl shadow-primary/20 transition-all hover:translate-y-[-2px]">
+              <a 
+                href="https://www.meetup.com/code-coffee-auckland/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center h-14 px-8 text-lg rounded-full shadow-xl shadow-primary/20 transition-all hover:translate-y-[-2px] bg-primary text-primary-foreground hover:bg-primary/90 font-medium"
+              >
                 Join the Community
-              </Button>
-              <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full border-foreground/10 hover:bg-foreground/5 backdrop-blur-sm">
+              </a>
+              <a 
+                href="https://www.meetup.com/code-coffee-auckland/events/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center h-14 px-8 text-lg rounded-full border-foreground/10 hover:bg-foreground/5 backdrop-blur-sm border font-medium"
+              >
                 View Upcoming Events
-              </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -94,77 +104,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Next Event Section */}
-      <section className="py-20 bg-secondary/30 relative overflow-hidden" id="events">
-        {/* Abstract texture background for this section */}
-        <div className="absolute inset-0 opacity-5 mix-blend-multiply pointer-events-none">
-             <img src={textureBg} className="w-full h-full object-cover" alt="" />
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
-            <div>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-2">Upcoming Gathering</h2>
-              <p className="text-muted-foreground">Don't miss our next meetup.</p>
-            </div>
-            <a href="#" className="text-primary font-medium flex items-center gap-2 hover:underline underline-offset-4">
-              See all events <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-
-          <Card className="border-none shadow-2xl bg-card overflow-hidden relative group">
-            <div className="absolute top-0 left-0 w-2 h-full bg-primary"></div>
-            <CardContent className="p-0">
-              <div className="grid md:grid-cols-12 gap-0 min-h-[300px]">
-                {/* Date Column */}
-                <div className="md:col-span-3 bg-secondary/50 p-8 flex flex-col justify-center items-center text-center border-r border-border/50">
-                  <span className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-2">December</span>
-                  <span className="text-6xl font-heading font-bold text-foreground mb-2">14</span>
-                  <span className="text-xl text-primary font-medium">Saturday</span>
-                  <div className="mt-6 px-4 py-1 bg-background rounded-full text-xs font-bold tracking-wide border border-border">
-                    10:00 AM
-                  </div>
-                </div>
-
-                {/* Content Column */}
-                <div className="md:col-span-6 p-8 md:p-12 flex flex-col justify-center">
-                  <div className="flex items-center gap-2 text-primary font-medium text-sm mb-4">
-                    <span className="bg-primary/10 px-2 py-0.5 rounded text-xs">Panel Discussion</span>
-                    <span className="bg-primary/10 px-2 py-0.5 rounded text-xs">Networking</span>
-                  </div>
-                  <h3 className="font-heading text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
-                    The Future of AI Agents in Production
-                  </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Join us for a morning of deep technical discussion on building reliable agentic workflows. 
-                    Featuring speakers from leading local tech companies. Coffee provided by Daily Daily.
-                  </p>
-                  <div className="flex flex-wrap gap-6 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4" />
-                      <span>Generator @ GridAKL, 12 Madden St</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Users className="w-4 h-4" />
-                      <span>45 attending</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Action Column */}
-                <div className="md:col-span-3 p-8 md:p-12 flex flex-col justify-center items-center md:items-end bg-secondary/10 border-l border-border/50">
-                   <Button size="lg" className="w-full md:w-auto bg-foreground text-background hover:bg-foreground/90 rounded-full">
-                     Get Tickets
-                   </Button>
-                   <p className="mt-4 text-xs text-muted-foreground text-center md:text-right">
-                     Free for members.<br/>$10 for non-members.
-                   </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      {/* Next Event Section - Removed */}
 
       {/* Footer */}
       <footer className="bg-foreground text-background py-12 border-t border-border/10">
@@ -179,7 +119,7 @@ export default function Home() {
             <div className="flex gap-6">
               <a href="#" className="text-background/60 hover:text-background transition-colors">Twitter</a>
               <a href="#" className="text-background/60 hover:text-background transition-colors">LinkedIn</a>
-              <a href="#" className="text-background/60 hover:text-background transition-colors">Meetup</a>
+              <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-background transition-colors">Meetup</a>
               <a href="#" className="text-background/60 hover:text-background transition-colors">Discord</a>
             </div>
           </div>
