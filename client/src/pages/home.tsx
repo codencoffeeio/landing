@@ -117,14 +117,12 @@ export default function Home() {
               </p>
             </div>
             <div className="flex gap-6">
-              <a href="#" className="text-background/60 hover:text-background transition-colors">Twitter</a>
-              <a href="#" className="text-background/60 hover:text-background transition-colors">LinkedIn</a>
+              <a href="https://www.linkedin.com/company/code-coffee-n-ai/" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-background transition-colors">LinkedIn</a>
               <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-background transition-colors">Meetup</a>
-              <a href="#" className="text-background/60 hover:text-background transition-colors">Discord</a>
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/40">
-            <p>© 2024 Code, Coffee & AI. All rights reserved.</p>
+            <p>© 2025 Code, Coffee & AI. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-background">Privacy Policy</a>
               <a href="#" className="hover:text-background">Code of Conduct</a>
