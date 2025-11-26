@@ -123,10 +123,6 @@ export default function Home() {
           </div>
           <div className="mt-12 pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/40">
             <p>© 2025 Code, Coffee & AI. All rights reserved.</p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:text-background">Privacy Policy</a>
-              <a href="#" className="hover:text-background">Code of Conduct</a>
-            </div>
           </div>
         </div>
       </footer>
