@@ -64,35 +64,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* USP / Values Section */}
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-12">Why We Are Different</h2>
-          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-            <div>
-              <div className="text-5xl font-bold mb-4 opacity-20">01</div>
-              <h3 className="font-heading text-xl font-bold mb-3">No Sales Pitches</h3>
-              <p className="text-primary-foreground/80 leading-relaxed">
-                A strict no-selling policy. We are here to build, learn, and connect—not to be sold to.
-              </p>
-            </div>
-            <div>
-              <div className="text-5xl font-bold mb-4 opacity-20">02</div>
-              <h3 className="font-heading text-xl font-bold mb-3">High-Signal Discussions</h3>
-              <p className="text-primary-foreground/80 leading-relaxed">
-                Skip the fluff. Our conversations go deep into the stack, from kernel to cloud.
-              </p>
-            </div>
-            <div>
-              <div className="text-5xl font-bold mb-4 opacity-20">03</div>
-              <h3 className="font-heading text-xl font-bold mb-3">Inclusive & Open</h3>
-              <p className="text-primary-foreground/80 leading-relaxed">
-                Whether you're a senior engineer or just shipping your first Hello World, you belong here.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Focus Areas */}
       <section className="py-20 bg-background" id="about">
