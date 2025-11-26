@@ -40,7 +40,7 @@ export default function Home() {
               <span className="text-primary">& AI</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-10 font-light max-w-xl leading-relaxed">
-              Auckland's premier community for developers, creators, and thinkers. Where technology meets conversation.
+              The premier community for developers, creators, and thinkers. Where technology meets conversation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
@@ -59,6 +59,36 @@ export default function Home() {
               >
                 View Upcoming Events
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* USP / Values Section */}
+      <section className="py-24 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-12">Why We Are Different</h2>
+          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+            <div>
+              <div className="text-5xl font-bold mb-4 opacity-20">01</div>
+              <h3 className="font-heading text-xl font-bold mb-3">No Sales Pitches</h3>
+              <p className="text-primary-foreground/80 leading-relaxed">
+                A strict no-selling policy. We are here to build, learn, and connect—not to be sold to.
+              </p>
+            </div>
+            <div>
+              <div className="text-5xl font-bold mb-4 opacity-20">02</div>
+              <h3 className="font-heading text-xl font-bold mb-3">High-Signal Discussions</h3>
+              <p className="text-primary-foreground/80 leading-relaxed">
+                Skip the fluff. Our conversations go deep into the stack, from kernel to cloud.
+              </p>
+            </div>
+            <div>
+              <div className="text-5xl font-bold mb-4 opacity-20">03</div>
+              <h3 className="font-heading text-xl font-bold mb-3">Inclusive & Open</h3>
+              <p className="text-primary-foreground/80 leading-relaxed">
+                Whether you're a senior engineer or just shipping your first Hello World, you belong here.
+              </p>
             </div>
           </div>
         </div>
@@ -86,7 +116,7 @@ export default function Home() {
               </div>
               <h3 className="font-heading text-2xl font-bold mb-4">Networking</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Connect with Auckland's best engineering talent in a relaxed, ego-free environment over great coffee.
+                Connect with the best engineering talent in a relaxed, ego-free environment over great coffee.
               </p>
             </div>
 
@@ -113,7 +143,7 @@ export default function Home() {
             <div>
               <div className="font-heading font-bold text-2xl tracking-tight mb-2">Code, Coffee & AI</div>
               <p className="text-background/60 text-sm max-w-xs">
-                Cultivating Auckland's tech ecosystem, one cup at a time.
+                Cultivating the tech ecosystem, one cup at a time.
               </p>
             </div>
             <div className="flex gap-6">
