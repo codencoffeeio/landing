@@ -1,0 +1,15 @@
+# Server files - not needed for static deployment
+server/
+dist/index.js
+dist/server/
+
+# Development files
+node_modules/
+.git/
+*.log
+
+# Build artifacts (except public directory)
+dist/*.js
+dist/*.map
+!dist/public/
+
