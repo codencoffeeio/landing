@@ -40,7 +40,7 @@ export default function Home() {
               <span className="text-primary">& AI</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-10 font-light max-w-xl leading-relaxed">
-              The premier community for developers, creators, and thinkers. Where technology meets conversation.
+              A genuine community for software engineers and AI enthusiasts. No sales pitches, just real technical conversations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
