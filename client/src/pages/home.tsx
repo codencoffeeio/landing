@@ -19,9 +19,6 @@ export default function Home() {
             <a href="#events" className="hover:text-primary transition-colors">Events</a>
             <a href="#community" className="hover:text-primary transition-colors">Community</a>
           </div>
-          <Button variant="outline" className="hidden sm:flex border-primary/20 hover:bg-primary/5 text-primary">
-            Sign In
-          </Button>
         </div>
       </nav>
 
