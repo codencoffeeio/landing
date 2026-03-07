@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { ExternalLink, Github, Linkedin, Globe, CheckCircle2, ArrowLeft } from "lucide-react";
 
@@ -164,6 +165,18 @@ function BuilderCard({ builder }: { builder: Builder }) {
 export default function VerifiedBuilders() {
     return (
         <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
+
+            <Helmet>
+                <title>Verified Builders · Code, Coffee & AI</title>
+                <meta name="description" content="Community members who are actively shipping products. Meet the builders of the Code, Coffee & AI community." />
+                <meta property="og:title" content="Verified Builders · Code, Coffee & AI" />
+                <meta property="og:description" content="Community members who are actively shipping products." />
+                <meta property="og:type" content="website" />
+                <meta property="og:image" content="/logo.png" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Verified Builders · Code, Coffee & AI" />
+                <meta name="twitter:description" content="Community members who are actively shipping products." />
+            </Helmet>
 
             {/* Nav */}
             <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/40">

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,6 +9,17 @@ import textureBg from "@assets/generated_images/minimalist_coffee_and_code_abstr
 export default function Home() {
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
+      <Helmet>
+        <title>Code, Coffee & AI — A community of engineers curious about the future</title>
+        <meta name="description" content="A community of engineers curious about the future. Live demos, software engineering, and AI — all over great coffee. Based in Auckland." />
+        <meta property="og:title" content="Code, Coffee & AI" />
+        <meta property="og:description" content="A community of engineers curious about the future. Live demos, software engineering, and AI — all over great coffee." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Code, Coffee & AI" />
+        <meta name="twitter:description" content="A community of engineers curious about the future. Live demos, software engineering, and AI — all over great coffee." />
+      </Helmet>
       {/* Navigation (Minimal) */}
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
         <div className="container mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
