@@ -226,6 +226,26 @@ export default function VerifiedBuilders() {
                 </div>
             </section>
 
+            {/* CTA */}
+            <section className="pb-24 px-6 border-b border-border/10">
+                <div className="container mx-auto max-w-6xl">
+                    <div className="bg-secondary/30 border border-border/50 rounded-3xl p-8 md:p-10 text-center flex flex-col items-center">
+                        <h2 className="font-heading text-3xl font-bold mb-3">Are you building something?</h2>
+                        <p className="text-muted-foreground mb-6 max-w-xl leading-relaxed">
+                            Join us as a verified builder. Share your work, get feedback, and connect with other engineers actively shipping products.
+                        </p>
+                        <a
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSd0vtWO5zy4-xy1e6pk6kshcp9AKg5TdRLVnexXnHkr7YeITg/viewform"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center h-14 px-8 text-lg rounded-full shadow-xl shadow-primary/20 transition-all hover:translate-y-[-2px] bg-primary text-primary-foreground hover:bg-primary/90 font-medium"
+                        >
+                            Apply as a Builder
+                        </a>
+                    </div>
+                </div>
+            </section>
+
             {/* Footer */}
             <footer className="bg-card border-t border-border py-12">
                 <div className="container mx-auto max-w-6xl px-6">
