@@ -16,6 +16,26 @@ const BUILDERS: Builder[] = [
             project: "https://english-dictionary.app/",
         },
     },
+    {
+        id: "matthue",
+        name: "Matthue",
+        role: "Creator · Fizzap",
+        bio: "Developing v2 of Fizzap, a social network platform featuring a 3D-like desktop UI. Handling A-Z design and development using a proprietary JS framework, PHP, and MySQL.",
+        tags: ["Full Stack", "Founder", "UI/UX"],
+        links: {
+            project: "https://www.fizzap.com",
+        },
+    },
+    {
+        id: "emanuele",
+        name: "Emanuele",
+        role: "Builder · Italicore",
+        bio: "Building Italicore, a dedicated language learning platform designed to help users master Italian.",
+        tags: ["EdTech", "Builder", "Founder"],
+        links: {
+            project: "https://italicore.com",
+        },
+    },
 ];
 
 // ─── Types ────────────────────────────────────────────────────────────────────
