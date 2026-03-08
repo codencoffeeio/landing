@@ -36,6 +36,16 @@ const BUILDERS: Builder[] = [
             project: "https://italicore.com",
         },
     },
+    {
+        id: "michael-wells",
+        name: "Michael Wells",
+        role: "Full Stack Developer",
+        bio: "AI-centered full stack developer specializing primarily in web technology projects.",
+        tags: ["Full Stack", "AI", "Web"],
+        links: {
+            website: "https://www.sygnal.com",
+        },
+    },
 ];
 
 // ─── Types ────────────────────────────────────────────────────────────────────
