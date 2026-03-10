@@ -9,7 +9,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.get("/api/meetup-events", async (req, res) => {
     try {
-      const data = await ical.async.fromURL("https://www.meetup.com/code-coffee-auckland/events/ical/");
+      // ical.async.fromURL doesn't perfectly type the options argument in TS, 
+      // so we use fetch to get the string first to ensure headers are sent
+      const response = await fetch("https://www.meetup.com/code-coffee-auckland/events/ical/", {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+          'Accept': 'text/calendar'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch ICS: ${response.statusText}`);
+      }
+
+      const icsString = await response.text();
+      const data = ical.sync.parseICS(icsString);
 
       const events: any[] = [];
       for (let k in data) {
