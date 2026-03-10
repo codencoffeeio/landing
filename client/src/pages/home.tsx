@@ -5,8 +5,26 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, MapPin, Terminal, Users, Cpu, ArrowRight, ExternalLink, CheckCircle2 } from "lucide-react";
 import heroBg from "@assets/generated_images/sophisticated_coffee_shop_atmosphere_blur.png";
 import textureBg from "@assets/generated_images/minimalist_coffee_and_code_abstract_texture.png";
+import { useQuery } from "@tanstack/react-query";
+import { format } from "date-fns";
 
 export default function Home() {
+  const { data: meetupEvents, isLoading: isEventsLoading } = useQuery<{
+    title: string;
+    link: string;
+    pubDate: string;
+    description: string;
+  }[]>({
+    queryKey: ["meetup-events"],
+    queryFn: async () => {
+      const res = await fetch("/api/meetup-events");
+      if (!res.ok) throw new Error("Failed to fetch events");
+      return res.json();
+    },
+  });
+
+  const nextEvent = meetupEvents?.[0];
+
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
       <Helmet>
@@ -47,32 +65,87 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto max-w-6xl px-6 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6 leading-[1.1]">
-              Code, Coffee <br />
-              <span className="text-primary">& AI</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-10 font-light max-w-xl leading-relaxed">
-              A community of engineers curious about the future.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="https://www.meetup.com/code-coffee-auckland/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-14 px-8 text-lg rounded-full shadow-xl shadow-primary/20 transition-all hover:translate-y-[-2px] bg-primary text-primary-foreground hover:bg-primary/90 font-medium"
-              >
-                Join the Community
-              </a>
-              <a
-                href="https://www.meetup.com/code-coffee-auckland/events/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center h-14 px-8 text-lg rounded-full border-foreground/10 hover:bg-foreground/5 backdrop-blur-sm border font-medium"
-              >
-                View Upcoming Events
-              </a>
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+
+            {/* Left Column: Hero Text */}
+            <div className="lg:col-span-7">
+              <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6 leading-[1.1]">
+                Code, Coffee <br />
+                <span className="text-primary">& AI</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground mb-10 font-light max-w-xl leading-relaxed">
+                A community of engineers curious about the future.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="https://www.meetup.com/code-coffee-auckland/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center h-14 px-8 text-lg rounded-full shadow-xl shadow-primary/20 transition-all hover:translate-y-[-2px] bg-primary text-primary-foreground hover:bg-primary/90 font-medium"
+                >
+                  Join the Community
+                </a>
+                <a
+                  href="https://www.meetup.com/code-coffee-auckland/events/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center h-14 px-8 text-lg rounded-full border-foreground/10 hover:bg-foreground/5 backdrop-blur-sm border font-medium"
+                >
+                  View All Events
+                </a>
+              </div>
             </div>
+
+            {/* Right Column: Next Event Card */}
+            <div className="lg:col-span-5">
+              <div className="max-w-md ml-auto lg:mt-0 mt-12">
+                <h2 className="text-sm font-semibold uppercase tracking-widest text-primary mb-4 flex items-center gap-2">
+                  <Calendar className="w-4 h-4" /> Next Up
+                </h2>
+                {isEventsLoading ? (
+                  <div className="animate-pulse bg-secondary/50 rounded-2xl h-36 border border-border/50"></div>
+                ) : nextEvent ? (
+                  <a
+                    href={nextEvent.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block group"
+                  >
+                    <Card className="bg-background/40 backdrop-blur-xl border border-border/50 transition-all hover:border-primary/50 hover:bg-background/60 shadow-2xl shadow-black/20 hover:-translate-y-1">
+                      <CardContent className="p-6">
+                        <div className="flex flex-col gap-4">
+                          <div>
+                            <h3 className="font-heading font-bold text-2xl mb-3 text-foreground group-hover:text-primary transition-colors leading-snug">
+                              {nextEvent.title}
+                            </h3>
+                            <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
+                              <Calendar className="w-4 h-4 text-primary shrink-0" />
+                              <span className="line-clamp-1">{format(new Date(nextEvent.pubDate), "EEEE, MMMM do 'at' h:mm a")}</span>
+                            </div>
+                          </div>
+
+                          <div className="pt-4 border-t border-border/50 flex justify-between items-center">
+                            <span className="text-sm text-foreground/70 font-medium group-hover:text-foreground transition-colors">See details on Meetup</span>
+                            <Button variant="default" className="shrink-0 transition-transform group-hover:scale-105 shadow-md">
+                              RSVP
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </a>
+                ) : (
+                  <Card className="bg-background/40 backdrop-blur-md border border-border/50 border-dashed">
+                    <CardContent className="p-6 flex flex-col items-center justify-center text-center text-muted-foreground">
+                      <Calendar className="w-8 h-8 mb-3 opacity-50" />
+                      <p className="text-sm font-medium">No upcoming events scheduled</p>
+                      <p className="text-xs mt-1">Check back soon or join the group to be notified.</p>
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
