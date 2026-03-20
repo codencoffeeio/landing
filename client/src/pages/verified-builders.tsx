@@ -215,10 +215,11 @@ export default function VerifiedBuilders() {
                         Code, Coffee & AI
                     </Link>
                     <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-                        <a href="/#about" className="hover:text-primary transition-colors">About</a>
+                        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
                         <a href="https://www.meetup.com/code-coffee-auckland/events/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Events</a>
                         <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Community</a>
-                        <Link href="/builders" className="text-primary font-semibold">Builders</Link>
+                        <Link href="/builders" className="hover:text-primary transition-colors text-foreground">Builders</Link>
+                        <Link href="/replit-agent-4" className="hover:text-primary transition-colors text-primary font-semibold">Replit Event</Link>
                     </div>
                 </div>
             </nav>
