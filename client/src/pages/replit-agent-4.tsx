@@ -161,8 +161,8 @@ export default function ReplitAgent4() {
                         <div className="space-y-6 relative before:absolute before:inset-0 before:ml-4 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-border before:to-transparent">
 
                             <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                                <div className="flex items-center justify-center w-8 h-8 rounded-full border-4 border-background bg-secondary text-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 mx-auto">
-                                    <span className="text-lg">🧠</span>
+                                <div className="flex items-center justify-center w-12 h-12 rounded-full border-4 border-background bg-secondary text-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 mx-auto">
+                                    <span className="text-2xl">🧠</span>
                                 </div>
                                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2rem)] p-4 rounded-xl bg-card border border-border/50">
                                     <div className="font-bold text-lg mb-1">Quick intro</div>
@@ -171,8 +171,8 @@ export default function ReplitAgent4() {
                             </div>
 
                             <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                                <div className="flex items-center justify-center w-8 h-8 rounded-full border-4 border-background bg-secondary text-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 mx-auto">
-                                    <span className="text-lg">⚡</span>
+                                <div className="flex items-center justify-center w-12 h-12 rounded-full border-4 border-background bg-secondary text-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 mx-auto">
+                                    <span className="text-2xl">⚡</span>
                                 </div>
                                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2rem)] p-4 rounded-xl bg-card border border-border/50">
                                     <div className="font-bold text-lg mb-1">Live demo</div>
@@ -181,8 +181,8 @@ export default function ReplitAgent4() {
                             </div>
 
                             <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                                <div className="flex items-center justify-center w-8 h-8 rounded-full border-4 border-background bg-secondary text-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 mx-auto">
-                                    <span className="text-lg">🛠️</span>
+                                <div className="flex items-center justify-center w-12 h-12 rounded-full border-4 border-background bg-secondary text-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 mx-auto">
+                                    <span className="text-2xl">🛠️</span>
                                 </div>
                                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2rem)] p-4 rounded-xl bg-card border border-border/50">
                                     <div className="font-bold text-lg mb-1">Mini hackathon</div>
@@ -191,8 +191,8 @@ export default function ReplitAgent4() {
                             </div>
 
                             <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                                <div className="flex items-center justify-center w-8 h-8 rounded-full border-4 border-background bg-secondary text-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 mx-auto">
-                                    <span className="text-lg">💬</span>
+                                <div className="flex items-center justify-center w-12 h-12 rounded-full border-4 border-background bg-secondary text-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 mx-auto">
+                                    <span className="text-2xl">💬</span>
                                 </div>
                                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2rem)] p-4 rounded-xl bg-card border border-border/50">
                                     <div className="font-bold text-lg mb-1">Demo showcase</div>
@@ -202,9 +202,6 @@ export default function ReplitAgent4() {
 
                         </div>
 
-                        <div className="mt-8 text-center p-4 bg-primary/5 rounded-xl border border-primary/20 max-w-2xl mx-auto">
-                            Pizza, Replit stickers, and Replit credits on the night — all provided by Replit.
-                        </div>
                     </section>
 
                     {/* 7. RSVP Button */}
@@ -244,9 +241,6 @@ export default function ReplitAgent4() {
 
                     <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
                         <p>© 2026 Code, Coffee & AI. All rights reserved.</p>
-                        <p>
-                            Curious what our team is building with AI? Check out <a href="https://neoncontext.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors underline underline-offset-4">NeonContext &rarr;</a>
-                        </p>
                     </div>
                 </div>
             </footer>
