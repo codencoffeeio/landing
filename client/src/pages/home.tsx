@@ -2,7 +2,8 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, MapPin, Terminal, Users, Cpu, ArrowRight, ExternalLink, CheckCircle2 } from "lucide-react";
+import { Calendar, MapPin, Terminal, Users, Cpu, ArrowRight, ExternalLink, CheckCircle2, Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import heroBg from "@assets/generated_images/sophisticated_coffee_shop_atmosphere_blur.png";
 import textureBg from "@assets/generated_images/minimalist_coffee_and_code_abstract_texture.png";
 import { useQuery } from "@tanstack/react-query";
@@ -50,6 +51,24 @@ export default function Home() {
             <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Community</a>
             <Link href="/builders" className="hover:text-primary transition-colors">Builders</Link>
             <Link href="/replit-agent-4" className="hover:text-primary transition-colors text-primary font-semibold">Replit Event</Link>
+          </div>
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="w-6 h-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="bg-background/95 backdrop-blur-md">
+                <div className="flex flex-col gap-6 mt-8 font-medium">
+                  <a href="#about" onClick={() => document.querySelector('[data-state="open"]')?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))} className="text-lg hover:text-primary transition-colors">About</a>
+                  <a href="https://www.meetup.com/code-coffee-auckland/events/" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">Events</a>
+                  <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">Community</a>
+                  <Link href="/builders" className="text-lg hover:text-primary transition-colors">Builders</Link>
+                  <Link href="/replit-agent-4" className="text-lg hover:text-primary transition-colors text-primary font-semibold">Replit Event</Link>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </nav>

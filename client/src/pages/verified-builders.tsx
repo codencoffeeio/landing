@@ -1,7 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
-import { ExternalLink, Github, Linkedin, Globe, CheckCircle2, ArrowLeft } from "lucide-react";
-
+import { ExternalLink, Github, Linkedin, Globe, CheckCircle2, ArrowLeft, Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 // ─── Builder Data ────────────────────────────────────────────────────────────
 // Add new builders here. All fields except `name` and `bio` are optional.
 const BUILDERS: Builder[] = [
@@ -220,6 +221,24 @@ export default function VerifiedBuilders() {
                         <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Community</a>
                         <Link href="/builders" className="hover:text-primary transition-colors text-foreground">Builders</Link>
                         <Link href="/replit-agent-4" className="hover:text-primary transition-colors text-primary font-semibold">Replit Event</Link>
+                    </div>
+                    <div className="md:hidden">
+                        <Sheet>
+                            <SheetTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                    <Menu className="w-6 h-6" />
+                                </Button>
+                            </SheetTrigger>
+                            <SheetContent side="right" className="bg-background/95 backdrop-blur-md">
+                                <div className="flex flex-col gap-6 mt-8 font-medium">
+                                    <Link href="/" className="text-lg hover:text-primary transition-colors">Home</Link>
+                                    <a href="https://www.meetup.com/code-coffee-auckland/events/" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">Events</a>
+                                    <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">Community</a>
+                                    <Link href="/builders" className="text-lg hover:text-primary transition-colors text-foreground">Builders</Link>
+                                    <Link href="/replit-agent-4" className="text-lg hover:text-primary transition-colors text-primary font-semibold">Replit Event</Link>
+                                </div>
+                            </SheetContent>
+                        </Sheet>
                     </div>
                 </div>
             </nav>
