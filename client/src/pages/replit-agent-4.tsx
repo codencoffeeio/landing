@@ -195,7 +195,8 @@ export default function ReplitAgent4() {
                                     <span className="text-2xl">💬</span>
                                 </div>
                                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2rem)] p-4 rounded-xl bg-card border border-border/50">
-                                    <div className="font-bold text-lg">Demo showcase</div>
+                                    <div className="font-bold text-lg mb-1">Demo showcase</div>
+                                    <div className="text-muted-foreground text-sm">See what others shipped and connect with fellow builders</div>
                                 </div>
                             </div>
 
