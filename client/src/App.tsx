@@ -7,11 +7,14 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import VerifiedBuilders from "@/pages/verified-builders";
 
+import ReplitAgent4 from "@/pages/replit-agent-4";
+
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/builders" component={VerifiedBuilders} />
+      <Route path="/replit-agent-4" component={ReplitAgent4} />
       <Route component={NotFound} />
     </Switch>
   );
