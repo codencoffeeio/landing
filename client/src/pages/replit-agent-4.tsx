@@ -208,7 +208,7 @@ export default function ReplitAgent4() {
                     <section className="text-center py-12 border-t border-border/40">
                         <h2 className="font-heading text-3xl font-bold mb-6">Ready to join us?</h2>
                         <a
-                            href="https://www.meetup.com/code-coffee-auckland/events/"
+                            href="https://www.meetup.com/code-coffee-auckland/events/313865621/"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
