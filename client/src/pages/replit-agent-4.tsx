@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Video, Sparkles, Lightbulb, Clock, CheckCircle2, Menu } from "lucide-react";
+import { Video, Sparkles, Lightbulb, Clock, CheckCircle2, Menu, AlertCircle } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 export default function ReplitAgent4() {
     return (
@@ -54,15 +54,33 @@ export default function ReplitAgent4() {
                     {/* 1. Hero */}
                     <section className="mb-20 text-center md:text-left">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                            <Sparkles className="w-4 h-4" /> April 12th Event
+                            <Sparkles className="w-4 h-4" /> April 26th Event
                         </div>
                         <h1 className="font-heading text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
                             Your Pre-Event Guide — <br />
                             <span className="text-primary">Vibe Coding with Replit Agent 4</span>
                         </h1>
-                        <p className="text-xl text-muted-foreground font-light max-w-2xl leading-relaxed">
+                        <p className="text-xl text-muted-foreground font-light max-w-2xl leading-relaxed mb-8">
                             New to Replit or vibe coding? Start here. Already a builder? There's something for you too.
                         </p>
+
+                        <div className="bg-secondary/50 border border-border text-foreground p-6 rounded-2xl text-left max-w-2xl mx-auto md:mx-0 shadow-sm">
+                            <h3 className="text-lg font-heading font-bold flex items-center gap-2 mb-3 text-destructive">
+                                <AlertCircle className="w-5 h-5" /> 
+                                Event Postponed to April 26th
+                            </h3>
+                            <div className="space-y-3 text-sm md:text-base text-muted-foreground">
+                                <p>
+                                    To prioritize everyone's safety with Cyclone Vaianu approaching, we are postponing this Sunday's Code, Coffee & AI Replit Mini-Hackathon.
+                                </p>
+                                <p>
+                                    The official advice is to stay off the roads and prepare for severe weather, so we are moving the event to <strong className="text-foreground">Sunday, April 26th</strong>. It lands on the long weekend, making it the perfect afternoon to grab a coffee, collaborate, and build something awesome.
+                                </p>
+                                <p>
+                                    Stay safe and dry out there this weekend! You can check the latest severe weather warnings <a href="https://www.rnz.co.nz/news/national/591893/north-island-authorities-get-ready-for-potentially-life-threatening-cyclone-vaianu" target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline transition-colors">here</a>.
+                                </p>
+                            </div>
+                        </div>
                     </section>
 
                     {/* 2. What is Replit & Vibe Coding? */}
