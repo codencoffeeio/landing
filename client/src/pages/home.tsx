@@ -34,10 +34,25 @@ export default function Home() {
         <meta property="og:title" content="Code, Coffee & AI" />
         <meta property="og:description" content="A community of engineers curious about the future. Live demos, software engineering, and AI — all over great coffee." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/logo.png" />
+        <meta property="og:url" content="https://codencoffee.io/" />
+        <meta property="og:image" content="https://codencoffee.io/logo.png" />
+        <link rel="canonical" href="https://codencoffee.io/" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Code, Coffee & AI" />
         <meta name="twitter:description" content="A community of engineers curious about the future. Live demos, software engineering, and AI — all over great coffee." />
+        <meta name="twitter:image" content="https://codencoffee.io/logo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Code, Coffee & AI",
+          "url": "https://codencoffee.io",
+          "description": "A community of engineers curious about the future. Live demos, software engineering, and AI — all over great coffee. Based in Auckland, New Zealand.",
+          "location": { "@type": "Place", "name": "Auckland, New Zealand" },
+          "sameAs": [
+            "https://www.linkedin.com/company/code-coffee-n-ai/",
+            "https://www.meetup.com/code-coffee-auckland/"
+          ]
+        })}</script>
       </Helmet>
       {/* Navigation (Minimal) */}
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/40">

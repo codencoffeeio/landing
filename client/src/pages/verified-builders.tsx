@@ -203,10 +203,13 @@ export default function VerifiedBuilders() {
                 <meta property="og:title" content="Verified Builders · Code, Coffee & AI" />
                 <meta property="og:description" content="Community members who are actively shipping products." />
                 <meta property="og:type" content="website" />
-                <meta property="og:image" content="/logo.png" />
+                <meta property="og:url" content="https://codencoffee.io/builders" />
+                <meta property="og:image" content="https://codencoffee.io/logo.png" />
+                <link rel="canonical" href="https://codencoffee.io/builders" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Verified Builders · Code, Coffee & AI" />
                 <meta name="twitter:description" content="Community members who are actively shipping products." />
+                <meta name="twitter:image" content="https://codencoffee.io/logo.png" />
             </Helmet>
 
             {/* Nav */}

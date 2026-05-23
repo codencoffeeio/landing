@@ -21,13 +21,15 @@ export default function Blog() {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://codencoffee.io/blog" />
-        <meta property="og:image" content="/logo.png" />
+        <meta property="og:image" content="https://codencoffee.io/logo.png" />
+        <link rel="canonical" href="https://codencoffee.io/blog" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Blog — Code, Coffee & AI" />
         <meta
           name="twitter:description"
           content="Insights, stories, and practical guides for developers navigating the age of AI."
         />
+        <meta name="twitter:image" content="https://codencoffee.io/logo.png" />
       </Helmet>
 
       {/* Navigation */}

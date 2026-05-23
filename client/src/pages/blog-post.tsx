@@ -88,10 +88,32 @@ export default function BlogPost() {
           <meta property="og:description" content={post.excerpt} />
           <meta property="og:type" content="article" />
           <meta property="og:url" content={`https://codencoffee.io/blog/${slug}`} />
-          <meta property="og:image" content="/logo.png" />
+          <meta property="og:image" content="https://codencoffee.io/logo.png" />
+          <link rel="canonical" href={`https://codencoffee.io/blog/${slug}`} />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={`${post.title} — Code, Coffee & AI`} />
           <meta name="twitter:description" content={post.excerpt} />
+          <meta name="twitter:image" content="https://codencoffee.io/logo.png" />
+          <script type="application/ld+json">{JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "description": post.excerpt,
+            "datePublished": new Date(post.date).toISOString(),
+            "url": `https://codencoffee.io/blog/${slug}`,
+            "mainEntityOfPage": `https://codencoffee.io/blog/${slug}`,
+            "author": {
+              "@type": "Organization",
+              "name": "Code, Coffee & AI",
+              "url": "https://codencoffee.io"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Code, Coffee & AI",
+              "url": "https://codencoffee.io",
+              "logo": { "@type": "ImageObject", "url": "https://codencoffee.io/logo.png" }
+            }
+          })}</script>
         </Helmet>
       ) : (
         <Helmet>
