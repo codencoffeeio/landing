@@ -2,14 +2,45 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Video, Sparkles, Lightbulb, Clock, CheckCircle2, Menu, Heart } from "lucide-react";
+import { Video, Sparkles, Lightbulb, Clock, CheckCircle2, Menu, Heart, Users, Calendar, MapPin } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 export default function ReplitAgent4() {
     return (
         <div className="min-h-screen bg-background font-sans selection:bg-primary/20 flex flex-col">
             <Helmet>
-                <title>Event Recap: Replit Agent 4 — Code, Coffee & AI</title>
-                <meta name="description" content="Recap of our Replit Agent 4 mini-hackathon. See what we built, what we learned, and what's coming next." />
+                <title>Event Recap: Replit Agent 4 Mini-Hackathon — Code, Coffee & AI Auckland</title>
+                <meta name="description" content="Recap of our Replit Agent 4 mini-hackathon in Auckland. Builders used vibe coding to ship real apps in an afternoon. See what we built, resources from the event, and how to join the community." />
+                <link rel="canonical" href="https://codencoffee.io/replit-agent-4" />
+                <meta property="og:title" content="Event Recap: Replit Agent 4 Mini-Hackathon — Code, Coffee & AI Auckland" />
+                <meta property="og:description" content="Builders in Auckland used Replit Agent 4 to ship real apps in an afternoon. Recap, resources, and community links." />
+                <meta property="og:url" content="https://codencoffee.io/replit-agent-4" />
+                <meta property="og:type" content="article" />
+                <meta property="og:image" content="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Event Recap: Replit Agent 4 Mini-Hackathon — Code, Coffee & AI Auckland" />
+                <meta name="twitter:description" content="Builders in Auckland used Replit Agent 4 to ship real apps in an afternoon." />
+                <meta name="twitter:image" content="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1200&auto=format&fit=crop" />
+                <script type="application/ld+json">{JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Event",
+                    "name": "Replit Agent 4 Mini-Hackathon",
+                    "description": "A mini-hackathon where Auckland builders used Replit Agent 4 to ship real apps using vibe coding.",
+                    "startDate": "2026-04-26",
+                    "endDate": "2026-04-26",
+                    "eventStatus": "https://schema.org/EventScheduled",
+                    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                    "location": {
+                        "@type": "Place",
+                        "name": "Auckland, New Zealand",
+                        "address": { "@type": "PostalAddress", "addressLocality": "Auckland", "addressCountry": "NZ" }
+                    },
+                    "organizer": {
+                        "@type": "Organization",
+                        "name": "Code, Coffee & AI",
+                        "url": "https://codencoffee.io"
+                    },
+                    "url": "https://codencoffee.io/replit-agent-4"
+                })}</script>
             </Helmet>
 
             {/* Navigation (Matches Home) */}
@@ -25,7 +56,7 @@ export default function ReplitAgent4() {
                         <a href="https://www.meetup.com/code-coffee-auckland/events/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Events</a>
                         <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Community</a>
                         <Link href="/builders" className="hover:text-primary transition-colors">Builders</Link>
-                        <Link href="/replit-agent-4" className="hover:text-primary transition-colors text-primary font-semibold">Replit Event</Link>
+                        <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
                     </div>
                     <div className="md:hidden">
                         <Sheet>
@@ -40,7 +71,7 @@ export default function ReplitAgent4() {
                                     <a href="https://www.meetup.com/code-coffee-auckland/events/" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">Events</a>
                                     <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">Community</a>
                                     <Link href="/builders" className="text-lg hover:text-primary transition-colors">Builders</Link>
-                                    <Link href="/replit-agent-4" className="text-lg hover:text-primary transition-colors text-primary font-semibold">Replit Event</Link>
+                                    <Link href="/blog" className="text-lg hover:text-primary transition-colors">Blog</Link>
                                 </div>
                             </SheetContent>
                         </Sheet>
@@ -76,6 +107,40 @@ export default function ReplitAgent4() {
                                 <p>
                                     Whether you were there or missed it, the resources below are still worth a look. And if you want to be part of the next one, come join the community.
                                 </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Community Stats */}
+                    <section className="mb-20">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden border border-border/40">
+                            <div className="bg-card px-6 py-8 text-center">
+                                <div className="flex items-center justify-center gap-2 mb-1">
+                                    <Users className="w-4 h-4 text-primary" />
+                                </div>
+                                <div className="font-heading text-3xl font-bold text-foreground">1,000+</div>
+                                <div className="text-sm text-muted-foreground mt-1">Members</div>
+                            </div>
+                            <div className="bg-card px-6 py-8 text-center">
+                                <div className="flex items-center justify-center gap-2 mb-1">
+                                    <Calendar className="w-4 h-4 text-primary" />
+                                </div>
+                                <div className="font-heading text-3xl font-bold text-foreground">10+</div>
+                                <div className="text-sm text-muted-foreground mt-1">Events Run</div>
+                            </div>
+                            <div className="bg-card px-6 py-8 text-center">
+                                <div className="flex items-center justify-center gap-2 mb-1">
+                                    <MapPin className="w-4 h-4 text-primary" />
+                                </div>
+                                <div className="font-heading text-3xl font-bold text-foreground">Auckland</div>
+                                <div className="text-sm text-muted-foreground mt-1">New Zealand</div>
+                            </div>
+                            <div className="bg-card px-6 py-8 text-center">
+                                <div className="flex items-center justify-center gap-2 mb-1">
+                                    <Sparkles className="w-4 h-4 text-primary" />
+                                </div>
+                                <div className="font-heading text-3xl font-bold text-foreground">Est. 2024</div>
+                                <div className="text-sm text-muted-foreground mt-1">Founded</div>
                             </div>
                         </div>
                     </section>
