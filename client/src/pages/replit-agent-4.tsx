@@ -2,14 +2,14 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Video, Sparkles, Lightbulb, Clock, CheckCircle2, Menu, AlertCircle } from "lucide-react";
+import { Video, Sparkles, Lightbulb, Clock, CheckCircle2, Menu, Heart } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 export default function ReplitAgent4() {
     return (
         <div className="min-h-screen bg-background font-sans selection:bg-primary/20 flex flex-col">
             <Helmet>
-                <title>Pre-Event Guide: Replit Agent 4 — Code, Coffee & AI</title>
-                <meta name="description" content="Your pre-event guide for the Replit Agent 4 meetup. Learn what vibe coding is and how to prepare." />
+                <title>Event Recap: Replit Agent 4 — Code, Coffee & AI</title>
+                <meta name="description" content="Recap of our Replit Agent 4 mini-hackathon. See what we built, what we learned, and what's coming next." />
             </Helmet>
 
             {/* Navigation (Matches Home) */}
@@ -54,30 +54,27 @@ export default function ReplitAgent4() {
                     {/* 1. Hero */}
                     <section className="mb-20 text-center md:text-left">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                            <Sparkles className="w-4 h-4" /> April 26th Event
+                            <Sparkles className="w-4 h-4" /> April 26th · Event Recap
                         </div>
                         <h1 className="font-heading text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
-                            Your Pre-Event Guide — <br />
+                            Thanks for Coming — <br />
                             <span className="text-primary">Vibe Coding with Replit Agent 4</span>
                         </h1>
                         <p className="text-xl text-muted-foreground font-light max-w-2xl leading-relaxed mb-8">
-                            New to Replit or vibe coding? Start here. Already a builder? There's something for you too.
+                            What an afternoon. Ideas became apps, strangers became collaborators, and Agent 4 did not disappoint.
                         </p>
 
                         <div className="bg-secondary/50 border border-border text-foreground p-6 rounded-2xl text-left max-w-2xl mx-auto md:mx-0 shadow-sm">
-                            <h3 className="text-lg font-heading font-bold flex items-center gap-2 mb-3 text-destructive">
-                                <AlertCircle className="w-5 h-5" /> 
-                                Event Postponed to April 26th
+                            <h3 className="text-lg font-heading font-bold flex items-center gap-2 mb-3 text-primary">
+                                <Heart className="w-5 h-5" />
+                                This event has now ended
                             </h3>
                             <div className="space-y-3 text-sm md:text-base text-muted-foreground">
                                 <p>
-                                    To prioritize everyone's safety with Cyclone Vaianu approaching, we are postponing this Sunday's Code, Coffee & AI Replit Mini-Hackathon.
+                                    Our Replit Agent 4 mini-hackathon on April 26th was a blast. We had builders of all skill levels show up, fire up Agent 4, and ship real things in a single afternoon.
                                 </p>
                                 <p>
-                                    The official advice is to stay off the roads and prepare for severe weather, so we are moving the event to <strong className="text-foreground">Sunday, April 26th</strong>. It lands on the long weekend, making it the perfect afternoon to grab a coffee, collaborate, and build something awesome.
-                                </p>
-                                <p>
-                                    Stay safe and dry out there this weekend! You can check the latest severe weather warnings <a href="https://www.rnz.co.nz/news/national/591893/north-island-authorities-get-ready-for-potentially-life-threatening-cyclone-vaianu" target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline transition-colors">here</a>.
+                                    Whether you were there or missed it, the resources below are still worth a look. And if you want to be part of the next one, come join the community.
                                 </p>
                             </div>
                         </div>
@@ -93,10 +90,10 @@ export default function ReplitAgent4() {
                         </div>
                     </section>
 
-                    {/* 3. Watch Before You Come */}
+                    {/* 3. Resources */}
                     <section className="mb-20">
                         <h2 className="font-heading text-2xl font-bold mb-6 flex items-center gap-2">
-                            <Video className="w-6 h-6 text-primary" /> Watch Before You Come
+                            <Video className="w-6 h-6 text-primary" /> Resources from the Event
                         </h2>
                         <div className="grid md:grid-cols-3 gap-6">
                             <a href="https://replit.com/agent4" target="_blank" rel="noopener noreferrer" className="group block h-full">
@@ -153,15 +150,15 @@ export default function ReplitAgent4() {
                     </section>
 
                     <div className="grid md:grid-cols-2 gap-12 mb-20">
-                        {/* 4. What Agent 4 Can Do */}
+                        {/* 4. What was built */}
                         <section>
-                            <h2 className="font-heading text-2xl font-bold mb-6">What You Can Build On The Night</h2>
+                            <h2 className="font-heading text-2xl font-bold mb-6">What People Built on the Night</h2>
                             <ul className="space-y-4">
                                 {[
-                                    "Build a web or mobile app from a one-line idea",
-                                    "Design multiple UI variants at once and pick your favourite",
-                                    "Handle login, database, and deployment without touching code",
-                                    "Generate slides, animations, and dashboards in the same project"
+                                    "Web and mobile apps from one-line ideas",
+                                    "Multiple UI variants compared side by side in minutes",
+                                    "Apps with login, database, and deployment — no code touched",
+                                    "Slides, animations, and dashboards in a single project"
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-3">
                                         <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
@@ -171,13 +168,13 @@ export default function ReplitAgent4() {
                             </ul>
                         </section>
 
-                        {/* 5. Come Ready — Bring An Idea */}
+                        {/* 5. What people came with */}
                         <section>
                             <h2 className="font-heading text-2xl font-bold mb-4 flex items-center gap-2">
-                                <Lightbulb className="w-6 h-6 text-primary" /> Come Ready
+                                <Lightbulb className="w-6 h-6 text-primary" /> Ideas People Brought
                             </h2>
                             <p className="text-muted-foreground mb-6">
-                                The mini hackathon works best when you walk in with something in mind. It doesn't have to be polished — just one problem you'd love an app to solve.
+                                The best ideas were simple. A problem someone had, turned into something real in under an hour. Here's a sample of what people walked in with.
                             </p>
                             <div className="flex flex-wrap gap-2">
                                 {["Habit tracker", "Study timer", "Split bill calculator", "Local events feed", "Personal portfolio", "Daily journal"].map((tag, i) => (
@@ -189,10 +186,10 @@ export default function ReplitAgent4() {
                         </section>
                     </div>
 
-                    {/* 6. What's Happening On The Night */}
+                    {/* 6. How the night went */}
                     <section className="mb-20">
                         <h2 className="font-heading text-2xl font-bold mb-8 flex items-center gap-2">
-                            <Clock className="w-6 h-6 text-primary" /> On The Night
+                            <Clock className="w-6 h-6 text-primary" /> How the Night Went
                         </h2>
                         <div className="space-y-6 relative before:absolute before:inset-0 before:ml-4 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-border before:to-transparent">
 
@@ -212,7 +209,7 @@ export default function ReplitAgent4() {
                                 </div>
                                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2rem)] p-4 rounded-xl bg-card border border-border/50">
                                     <div className="font-bold text-lg mb-1">Live demo</div>
-                                    <div className="text-muted-foreground text-sm">Watch an app get built from scratch in real time</div>
+                                    <div className="text-muted-foreground text-sm">An app built from scratch in real time in front of the room</div>
                                 </div>
                             </div>
 
@@ -222,7 +219,7 @@ export default function ReplitAgent4() {
                                 </div>
                                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2rem)] p-4 rounded-xl bg-card border border-border/50">
                                     <div className="font-bold text-lg mb-1">Mini hackathon</div>
-                                    <div className="text-muted-foreground text-sm">Bring an idea, let Agent 4 build it, see what ships</div>
+                                    <div className="text-muted-foreground text-sm">Everyone brought an idea, Agent 4 helped build it, and things shipped</div>
                                 </div>
                             </div>
 
@@ -232,7 +229,7 @@ export default function ReplitAgent4() {
                                 </div>
                                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2rem)] p-4 rounded-xl bg-card border border-border/50">
                                     <div className="font-bold text-lg mb-1">Demo showcase</div>
-                                    <div className="text-muted-foreground text-sm">See what others shipped and connect with fellow builders</div>
+                                    <div className="text-muted-foreground text-sm">Builders shared what they shipped and connected with each other</div>
                                 </div>
                             </div>
 
@@ -240,24 +237,38 @@ export default function ReplitAgent4() {
 
                     </section>
 
-                    {/* 7. RSVP Button */}
+                    {/* 7. Next event CTA */}
                     <section className="text-center py-12 border-t border-border/40">
-                        <h2 className="font-heading text-3xl font-bold mb-6">Ready to join us?</h2>
-                        <a
-                            href="https://www.meetup.com/code-coffee-auckland/events/313865621/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Button size="lg" className="h-14 px-8 text-lg rounded-full shadow-xl shadow-primary/20 hover:-translate-y-1 transition-transform">
-                                RSVP on Meetup
-                            </Button>
-                        </a>
+                        <h2 className="font-heading text-3xl font-bold mb-3">Want to come to the next one?</h2>
+                        <p className="text-muted-foreground mb-8 max-w-md mx-auto">
+                            We run events regularly for engineers curious about AI and building things. Join the community and you'll be the first to know.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a
+                                href="https://www.meetup.com/code-coffee-auckland/events/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Button size="lg" className="h-14 px-8 text-lg rounded-full shadow-xl shadow-primary/20 hover:-translate-y-1 transition-transform">
+                                    See Upcoming Events
+                                </Button>
+                            </a>
+                            <a
+                                href="https://www.meetup.com/code-coffee-auckland/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full hover:-translate-y-1 transition-transform">
+                                    Join the Community
+                                </Button>
+                            </a>
+                        </div>
                     </section>
 
                 </div>
             </main>
 
-            {/* 8. Footer (Matches Home + note) */}
+            {/* 8. Footer (Matches Home) */}
             <footer className="bg-card border-t border-border py-12 mt-auto">
                 <div className="container mx-auto max-w-6xl px-6">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 text-center md:text-left">
