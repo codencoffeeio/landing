@@ -147,9 +147,9 @@ export default function PlatinumPartner() {
 
                     {/* CTA */}
                     <section className="text-center py-12 border-t border-border/40">
-                        <h2 className="font-heading text-3xl font-bold mb-3">Interested?</h2>
+                        <h2 className="font-heading text-3xl font-bold mb-3">Let's have a chat</h2>
                         <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-                            I'm only opening one slot. A 15-minute call is enough to figure out if it's a fit.
+                            If this sounds like it could be a good fit for your team, I'd love to connect — even just a quick coffee or a call to see if it makes sense.
                         </p>
                         <a href="mailto:naveenkolambage@gmail.com?subject=Platinum Partner — Code, Coffee %26 AI&body=Hi Naveen,%0A%0AI'm interested in the Platinum Partner opportunity. Let's find a time to chat.%0A%0A">
                             <Button size="lg" className="h-14 px-8 text-lg rounded-full shadow-xl shadow-primary/20 hover:-translate-y-1 transition-transform gap-2">
