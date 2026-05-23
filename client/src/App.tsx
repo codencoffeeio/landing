@@ -6,8 +6,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import VerifiedBuilders from "@/pages/verified-builders";
-
 import ReplitAgent4 from "@/pages/replit-agent-4";
+import Blog from "@/pages/blog";
+import BlogPost from "@/pages/blog-post";
 
 function Router() {
   return (
@@ -15,6 +16,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/builders" component={VerifiedBuilders} />
       <Route path="/replit-agent-4" component={ReplitAgent4} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
       <Route component={NotFound} />
     </Switch>
   );
