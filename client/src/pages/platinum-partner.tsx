@@ -137,11 +137,25 @@ export default function PlatinumPartner() {
                         </div>
                     </section>
 
-                    {/* Recent activity */}
-                    <section className="mb-20 p-8 rounded-2xl bg-secondary/30 border border-border/40">
-                        <h2 className="font-heading text-xl font-bold mb-4">Most recent event</h2>
-                        <p className="text-muted-foreground leading-relaxed">
-                            We just wrapped a mini-hackathon in partnership with <strong className="text-foreground">Replit</strong> — 20+ builders in a room for an afternoon, shipping real apps with AI tools. The community spans senior engineers, founders, and AI practitioners across Auckland, with a consistent core who show up to every event and are deeply engaged in what's next in AI engineering.
+                    {/* Photo evidence */}
+                    <section className="mb-20">
+                        <h2 className="font-heading text-2xl font-bold mb-2">We actually show up</h2>
+                        <p className="text-muted-foreground mb-8">Real events, real engineers, real coffee. Every fortnight across Auckland.</p>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            {[
+                                { src: "/event-1.jpg", alt: "Community members at a cafe event", className: "col-span-2 md:col-span-1 row-span-1" },
+                                { src: "/event-4.jpg", alt: "Group discussion and presentation" , className: "" },
+                                { src: "/event-5.jpg", alt: "Hackathon session", className: "" },
+                                { src: "/event-3.jpg", alt: "Small group session", className: "" },
+                                { src: "/event-2.jpg", alt: "Builders working on laptops", className: "col-span-2 md:col-span-1" },
+                            ].map((photo, i) => (
+                                <div key={i} className={`${photo.className} rounded-2xl overflow-hidden bg-secondary border border-border/40 h-48`}>
+                                    <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover" />
+                                </div>
+                            ))}
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-4">
+                            Most recent: mini-hackathon in partnership with <strong className="text-foreground">Replit</strong> — 20+ builders, one afternoon, real apps shipped.
                         </p>
                     </section>
 
