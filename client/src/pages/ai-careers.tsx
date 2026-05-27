@@ -1,33 +1,33 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
-import { ExternalLink, Sparkles, Menu, Mail } from "lucide-react";
+import { Flame, Menu, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { RESOURCES, CATEGORY_LABELS, type ResourceCategory } from "@/lib/resources";
+import { ROLES, CATEGORY_LABELS, type RoleCategory, type Role } from "@/lib/roles";
 
-const CATEGORIES: ResourceCategory[] = ["all", "ai-tools", "learning", "newsletters", "reading", "local"];
+const CATEGORIES: RoleCategory[] = ["all", "engineering", "data-ml", "infrastructure", "product", "specialist"];
 
-export default function Resources() {
-    const [active, setActive] = useState<ResourceCategory>("all");
+export default function AICareers() {
+    const [active, setActive] = useState<RoleCategory>("all");
 
-    const filtered = active === "all" ? RESOURCES : RESOURCES.filter(r => r.category === active);
-    const picks = RESOURCES.filter(r => r.communityPick);
+    const filtered = active === "all" ? ROLES : ROLES.filter(r => r.category === active);
+    const trendingCount = ROLES.filter(r => r.trending).length;
 
     return (
         <div className="min-h-screen bg-background font-sans selection:bg-primary/20 flex flex-col">
             <Helmet>
-                <title>AI Resources — Curated by Code, Coffee & AI Auckland</title>
-                <meta name="description" content="The best AI coding tools, learning resources, newsletters, and papers — curated by Auckland's AI engineering community." />
-                <link rel="canonical" href="https://codencoffee.io/resources" />
-                <meta property="og:title" content="AI Resources — Curated by Code, Coffee & AI Auckland" />
-                <meta property="og:description" content="The best AI coding tools, learning resources, newsletters, and papers — curated by Auckland's AI engineering community." />
+                <title>AI Careers Landscape — Code, Coffee & AI Auckland</title>
+                <meta name="description" content="The roles shaping AI engineering in 2026. Skills, tools, and experience levels for the most in-demand AI jobs in Auckland and beyond." />
+                <link rel="canonical" href="https://codencoffee.io/ai-careers" />
+                <meta property="og:title" content="AI Careers Landscape — Code, Coffee & AI Auckland" />
+                <meta property="og:description" content="The roles shaping AI engineering in 2026. Skills, tools, and experience required for the most in-demand AI jobs." />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://codencoffee.io/resources" />
+                <meta property="og:url" content="https://codencoffee.io/ai-careers" />
                 <meta property="og:image" content="https://codencoffee.io/logo.png" />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="AI Resources — Curated by Code, Coffee & AI Auckland" />
-                <meta name="twitter:description" content="The best AI coding tools, learning resources, newsletters, and papers — curated by Auckland's AI engineering community." />
+                <meta name="twitter:title" content="AI Careers Landscape — Code, Coffee & AI Auckland" />
+                <meta name="twitter:description" content="The roles shaping AI engineering in 2026." />
                 <meta name="twitter:image" content="https://codencoffee.io/logo.png" />
             </Helmet>
 
@@ -45,8 +45,8 @@ export default function Resources() {
                         <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Community</a>
                         <Link href="/builders" className="hover:text-primary transition-colors">Builders</Link>
                         <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
-                        <Link href="/resources" className="hover:text-primary transition-colors text-primary font-semibold">Resources</Link>
-                        <Link href="/ai-careers" className="hover:text-primary transition-colors">AI Careers</Link>
+                        <Link href="/resources" className="hover:text-primary transition-colors">Resources</Link>
+                        <Link href="/ai-careers" className="text-primary font-semibold">AI Careers</Link>
                     </div>
                     <div className="md:hidden">
                         <Sheet>
@@ -62,8 +62,8 @@ export default function Resources() {
                                     <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">Community</a>
                                     <Link href="/builders" className="text-lg hover:text-primary transition-colors">Builders</Link>
                                     <Link href="/blog" className="text-lg hover:text-primary transition-colors">Blog</Link>
-                                    <Link href="/resources" className="text-lg text-primary font-semibold">Resources</Link>
-                                    <Link href="/ai-careers" className="text-lg hover:text-primary transition-colors">AI Careers</Link>
+                                    <Link href="/resources" className="text-lg hover:text-primary transition-colors">Resources</Link>
+                                    <Link href="/ai-careers" className="text-lg text-primary font-semibold">AI Careers</Link>
                                 </div>
                             </SheetContent>
                         </Sheet>
@@ -77,27 +77,15 @@ export default function Resources() {
                     {/* Hero */}
                     <section className="mb-14 max-w-3xl">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                            <Sparkles className="w-4 h-4" /> Curated by the community
+                            <Flame className="w-4 h-4" /> {trendingCount} roles trending right now
                         </div>
                         <h1 className="font-heading text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-5 leading-tight">
-                            The AI toolkit.<br />
-                            <span className="text-primary">No fluff, just signal.</span>
+                            AI Careers<br />
+                            <span className="text-primary">Landscape.</span>
                         </h1>
                         <p className="text-xl text-muted-foreground font-light leading-relaxed">
-                            Everything the Code, Coffee & AI community is actually using, reading, and learning from — organised so you can find what you need fast.
+                            The roles shaping AI engineering in 2026 — what they do, what skills they need, and why they matter. Whether you're pivoting into AI or levelling up, this is the map.
                         </p>
-                    </section>
-
-                    {/* Community Picks */}
-                    <section className="mb-14">
-                        <h2 className="font-heading text-lg font-bold mb-4 flex items-center gap-2">
-                            <Sparkles className="w-4 h-4 text-primary" /> Community Picks
-                        </h2>
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                            {picks.map((r) => (
-                                <ResourceCard key={r.name} resource={r} highlight />
-                            ))}
-                        </div>
                     </section>
 
                     {/* Category Filter */}
@@ -114,31 +102,33 @@ export default function Resources() {
                             >
                                 {CATEGORY_LABELS[cat]}
                                 <span className="ml-1.5 opacity-60 text-xs">
-                                    {cat === "all" ? RESOURCES.length : RESOURCES.filter(r => r.category === cat).length}
+                                    {cat === "all" ? ROLES.length : ROLES.filter(r => r.category === cat).length}
                                 </span>
                             </button>
                         ))}
                     </div>
 
-                    {/* Resource Grid */}
+                    {/* Role Cards */}
                     <section className="mb-20">
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                            {filtered.map((r) => (
-                                <ResourceCard key={r.name} resource={r} />
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                            {filtered.map((role) => (
+                                <RoleCard key={role.title} role={role} />
                             ))}
                         </div>
                     </section>
 
-                    {/* Submit CTA */}
+                    {/* Community CTA */}
                     <section className="border-t border-border/40 pt-12 text-center">
-                        <h2 className="font-heading text-2xl font-bold mb-3">Using something we missed?</h2>
+                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-primary/10 mb-4">
+                            <Users className="w-6 h-6 text-primary" />
+                        </div>
+                        <h2 className="font-heading text-2xl font-bold mb-3">Meet people in these roles</h2>
                         <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-                            This list is community-maintained. If there's a tool, course, or resource worth adding, send it through.
+                            The Code, Coffee & AI community includes engineers across all of these roles. Join us at the next event to connect, share notes, and learn from people doing this work in Auckland.
                         </p>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScvSvAjgguERxy97evSSVD8fo0Rvvrh43fOjsVWjfjndTtTwA/viewform" target="_blank" rel="noopener noreferrer">
-                            <Button variant="outline" size="lg" className="rounded-full gap-2 hover:-translate-y-1 transition-transform">
-                                <Mail className="w-4 h-4" />
-                                Suggest a resource
+                        <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer">
+                            <Button size="lg" className="rounded-full gap-2 hover:-translate-y-1 transition-transform shadow-lg shadow-primary/20">
+                                Join the Community <ArrowRight className="w-4 h-4" />
                             </Button>
                         </a>
                     </section>
@@ -169,58 +159,58 @@ export default function Resources() {
     );
 }
 
-function ResourceCard({ resource: r, highlight }: { resource: import("@/lib/resources").Resource; highlight?: boolean }) {
+function RoleCard({ role }: { role: Role }) {
     const categoryColour: Record<string, string> = {
-        'ai-tools': 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-        'learning': 'bg-green-500/10 text-green-400 border-green-500/20',
-        'newsletters': 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-        'reading': 'bg-orange-500/10 text-orange-400 border-orange-500/20',
-        'local': 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+        'engineering': 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+        'data-ml': 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+        'infrastructure': 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+        'product': 'bg-green-500/10 text-green-400 border-green-500/20',
+        'specialist': 'bg-rose-500/10 text-rose-400 border-rose-500/20',
     };
 
     return (
-        <a
-            href={r.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`group flex flex-col p-6 rounded-2xl border transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 ${
-                highlight
-                    ? "bg-primary/5 border-primary/20 hover:border-primary/40"
-                    : "bg-card border-border/50 hover:border-border"
-            }`}
-        >
-            <div className="flex items-start justify-between gap-3 mb-3">
-                <div className="flex flex-wrap gap-1.5">
-                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full border ${categoryColour[r.category]}`}>
-                        {CATEGORY_LABELS[r.category]}
+        <div className={`flex flex-col p-6 rounded-2xl border transition-all duration-200 ${
+            role.trending ? "bg-primary/5 border-primary/30" : "bg-card border-border/50"
+        }`}>
+            <div className="flex flex-wrap gap-1.5 mb-3">
+                <span className={`text-xs font-medium px-2 py-0.5 rounded-full border ${categoryColour[role.category]}`}>
+                    {CATEGORY_LABELS[role.category]}
+                </span>
+                {role.trending && (
+                    <span className="text-xs font-medium px-2 py-0.5 rounded-full border bg-amber-500/10 text-amber-400 border-amber-500/20 flex items-center gap-1">
+                        <Flame className="w-3 h-3" /> Trending
                     </span>
-                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full border ${
-                        r.free
-                            ? "bg-green-500/10 text-green-400 border-green-500/20"
-                            : "bg-secondary text-muted-foreground border-border/40"
-                    }`}>
-                        {r.free ? "Free" : "Paid"}
-                    </span>
-                </div>
-                <ExternalLink className="w-4 h-4 text-muted-foreground/40 shrink-0 group-hover:text-primary transition-colors mt-0.5" />
+                )}
             </div>
 
-            <h3 className="font-heading font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
-                {r.name}
+            <h3 className="font-heading font-bold text-lg text-foreground mb-2 leading-snug">
+                {role.title}
             </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed flex-1">
-                {r.description}
+            <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
+                {role.description}
             </p>
 
-            {r.tags.length > 0 && (
-                <div className="flex flex-wrap gap-1.5 mt-4">
-                    {r.tags.map(tag => (
-                        <span key={tag} className="text-xs px-2 py-0.5 rounded-md bg-secondary text-secondary-foreground border border-border/40">
-                            {tag}
-                        </span>
-                    ))}
+            <div className="space-y-3">
+                <div>
+                    <div className="text-xs font-semibold text-foreground/50 uppercase tracking-wide mb-1.5">Skills & Tools</div>
+                    <div className="flex flex-wrap gap-1.5">
+                        {role.skills.map(skill => (
+                            <span key={skill} className="text-xs px-2 py-0.5 rounded-md bg-secondary text-secondary-foreground border border-border/40">
+                                {skill}
+                            </span>
+                        ))}
+                    </div>
                 </div>
-            )}
-        </a>
+
+                <div className="pt-3 border-t border-border/40">
+                    <div className="text-xs font-semibold text-foreground/50 uppercase tracking-wide mb-0.5">Experience</div>
+                    <div className="text-sm text-foreground font-medium">{role.experience}</div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-secondary/50 border border-border/40">
+                    <p className="text-xs text-muted-foreground leading-relaxed italic">"{role.trendingNote}"</p>
+                </div>
+            </div>
+        </div>
     );
 }
