@@ -57,6 +57,7 @@ export default function ReplitAgent4() {
                         <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Community</a>
                         <Link href="/builders" className="hover:text-primary transition-colors">Builders</Link>
                         <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
+                        <Link href="/resources" className="hover:text-primary transition-colors">Resources</Link>
                     </div>
                     <div className="md:hidden">
                         <Sheet>
@@ -72,6 +73,7 @@ export default function ReplitAgent4() {
                                     <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">Community</a>
                                     <Link href="/builders" className="text-lg hover:text-primary transition-colors">Builders</Link>
                                     <Link href="/blog" className="text-lg hover:text-primary transition-colors">Blog</Link>
+                                    <Link href="/resources" className="text-lg hover:text-primary transition-colors">Resources</Link>
                                 </div>
                             </SheetContent>
                         </Sheet>

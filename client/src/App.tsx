@@ -10,6 +10,7 @@ import ReplitAgent4 from "@/pages/replit-agent-4";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import PlatinumPartner from "@/pages/platinum-partner";
+import Resources from "@/pages/resources";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/platinum-partner" component={PlatinumPartner} />
+      <Route path="/resources" component={Resources} />
       <Route component={NotFound} />
     </Switch>
   );
