@@ -133,7 +133,7 @@ export default function Resources() {
                         <p className="text-muted-foreground mb-6 max-w-md mx-auto">
                             This list is community-maintained. If there's a tool, course, or resource worth adding, send it through.
                         </p>
-                        <a href="mailto:naveenkolambage@gmail.com?subject=Resource suggestion for codencoffee.io&body=Name:%0AURL:%0ACategory (AI Tools / Learning / Newsletters / Reading / NZ %26 Local):%0AWhy it's worth adding:%0A">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScvSvAjgguERxy97evSSVD8fo0Rvvrh43fOjsVWjfjndTtTwA/viewform" target="_blank" rel="noopener noreferrer">
                             <Button variant="outline" size="lg" className="rounded-full gap-2 hover:-translate-y-1 transition-transform">
                                 <Mail className="w-4 h-4" />
                                 Suggest a resource
