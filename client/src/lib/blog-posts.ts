@@ -361,5 +361,331 @@ export const BLOG_POSTS: BlogPost[] = [
         text: "You don't need to be the best coder in the room. You need to be the most visible person building things at your level with genuine thought behind it. That combination — visible, consistent, thoughtful — is rare enough to stand out completely. Start small. Start this week. It compounds."
       }
     ]
+  },
+  {
+    slug: 'google-managed-agents-what-developers-need-to-know',
+    title: "Google Just Dropped Managed Agents and Nobody's Talking About It",
+    subtitle: "The headline from Google I/O was Gemini 3.5 Flash. The real story is what's underneath it.",
+    date: "May 27, 2026",
+    readTime: "6 min read",
+    tags: ["Google I/O", "AI Agents", "Gemini"],
+    excerpt: "While everyone was watching the Gemini 3.5 Flash benchmarks, Google quietly shipped something that changes what it means to build an AI-powered application.",
+    content: [
+      {
+        type: 'p',
+        text: "Google I/O 2026 ran last week and the coverage was predictable: Gemini 3.5 Flash numbers, benchmark comparisons, a flashy demo or two. The usual conference rhythm. But buried in the developer keynote was an announcement that deserves a lot more attention than it got."
+      },
+      {
+        type: 'p',
+        text: "Managed Agents in the Gemini API. One API call. Remote Linux environment. Isolated code execution sandbox. Web browsing built in. The agent reasons, plans, runs code, checks the output, and iterates — all without you spinning up infrastructure."
+      },
+      {
+        type: 'p',
+        text: "If you've been following the agentic coding space, you know what this means. If you haven't, let me explain why this is a bigger deal than any benchmark."
+      },
+      {
+        type: 'h2',
+        text: "What Managed Agents Actually Does"
+      },
+      {
+        type: 'p',
+        text: "Until now, building an AI agent that could reliably execute code meant managing your own sandboxed environment. You'd need to provision compute, handle security boundaries, deal with timeouts and resource limits, and wire everything together before you even got to the interesting part — the actual agent logic."
+      },
+      {
+        type: 'p',
+        text: "Managed Agents abstracts all of that. You call the API. Google provisions a remote Linux environment on their infrastructure. The agent gets a real terminal, a real filesystem, real network access to browse and search, and a real Python/Node/whatever runtime to execute code in. When the task is done, the environment is torn down. You pay for what you use."
+      },
+      {
+        type: 'callout',
+        title: "What this unlocks",
+        text: "Tasks that previously required a backend engineer to set up — running arbitrary code, scraping and processing data, executing multi-step workflows — can now be triggered from a single API call. This shifts agentic AI from a speciality into a commodity."
+      },
+      {
+        type: 'h2',
+        text: "Why This Is a Direct Shot at Claude Code and Codex CLI"
+      },
+      {
+        type: 'p',
+        text: "Anthropic's Claude Code and OpenAI's Codex CLI are both excellent tools for developers running agents locally. They use your machine as the execution environment — which means they inherit your setup, your dependencies, your security posture. That's fine for individual developers. It doesn't scale to products."
+      },
+      {
+        type: 'p',
+        text: "Google's Managed Agents is a cloud-native version of the same capability. You don't need a developer machine in the loop. You can trigger an agent from a webhook, a scheduled job, or a user action in your app — and it runs in an isolated, managed environment that Google operates. That's a fundamentally different use case."
+      },
+      {
+        type: 'p',
+        text: "Anthropic has something similar in the works with their remote execution layer, and OpenAI's been building toward it with their operator model. But Google shipped it, generally available, last week. That matters."
+      },
+      {
+        type: 'h2',
+        text: "Gemini 3.5 Flash: The Model Underneath"
+      },
+      {
+        type: 'p',
+        text: "The Managed Agents feature runs on Gemini 3.5 Flash, which Google also released at I/O. The benchmarks are strong — 76.2% on Terminal-Bench 2.1, which is specifically designed to test agentic coding performance in real terminal environments. That's not a toy number."
+      },
+      {
+        type: 'p',
+        text: "Flash is positioned as their speed/cost tier. For most agentic use cases — where you're running many calls in a workflow rather than one expensive reasoning call — that's the right tradeoff. Fast, cheap, good enough to get the job done."
+      },
+      {
+        type: 'h2',
+        text: "Chrome DevTools for Agents"
+      },
+      {
+        type: 'p',
+        text: "The other announcement worth flagging: Google brought Chrome DevTools capabilities to AI agents. Agents can now automate quality audits, emulate real-world user experiences, and debug in real time using the same tooling developers use manually. This is quietly significant for anyone building agents that interact with web interfaces."
+      },
+      {
+        type: 'p',
+        text: "Think about what it means to have an agent that can not only browse a page but inspect its DOM, check network requests, catch console errors, and report back. That's a qualitative leap from \"the agent can click buttons.\""
+      },
+      {
+        type: 'h2',
+        text: "What to Do With This"
+      },
+      {
+        type: 'list',
+        items: [
+          "If you're building a product that needs to run code on behalf of users, Managed Agents is worth a serious look. The infrastructure problem just went away.",
+          "If you're doing internal tooling — data pipelines, automated reporting, code generation workflows — this changes the build-vs-buy calculus significantly.",
+          "If you're already on the Gemini API, this is an upgrade path, not a new integration. That's a low barrier to experiment.",
+          "If you're evaluating AI coding stacks for your team, add Google Antigravity to the shortlist alongside Cursor and Claude Code. The landscape shifted this week."
+        ]
+      },
+      {
+        type: 'quote',
+        text: "The infrastructure problem just went away. What you do with that is up to you.",
+      },
+      {
+        type: 'h2',
+        text: "The Bottom Line"
+      },
+      {
+        type: 'p',
+        text: "Google I/O 2026 was a statement of intent. They're not playing catch-up in the agentic AI space anymore. Managed Agents, Chrome DevTools integration, and Gemini 3.5 Flash together form a coherent developer platform for building production-grade AI agents — not just demos."
+      },
+      {
+        type: 'p',
+        text: "The story of AI coding tools in 2026 isn't one tool winning. It's infrastructure commoditising fast, and the interesting work shifting to what you build on top of it. That's good news for developers. Start paying attention to what's underneath the benchmarks."
+      }
+    ]
+  },
+  {
+    slug: 'you-are-running-an-ai-coding-stack',
+    title: "You're Not Using One AI Coding Tool. You're Running a Stack.",
+    subtitle: "90% of developers use AI at work now. The ones getting the most out of it aren't picking the best tool — they're combining the right ones.",
+    date: "May 26, 2026",
+    readTime: "7 min read",
+    tags: ["AI Tools", "Cursor", "Claude Code", "Workflow"],
+    excerpt: "JetBrains just confirmed 90% of developers use AI tools at work. But the real insight isn't adoption — it's that the best developers aren't using one tool. They're running a deliberate stack.",
+    content: [
+      {
+        type: 'p',
+        text: "JetBrains published their developer tools research this week. The headline number: 90% of developers regularly use at least one AI tool at work. That's an extraordinary adoption rate for any technology, let alone one that barely existed three years ago."
+      },
+      {
+        type: 'p',
+        text: "But the more interesting finding was buried further down: Cursor and Claude Code now share second place in workplace adoption at 18% each. GitHub Copilot still leads. OpenAI Codex is gaining. xAI just entered the race with Grok Build."
+      },
+      {
+        type: 'p',
+        text: "Here's the thing nobody is saying clearly: the developers getting the most out of AI aren't picking the best tool. They're running a deliberate stack of two or three tools, each doing what it's actually good at. And if you're still treating this as a one-tool decision, you're leaving significant productivity on the table."
+      },
+      {
+        type: 'h2',
+        text: "Why One Tool Isn't Enough"
+      },
+      {
+        type: 'p',
+        text: "Every major AI coding tool right now has a different strength. Cursor is exceptional at understanding large codebases and making targeted edits across multiple files. Claude Code is strong at multi-step reasoning, ambiguous tasks, and working through problems that require judgment rather than just code generation. Copilot is fast, integrated, and good at autocomplete-style assistance in the flow of writing."
+      },
+      {
+        type: 'p',
+        text: "These aren't redundant. They're complementary. Using only one of them because you're trying to simplify your setup is like using only a hammer because you don't want to carry a toolkit. You'll get the job done more slowly, with worse results."
+      },
+      {
+        type: 'h2',
+        text: "The Stack That's Actually Working in 2026"
+      },
+      {
+        type: 'p',
+        text: "Based on how the community has been talking about this — and what the JetBrains data confirms — there's a pattern emerging. It looks something like this:"
+      },
+      {
+        type: 'list',
+        items: [
+          "Claude Code (or a comparable reasoning-heavy agent) for planning, architecture decisions, and multi-step tasks where you need to think through the problem before touching the codebase.",
+          "Cursor for active development — navigating a large repo, making cross-file edits, understanding how existing code connects together.",
+          "Copilot or inline autocomplete for the flow state work — filling in function bodies, suggesting variable names, completing patterns. Low friction, always on."
+        ]
+      },
+      {
+        type: 'callout',
+        title: "The key insight",
+        text: "Each tool covers a different cognitive mode: reasoning and planning, navigating and editing, and completing and flowing. When you map tools to modes instead of trying to find one tool that does everything, your workflow gets dramatically faster."
+      },
+      {
+        type: 'h2',
+        text: "The Orchestration Problem"
+      },
+      {
+        type: 'p',
+        text: "The challenge with running a stack is knowing when to switch. The temptation is to stay in one tool because context switching has a cost — you have to re-explain the problem, re-share the relevant code, re-establish what you were trying to do."
+      },
+      {
+        type: 'p',
+        text: "The developers who've figured this out have solved the context switching problem rather than avoiding it. They maintain a short working document — sometimes just a few bullet points in a scratch file — that captures the current task, the relevant constraints, and the decisions already made. This becomes the handoff context when they switch tools."
+      },
+      {
+        type: 'p',
+        text: "It sounds like overhead. In practice it takes 30 seconds to write and saves five minutes of re-explaining every time you switch. It also makes you think more clearly about what you're actually trying to do, which is valuable regardless of which tool you're using."
+      },
+      {
+        type: 'h2',
+        text: "What About the New Entrants?"
+      },
+      {
+        type: 'p',
+        text: "Google launched Managed Agents at I/O this week. xAI launched Grok Build. Alibaba released Qwen3.7-Max specifically targeting agentic coding. The tool landscape is expanding, not consolidating."
+      },
+      {
+        type: 'p',
+        text: "The instinct is to wait and see which one wins. That's the wrong frame. None of them will win outright — they'll each find the part of the stack they're best at and settle there. The question to ask about any new entrant isn't \"is this better than what I have?\" It's \"does this do something meaningfully better than what I already have for a specific type of task?\""
+      },
+      {
+        type: 'h2',
+        text: "The 10% Who Aren't Using AI Yet"
+      },
+      {
+        type: 'p',
+        text: "The JetBrains number that nobody's talking about is the other side: 10% of developers still don't regularly use AI tools at work. Some of that is by choice. Some of it is organisational. Some of it is just not having found the right entry point."
+      },
+      {
+        type: 'p',
+        text: "If you're in that 10%, the stack framing is actually a good way in. Don't try to adopt everything at once. Pick one tool for one specific type of task — code review, writing tests, explaining unfamiliar code — and use it deliberately for two weeks. Then add the next layer. The developers seeing the biggest gains didn't change their whole workflow overnight. They added one thing, made it habitual, then added the next."
+      },
+      {
+        type: 'quote',
+        text: "The best AI workflow isn't the one with the best single tool. It's the one you'll actually use consistently.",
+      },
+      {
+        type: 'h2',
+        text: "Start With the Seams"
+      },
+      {
+        type: 'p',
+        text: "If you're looking for where to start building a proper AI coding stack, look for the seams in your current workflow — the places where you slow down, get stuck, or context-switch manually. Those are the places where an AI tool adds the most value with the least disruption to everything else that's working."
+      },
+      {
+        type: 'p',
+        text: "The tool landscape will keep changing. New entrants, new benchmarks, new capabilities every month. The developers who will keep winning aren't the ones who pick the best tool today. They're the ones who've built the habit of using tools deliberately and adding new ones when they solve a real problem in their workflow."
+      }
+    ]
+  },
+  {
+    slug: 'xai-grok-build-where-it-fits',
+    title: "xAI Just Entered the Coding Agent Race with Grok Build. Here's Where It Fits.",
+    subtitle: "Not a benchmark piece. A 'when would you actually reach for this?' take.",
+    date: "May 25, 2026",
+    readTime: "5 min read",
+    tags: ["xAI", "Grok Build", "AI Agents", "Tools"],
+    excerpt: "xAI launched Grok Build this week — their first dedicated coding agent. Here's an honest read on where it sits in the stack, what it's actually good at, and when you'd reach for it over Claude Code or Cursor.",
+    content: [
+      {
+        type: 'p',
+        text: "xAI launched Grok Build this week. It's their first dedicated coding agent — not just Grok with a code prompt, but a product specifically designed to write, run, and iterate on code. The developer community noticed. The benchmark debates started immediately."
+      },
+      {
+        type: 'p',
+        text: "I'm not going to do another benchmark comparison. You can find those everywhere and they'll be outdated by next week. What's actually useful is a clear-eyed answer to the question developers are actually asking: when would I reach for Grok Build instead of what I already have?"
+      },
+      {
+        type: 'h2',
+        text: "What xAI Is Bringing to the Table"
+      },
+      {
+        type: 'p',
+        text: "xAI's advantage has always been real-time information. Grok has access to X (formerly Twitter) in real time, which means it can draw on developer discussions, release announcements, and community knowledge that other models can't access at inference time. For a coding agent, that's more useful than it sounds."
+      },
+      {
+        type: 'p',
+        text: "When you're working with a library that was updated last month, or debugging an error that turned out to be a known issue filed on GitHub three weeks ago, having a model that can pull that context rather than hallucinate an answer is genuinely valuable. This is Grok Build's most differentiated capability and it's not one that Cursor or Claude Code can match right now."
+      },
+      {
+        type: 'callout',
+        title: "The real differentiator",
+        text: "Real-time access to developer discussions, release notes, and community knowledge at inference time. When you're working on the bleeding edge of a fast-moving ecosystem, this matters more than a few benchmark points."
+      },
+      {
+        type: 'h2',
+        text: "Where It's Weaker"
+      },
+      {
+        type: 'p',
+        text: "Codebase understanding. Cursor has spent years building a product specifically around helping an AI model understand a large, existing codebase — how files relate to each other, what patterns the codebase follows, where a change needs to propagate. Grok Build is newer to this problem and it shows in early reports from developers who've used it on larger repos."
+      },
+      {
+        type: 'p',
+        text: "Multi-step reasoning on ambiguous problems is also an area where Claude Code has a meaningful lead, built from Anthropic's focus on careful, stepwise reasoning. For tasks where the problem isn't fully specified upfront and you need the agent to ask clarifying questions and think through edge cases, the difference is noticeable."
+      },
+      {
+        type: 'h2',
+        text: "The Honest Stack Placement"
+      },
+      {
+        type: 'p',
+        text: "Here's where Grok Build actually earns a place in the workflow:"
+      },
+      {
+        type: 'list',
+        items: [
+          "Working with fast-moving ecosystems — AI frameworks, new runtimes, recently updated APIs. If you're building on LangGraph, LlamaIndex, or any library that ships breaking changes regularly, having an agent with current community knowledge changes the debugging experience.",
+          "Researching implementation approaches before writing code. Not 'write this function', but 'what are the current best practices for X and what are developers running into?' That's where real-time access earns its keep.",
+          "Staying on top of tooling changes. The AI dev tools space specifically moves so fast that documentation is often behind reality. Grok Build can pull from what developers are actually saying this week.",
+          "Quick prototypes where you're less worried about codebase consistency and more worried about getting something working fast using the latest available tools."
+        ]
+      },
+      {
+        type: 'h2',
+        text: "When to Stick With What You Have"
+      },
+      {
+        type: 'p',
+        text: "If you're working on a large, established codebase where the challenge is understanding and navigating existing code, Cursor is still the better tool. If you're doing architecture work or multi-step problem solving where you need careful reasoning and good judgment about tradeoffs, Claude Code is still the better tool."
+      },
+      {
+        type: 'p',
+        text: "Grok Build isn't trying to replace those. It's filling a gap — the real-time knowledge gap — that the other tools genuinely haven't solved. That's a legitimate slot in the stack, not a threat to what's already working."
+      },
+      {
+        type: 'h2',
+        text: "The Bigger Picture"
+      },
+      {
+        type: 'p',
+        text: "Grok Build's launch, alongside Google's Managed Agents and Alibaba's Qwen3.7-Max, is confirmation that the AI coding agent market is entering a phase of genuine competition. Not hype competition — product competition. Teams at multiple companies are shipping real developer tools that real developers are using for real work."
+      },
+      {
+        type: 'p',
+        text: "That's good for developers. Competition drives the tools to get better faster. And the pattern we're seeing — where each tool carves out a genuine area of strength rather than one tool dominating everything — means the stack approach to AI-assisted development is going to be the default, not the exception."
+      },
+      {
+        type: 'quote',
+        text: "The best tool for every job isn't the same tool. That's as true for AI coding agents as it is for anything else.",
+      },
+      {
+        type: 'h2',
+        text: "The Short Version"
+      },
+      {
+        type: 'p',
+        text: "Grok Build is worth having in your toolkit if you work in fast-moving ecosystems where current community knowledge matters. It's not a replacement for Cursor or Claude Code. It's a complement — specifically for the moment when you need to know what's actually happening in a framework or library right now, not six months ago when the docs were last updated."
+      },
+      {
+        type: 'p',
+        text: "Try it for a week on a project where you're working with recent or rapidly-changing dependencies. That's the environment where it'll show you what it can do."
+      }
+    ]
   }
 ];
