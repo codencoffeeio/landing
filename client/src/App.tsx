@@ -11,6 +11,7 @@ import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import PlatinumPartner from "@/pages/platinum-partner";
 import Resources from "@/pages/resources";
+import AICareers from "@/pages/ai-careers";
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/platinum-partner" component={PlatinumPartner} />
       <Route path="/resources" component={Resources} />
+      <Route path="/ai-careers" component={AICareers} />
       <Route component={NotFound} />
     </Switch>
   );

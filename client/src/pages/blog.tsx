@@ -45,6 +45,7 @@ export default function Blog() {
             <Link href="/builders" className="hover:text-primary transition-colors">Builders</Link>
             <Link href="/blog" className="text-primary font-semibold">Blog</Link>
             <Link href="/resources" className="hover:text-primary transition-colors">Resources</Link>
+            <Link href="/ai-careers" className="hover:text-primary transition-colors">AI Careers</Link>
           </div>
           <div className="md:hidden">
             <Sheet>
@@ -61,6 +62,7 @@ export default function Blog() {
                   <Link href="/builders" className="text-lg hover:text-primary transition-colors">Builders</Link>
                   <Link href="/blog" className="text-lg text-primary font-semibold">Blog</Link>
                   <Link href="/resources" className="text-lg hover:text-primary transition-colors">Resources</Link>
+                  <Link href="/ai-careers" className="text-lg hover:text-primary transition-colors">AI Careers</Link>
                 </div>
               </SheetContent>
             </Sheet>
