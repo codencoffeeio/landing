@@ -37,6 +37,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://codencoffee.io/blog/google-managed-agents-what-developers-need-to-know</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codencoffee.io/blog/you-are-running-an-ai-coding-stack</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codencoffee.io/blog/xai-grok-build-where-it-fits</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://codencoffee.io/replit-agent-4</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>yearly</changefreq>
