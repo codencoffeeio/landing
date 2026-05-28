@@ -19,6 +19,356 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'from-coding-to-orchestrating-what-gets-you-hired-in-2026',
+    title: "You're Not Getting Hired to Code Anymore. You're Getting Hired to Orchestrate.",
+    subtitle: "The 2026 job market has quietly split in two. Here's which side you want to be on — and what it takes to get there.",
+    date: "May 28, 2026",
+    readTime: "7 min read",
+    tags: ["Career", "Hiring", "AI Engineering"],
+    excerpt: "Workers with agent orchestration skills now command a 56% wage premium. The Agentic Coding Report just confirmed what the job market has been quietly signalling for months: the role of developer has fundamentally changed.",
+    content: [
+      {
+        type: 'p',
+        text: "There's a number from Anthropic's 2026 Agentic Coding Trends Report that should get every developer's attention: workers with AI skills — specifically agent orchestration, prompt engineering, and AI evaluation — now command a 56% wage premium over peers doing equivalent work without those skills."
+      },
+      {
+        type: 'p',
+        text: "56%. Not 10%, not 20%. More than half again your market rate, for the same job title, doing recognisably the same work — just with a fundamentally different set of capabilities applied to it. That number is a signal about where the job market has gone. And if you're still optimising for what got you hired in 2023, you're optimising for the wrong thing."
+      },
+      {
+        type: 'h2',
+        text: "The Split That's Already Happened"
+      },
+      {
+        type: 'p',
+        text: "The engineering job market in 2026 has quietly divided into two tracks, and the divide is accelerating."
+      },
+      {
+        type: 'p',
+        text: "On one track: developers who use AI to move faster at the same work. They write code more quickly, get unstuck faster, generate boilerplate in seconds. They're more productive, they're valued for it, and they're largely indistinguishable from the best engineers of three years ago — just running at a higher clock speed."
+      },
+      {
+        type: 'p',
+        text: "On the other track: developers who use AI to change what they work on entirely. They've offloaded the execution layer — the actual writing of code — to agents, and moved their attention to direction, architecture, evaluation, and orchestration. They're shipping things that would have required a team of three, alone. They're working at a level of abstraction that simply didn't exist as a job function two years ago."
+      },
+      {
+        type: 'p',
+        text: "The 56% wage premium is for the second track. And the gap is widening."
+      },
+      {
+        type: 'h2',
+        text: "What Orchestration Actually Means"
+      },
+      {
+        type: 'p',
+        text: "Orchestration gets used as a buzzword, so let's be concrete. In practice it means three things."
+      },
+      {
+        type: 'h3',
+        text: "Directing agents at the task level"
+      },
+      {
+        type: 'p',
+        text: "Instead of writing code, you're writing precise specifications for what code should do, what constraints it must satisfy, what tradeoffs are acceptable, and what success looks like. You're then reviewing what the agent produces, identifying where it made assumptions you didn't intend, and iterating. The output is still code. But your contribution is the judgment that shaped it."
+      },
+      {
+        type: 'h3',
+        text: "Designing multi-agent workflows"
+      },
+      {
+        type: 'p',
+        text: "Increasingly, the interesting engineering problems involve multiple AI agents working in sequence or in parallel: one that researches, one that plans, one that implements, one that tests. Designing these workflows — knowing what to put in each stage, how to hand context between agents, where to insert human checkpoints — is a genuine skill that compounds with practice."
+      },
+      {
+        type: 'h3',
+        text: "Evaluating and trusting output appropriately"
+      },
+      {
+        type: 'p',
+        text: "Knowing when to trust AI output and when to scrutinise it is not obvious. Models are confidently wrong in predictable ways. Engineers who understand where models tend to fail — novel logic, security-sensitive code, anything requiring knowledge of your system's specific history — and who build their review process around those failure modes, are dramatically more effective than those who either trust everything or distrust everything."
+      },
+      {
+        type: 'h2',
+        text: "What Hiring Managers Are Now Looking For"
+      },
+      {
+        type: 'p',
+        text: "The interview changed. Not completely, but significantly. Companies hiring for AI engineering roles in 2026 have started asking a different set of questions. They still might ask you to implement something. But increasingly they're asking you to walk through how you'd use AI to solve a problem — and what you'd verify yourself versus trust the model on. They're asking about times you caught AI making a mistake. They're asking you to write a system prompt and explain why you structured it that way."
+      },
+      {
+        type: 'p',
+        text: "The thing they're testing isn't whether you know how to code. It's whether you understand AI systems well enough to use them reliably in a production context. That's a harder thing to fake, and a much more interesting thing to be genuinely good at."
+      },
+      {
+        type: 'callout',
+        title: "The interview question to prepare for",
+        text: "'Walk me through how you'd use an AI agent to build this feature — what would you delegate to the agent, what would you keep for yourself, and how would you verify the output was correct?' Have a specific, worked answer ready."
+      },
+      {
+        type: 'h2',
+        text: "Three Skills to Build Right Now"
+      },
+      {
+        type: 'h3',
+        text: "1. Evaluation design"
+      },
+      {
+        type: 'p',
+        text: "The hardest part of using AI reliably in production isn't getting it to produce good output once — it's knowing when output is trustworthy across different inputs. Building evaluation sets, writing test cases that probe edge cases, measuring consistency across variations — this separates engineers who can put AI into production from those who can only use it for prototypes."
+      },
+      {
+        type: 'h3',
+        text: "2. Context architecture"
+      },
+      {
+        type: 'p',
+        text: "What you put in a system prompt, how you structure conversation history, how you decompose a large task into smaller prompts — these decisions profoundly affect output quality. Engineers who've developed intuition for context architecture through deliberate practice are noticeably more effective. It's learnable, but only through doing it repeatedly."
+      },
+      {
+        type: 'h3',
+        text: "3. Agent workflow design"
+      },
+      {
+        type: 'p',
+        text: "Start with one real project where you replace a task you'd normally do yourself with an agent workflow. Not a toy example — something you'd actually ship. Notice where the agent goes wrong. Notice what information it needed that you didn't give it. Notice what verification steps caught problems. Build that into the next iteration. This is how the skill develops."
+      },
+      {
+        type: 'quote',
+        text: "The engineers commanding the 56% premium aren't smarter. They're earlier. They made the shift deliberately, built the skills, and now they're ahead of a curve everyone else is still catching up to."
+      },
+      {
+        type: 'h2',
+        text: "The Honest Version of Where You Are"
+      },
+      {
+        type: 'p',
+        text: "Most engineers reading this are on the first track — using AI to move faster at the same work. That's not a criticism. It's where almost everyone is right now, and it's genuinely valuable. The question to ask yourself honestly: are you developing the skills that will move you to the second track, or are you getting better at the first? Both have compounding returns, but they compound differently. The first makes you a faster coder. The second makes you a different kind of engineer."
+      },
+      {
+        type: 'p',
+        text: "The good news: the shift isn't mysterious. It's deliberate practice on specific skills — evaluation design, context architecture, agent workflow design. It takes months, not years. And the infrastructure to practise on has never been more accessible. Start this week. These skills compound, and the earlier you start, the larger the advantage."
+      }
+    ]
+  },
+  {
+    slug: '95-percent-developers-use-ai-most-doing-it-wrong',
+    title: "95% of Developers Use AI Tools. Most Are Still Doing It Wrong.",
+    subtitle: "The numbers from the 2026 Agentic Coding Report are staggering — but the gap isn't about access. It's about how you actually use it.",
+    date: "May 28, 2026",
+    readTime: "6 min read",
+    tags: ["AI Tools", "Productivity", "Agentic Coding"],
+    excerpt: "Anthropic's 2026 Agentic Coding Report is out. 95% of developers use AI weekly. 56% are doing 70%+ of their work with AI. The numbers are extraordinary — but they hide a much more important question.",
+    content: [
+      {
+        type: 'p',
+        text: "Anthropic published their 2026 Agentic Coding Trends Report this week. The headline numbers are extraordinary: 95% of developers use AI tools at least weekly. 75% use AI for more than half their engineering work. 56% say they're doing 70% or more of their work with AI."
+      },
+      {
+        type: 'p',
+        text: "For context: GitHub Copilot launched in 2021. Five years later, nearly every developer is using some form of AI in their daily workflow. This is one of the fastest technology adoption curves in software history."
+      },
+      {
+        type: 'p',
+        text: "But here's the question the numbers don't answer: are 95% of developers using AI well? Because from where I sit — watching how engineers actually use these tools — the answer is clearly no. And the gap between using AI and using it well is larger than most people realise."
+      },
+      {
+        type: 'h2',
+        text: "Two Types of AI User"
+      },
+      {
+        type: 'p',
+        text: "Two distinct types of AI user have emerged, and the difference isn't which tool they use or how much. It's the mental model they bring to it."
+      },
+      {
+        type: 'p',
+        text: "The first type treats AI like a better autocomplete. They ask it to write a function, review what it produces, tweak it, move on. They're faster for it. But their usage is reactive: something needs to be written, so they ask AI to write it. The AI handles the typing. The developer still does all the thinking."
+      },
+      {
+        type: 'p',
+        text: "The second type treats AI like a collaborator they're directing. Before they write anything, they talk through the approach. They describe constraints. They ask the agent to identify what could go wrong. They review the plan before the code. The AI handles execution. The developer handles judgment, direction, and review."
+      },
+      {
+        type: 'p',
+        text: "The TELUS data from the report makes this concrete: teams using Claude Code shipped 30% faster and saved over 500,000 hours — averaging 40 minutes saved per AI interaction. That's not what you get from better autocomplete. That's what you get from genuine agent-level collaboration."
+      },
+      {
+        type: 'h2',
+        text: "What the Productive Users Actually Do Differently"
+      },
+      {
+        type: 'h3',
+        text: "They work at the task level, not the line level"
+      },
+      {
+        type: 'p',
+        text: "The average autocomplete user says: 'write me a function that does X.' The productive user says: 'I'm building a system that does Y. Here's the constraint set. Here's what already exists. I need to add Z — think through the approach and tell me what tradeoffs we're making before you write anything.' The AI response to the second prompt is qualitatively different."
+      },
+      {
+        type: 'h3',
+        text: "They treat the first draft as a starting point, not a result"
+      },
+      {
+        type: 'p',
+        text: "AI-generated code is often syntactically correct, logically plausible, and subtly wrong for your specific situation. The most productive users expect this and build review into their process. They run the output, check edge cases, ask the agent what it assumed. The users getting burned are the ones who assume correctness and only find out later."
+      },
+      {
+        type: 'h3',
+        text: "They use AI to think, not just to write"
+      },
+      {
+        type: 'p',
+        text: "Some of the highest-value uses of these tools don't produce a single line of code. 'Here's the architecture I'm considering — what are the failure modes?' 'I've hit this error three times. Talk me through what might be causing it.' 'Review this PR diff and tell me what a senior engineer would flag.' These prompts generate insights that make the next hour of work more effective."
+      },
+      {
+        type: 'callout',
+        title: "The shift to make",
+        text: "Stop asking AI to write code. Start asking AI to think with you before you write code. The second approach takes slightly longer up front and produces dramatically better output."
+      },
+      {
+        type: 'h2',
+        text: "The 56% Number Worth Being Careful About"
+      },
+      {
+        type: 'p',
+        text: "56% of developers report doing 70%+ of their engineering work with AI. That sounds impressive. It might also be a warning sign for some of those developers."
+      },
+      {
+        type: 'p',
+        text: "There's a version of that number that means: 'AI handles the routine work and I focus on judgment calls, architecture decisions, and review.' That's excellent. There's another version that means: 'I mostly accept what AI produces without deeply understanding it.' That's a debt accumulation strategy that eventually comes due."
+      },
+      {
+        type: 'p',
+        text: "Engineers who can't read AI-generated code critically — who can't explain why it works, catch when it doesn't, or articulate the tradeoffs it made — are building on foundations they don't understand. The experienced engineers who've seen this play out have a consistent warning: use AI aggressively for speed, but never let it get ahead of your understanding."
+      },
+      {
+        type: 'h2',
+        text: "The Four Skills That Actually Compound"
+      },
+      {
+        type: 'list',
+        items: [
+          "Prompt design: writing precise, constraint-rich prompts that produce useful first drafts rather than generic code requiring heavy editing.",
+          "Critical review: reading AI output with genuine scepticism, checking assumptions, identifying edge cases the model optimised around.",
+          "Task decomposition: breaking work into AI-solvable units and reasoning about which parts need human judgment before, during, and after generation.",
+          "Context management: understanding how to give AI the right context — not everything, not nothing — to get responses that fit your actual situation."
+        ]
+      },
+      {
+        type: 'quote',
+        text: "The ceiling for developers who use AI well has risen dramatically. The floor for developers who use it carelessly is lower than they think."
+      },
+      {
+        type: 'h2',
+        text: "The Uncomfortable Implication"
+      },
+      {
+        type: 'p',
+        text: "The 95% adoption number means AI tool usage is no longer a differentiator. Everyone's using it. Differentiation now comes from how well you use it — and that's a skill most developers have barely started developing deliberately."
+      },
+      {
+        type: 'p',
+        text: "The good news: the gap between median and excellent usage is large and closeable. Pick one interaction pattern to get genuinely good at — prompting for code review, architecture discussion, test case generation — and practise it deliberately for a month. Then add the next. The developers who make this shift explicitly rather than waiting for it to happen naturally are the ones next year's productivity data will be written about."
+      }
+    ]
+  },
+  {
+    slug: 'anthropic-900-billion-what-it-means-for-ai-engineers',
+    title: "Anthropic Is Worth $900 Billion. What Does That Mean for You?",
+    subtitle: "The AI arms race just hit a new milestone. Here's what every engineer building on these platforms needs to understand.",
+    date: "May 28, 2026",
+    readTime: "6 min read",
+    tags: ["AI Industry", "Anthropic", "Career"],
+    excerpt: "Anthropic is closing a $30 billion round at a $900 billion valuation — potentially surpassing OpenAI as the world's most valuable AI company. If you're building on Claude, here's what this actually means.",
+    content: [
+      {
+        type: 'p',
+        text: "Anthropic is in talks to close a $30 billion funding round at a valuation exceeding $900 billion. That would make it the world's most valuable AI startup — surpassing OpenAI's $852 billion March valuation. The company that builds Claude, Claude Code, and the API that underpins a growing share of the world's AI applications is approaching trillion-dollar territory."
+      },
+      {
+        type: 'p',
+        text: "This isn't just a finance story. It has real implications for engineers building on these platforms. Here's what the numbers mean and what you should be thinking about."
+      },
+      {
+        type: 'h2',
+        text: "The Numbers Behind the Valuation"
+      },
+      {
+        type: 'p',
+        text: "The $900 billion number isn't just venture capital betting on the future. It's backed by extraordinary revenue growth. Claude Code launched in May 2025 and hit $1 billion in annualised revenue by November — six months. By February 2026 it had reached $2.5 billion ARR. Anthropic now projects $10.9 billion in Q2 2026 revenue alone, with an annualised run rate set to exceed $50 billion by end of June."
+      },
+      {
+        type: 'p',
+        text: "To put that in context: Anthropic is growing faster than any enterprise software company in history. Faster than Salesforce at its peak. Faster than the early years of AWS. The demand for AI capabilities is not theoretical — it's reflected in billions of dollars of actual transactions every quarter."
+      },
+      {
+        type: 'callout',
+        title: "The platform you're building on",
+        text: "Claude Code became the #1 AI coding tool within 8 months of launch, overtaking GitHub Copilot and Cursor. If you're using it, you're on the fastest-growing developer platform of the last decade. That's both an opportunity and something worth thinking carefully about."
+      },
+      {
+        type: 'h2',
+        text: "What Platform Risk Looks Like at This Scale"
+      },
+      {
+        type: 'p',
+        text: "When an API you depend on is run by a company valued at $900 billion and growing at this rate, something shifts in the relationship. The product decisions, the pricing changes, the rate limits — they're being made by an organisation that needs to sustain that valuation. That's not a criticism. It's a business reality."
+      },
+      {
+        type: 'p',
+        text: "At earlier stages of the AI API ecosystem, pricing was often loss-leader territory. Companies wanted developers to build on their platforms, and they priced accordingly. As these companies approach revenue multiples that justify their valuations, that calculus changes. Costs will normalise. Rate limits will tighten for users who aren't paying. Premium features will be gated."
+      },
+      {
+        type: 'p',
+        text: "Engineers who have built AI products treating the API as essentially free infrastructure are going to hit friction. The ones who've thought about abstraction layers — keeping model-specific code isolated, building against interfaces rather than hard-coding calls to specific models — will be able to adapt. It's worth thinking about this now, while it's still comfortable."
+      },
+      {
+        type: 'h2',
+        text: "The Opportunity in the Growth"
+      },
+      {
+        type: 'p',
+        text: "The same growth that creates platform risk creates enormous opportunity. Anthropic at $900 billion means there's a massive, well-funded ecosystem forming around Claude. Enterprise customers are signing large contracts. Agencies are building Claude-based products. Every company serious about AI is evaluating their Claude integration strategy."
+      },
+      {
+        type: 'p',
+        text: "Engineers who understand Claude's capabilities deeply — who know what system prompts actually affect model behaviour, who understand context window limitations and how to work around them, who can get consistent structured output reliably — are genuinely scarce. The demand for that expertise is growing faster than the supply."
+      },
+      {
+        type: 'h2',
+        text: "The Broader Market Signal"
+      },
+      {
+        type: 'p',
+        text: "Anthropic's valuation isn't just about Anthropic. When the company making your API is worth nearly a trillion dollars, it's a signal about where value is accumulating in the software industry. The model layer is concentrating into a few well-capitalised players. The infrastructure layer is being commoditised by cloud providers. The tools layer and the application layer above it are where the interesting opportunities are for engineers right now."
+      },
+      {
+        type: 'p',
+        text: "The engineers who understand both what the models can do and how to build reliable products on top of them — that combination is rare. It's also the combination that the $50 billion in projected AI revenue is ultimately paying for."
+      },
+      {
+        type: 'quote',
+        text: "The platform you build on is a strategic decision now, not just a technical one. Act accordingly."
+      },
+      {
+        type: 'h2',
+        text: "What to Do With This"
+      },
+      {
+        type: 'list',
+        items: [
+          "Understand the abstraction layer. Keep model-specific code isolated. Build against interfaces so you can swap providers without rewriting your application.",
+          "Start tracking pricing changes. As Anthropic approaches profitability, the economics for developers will shift. Budget accordingly.",
+          "Build your Claude expertise deliberately. Deep knowledge of one platform compounds. Engineers who know exactly how to get reliable behaviour from Claude are valuable in a way that casual users aren't.",
+          "Watch the competitive pressure. OpenAI, Google, and xAI are all growing fast. Real competition means the terms will stay reasonable for developers longer. Monitor all three."
+        ]
+      },
+      {
+        type: 'p',
+        text: "The AI platform race is entering a new phase. The infrastructure is no longer experimental — it's real, growing, and becoming critical to how software gets built. Understanding that context makes you a better engineer and a better decision-maker. The $900 billion number is worth paying attention to."
+      }
+    ]
+  },
+  {
     slug: 'you-dont-need-to-out-code-the-ai',
     title: "You Don't Need to Out-Code the AI. Here's What You Actually Need.",
     subtitle: "The anxiety is understandable. The conclusion most people draw is wrong.",
