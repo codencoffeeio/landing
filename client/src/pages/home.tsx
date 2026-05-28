@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, MapPin, Terminal, Users, Cpu, ArrowRight, ExternalLink, CheckCircle2, Menu } from "lucide-react";
+import { Calendar, MapPin, Terminal, Users, Cpu, ArrowRight, ExternalLink, CheckCircle2, Menu, TrendingUp, MessageSquare } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import heroBg from "@assets/generated_images/sophisticated_coffee_shop_atmosphere_blur.png";
 import textureBg from "@assets/generated_images/minimalist_coffee_and_code_abstract_texture.png";
@@ -25,6 +25,24 @@ export default function Home() {
   });
 
   const nextEvent = meetupEvents?.[0];
+
+  const { data: hnStories, isLoading: isHNLoading } = useQuery<{
+    id: number;
+    title: string;
+    url: string;
+    score: number;
+    by: string;
+    time: number;
+    descendants: number;
+  }[]>({
+    queryKey: ["hn-ai-stories"],
+    queryFn: async () => {
+      const res = await fetch("/api/hn-ai-stories");
+      if (!res.ok) throw new Error("Failed to fetch HN stories");
+      return res.json();
+    },
+    staleTime: 30 * 60 * 1000,
+  });
 
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
@@ -189,6 +207,70 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* HN AI Stories */}
+      {(isHNLoading || (hnStories && hnStories.length > 0)) && (
+        <section className="py-16 border-y border-border/40 bg-secondary/20">
+          <div className="container mx-auto max-w-6xl px-6">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-primary" />
+                <h2 className="font-heading text-lg font-bold text-foreground">What the community is reading</h2>
+              </div>
+              <a
+                href="https://news.ycombinator.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+              >
+                Top AI on Hacker News <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+
+            {isHNLoading ? (
+              <div className="space-y-3">
+                {[...Array(5)].map((_, i) => (
+                  <div key={i} className="animate-pulse h-14 bg-card rounded-xl border border-border/40" />
+                ))}
+              </div>
+            ) : (
+              <div className="space-y-2">
+                {hnStories?.map((story, i) => {
+                  const hoursAgo = Math.floor((Date.now() / 1000 - story.time) / 3600);
+                  const timeAgo = hoursAgo < 24 ? `${hoursAgo}h ago` : `${Math.floor(hoursAgo / 24)}d ago`;
+                  const href = story.url || `https://news.ycombinator.com/item?id=${story.id}`;
+                  return (
+                    <a
+                      key={story.id}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-4 px-4 py-3 rounded-xl bg-card border border-border/40 hover:border-primary/30 hover:bg-primary/5 transition-all duration-200"
+                    >
+                      <span className="text-sm font-bold text-muted-foreground/40 w-4 shrink-0 text-right">{i + 1}</span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors truncate leading-snug">
+                          {story.title}
+                        </p>
+                        <div className="flex items-center gap-3 mt-0.5">
+                          <span className="text-xs text-muted-foreground flex items-center gap-1">
+                            <TrendingUp className="w-3 h-3" /> {story.score}
+                          </span>
+                          <span className="text-xs text-muted-foreground flex items-center gap-1">
+                            <MessageSquare className="w-3 h-3" /> {story.descendants ?? 0}
+                          </span>
+                          <span className="text-xs text-muted-foreground">{timeAgo}</span>
+                        </div>
+                      </div>
+                      <ExternalLink className="w-3.5 h-3.5 text-muted-foreground/30 group-hover:text-primary shrink-0 transition-colors" />
+                    </a>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Focus Areas */}
       <section className="py-20 bg-background" id="about">
