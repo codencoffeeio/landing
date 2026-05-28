@@ -43,6 +43,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://codencoffee.io/blog/from-coding-to-orchestrating-what-gets-you-hired-in-2026</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codencoffee.io/blog/95-percent-developers-use-ai-most-doing-it-wrong</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codencoffee.io/blog/anthropic-900-billion-what-it-means-for-ai-engineers</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://codencoffee.io/blog/google-managed-agents-what-developers-need-to-know</loc>
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
