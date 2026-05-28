@@ -1,11 +1,24 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
-import { PencilLine, Menu, Clock, ArrowRight } from "lucide-react";
+import { PencilLine, Menu, Clock, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { BLOG_POSTS } from "@/lib/blog-posts";
 
+const POSTS_PER_PAGE = 6;
+
 export default function Blog() {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(BLOG_POSTS.length / POSTS_PER_PAGE);
+  const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+  const visiblePosts = BLOG_POSTS.slice(startIndex, startIndex + POSTS_PER_PAGE);
+
+  function goToPage(page: number) {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20 flex flex-col">
       <Helmet>
@@ -90,8 +103,8 @@ export default function Blog() {
           </section>
 
           {/* Blog post grid */}
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {BLOG_POSTS.map((post) => (
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {visiblePosts.map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="group block">
                 <article className="h-full flex flex-col bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300 overflow-hidden relative">
                   {/* top accent line on hover */}
@@ -138,6 +151,46 @@ export default function Blog() {
               </Link>
             ))}
           </section>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex flex-col items-center gap-4 pt-4 border-t border-border/40">
+              <p className="text-sm text-muted-foreground">
+                Showing {startIndex + 1}–{Math.min(startIndex + POSTS_PER_PAGE, BLOG_POSTS.length)} of {BLOG_POSTS.length} posts
+              </p>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => goToPage(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium border border-border/60 bg-card text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  <ChevronLeft className="w-4 h-4" /> Prev
+                </button>
+
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                  <button
+                    key={page}
+                    onClick={() => goToPage(page)}
+                    className={`w-9 h-9 rounded-lg text-sm font-medium border transition-colors ${
+                      page === currentPage
+                        ? "bg-primary text-primary-foreground border-primary"
+                        : "bg-card text-muted-foreground border-border/60 hover:text-foreground hover:border-primary/40"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+
+                <button
+                  onClick={() => goToPage(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium border border-border/60 bg-card text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  Next <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          )}
 
         </div>
       </main>
