@@ -40,9 +40,7 @@ export default function Resources() {
                         </div>
                     </Link>
                     <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-                        <Link href="/" className="hover:text-primary transition-colors">Home</Link>
                         <a href="https://www.meetup.com/code-coffee-auckland/events/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Events</a>
-                        <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Community</a>
                         <Link href="/builders" className="hover:text-primary transition-colors">Builders</Link>
                         <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
                         <Link href="/resources" className="hover:text-primary transition-colors text-primary font-semibold">Resources</Link>
@@ -57,9 +55,7 @@ export default function Resources() {
                             </SheetTrigger>
                             <SheetContent side="right" className="bg-background/95 backdrop-blur-md">
                                 <div className="flex flex-col gap-6 mt-8 font-medium">
-                                    <Link href="/" className="text-lg hover:text-primary transition-colors">Home</Link>
                                     <a href="https://www.meetup.com/code-coffee-auckland/events/" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">Events</a>
-                                    <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">Community</a>
                                     <Link href="/builders" className="text-lg hover:text-primary transition-colors">Builders</Link>
                                     <Link href="/blog" className="text-lg hover:text-primary transition-colors">Blog</Link>
                                     <Link href="/resources" className="text-lg text-primary font-semibold">Resources</Link>
