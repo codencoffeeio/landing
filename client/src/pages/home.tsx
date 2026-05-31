@@ -79,9 +79,7 @@ export default function Home() {
             Code, Coffee & AI
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-            <a href="#about" className="hover:text-primary transition-colors">About</a>
             <a href="https://www.meetup.com/code-coffee-auckland/events/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Events</a>
-            <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Community</a>
             <Link href="/builders" className="hover:text-primary transition-colors">Builders</Link>
             <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
             <Link href="/resources" className="hover:text-primary transition-colors">Resources</Link>
@@ -96,9 +94,7 @@ export default function Home() {
               </SheetTrigger>
               <SheetContent side="right" className="bg-background/95 backdrop-blur-md">
                 <div className="flex flex-col gap-6 mt-8 font-medium">
-                  <a href="#about" onClick={() => document.querySelector('[data-state="open"]')?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))} className="text-lg hover:text-primary transition-colors">About</a>
                   <a href="https://www.meetup.com/code-coffee-auckland/events/" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">Events</a>
-                  <a href="https://www.meetup.com/code-coffee-auckland/" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-primary transition-colors">Community</a>
                   <Link href="/builders" className="text-lg hover:text-primary transition-colors">Builders</Link>
                   <Link href="/blog" className="text-lg hover:text-primary transition-colors">Blog</Link>
                   <Link href="/resources" className="text-lg hover:text-primary transition-colors">Resources</Link>
