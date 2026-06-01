@@ -19,6 +19,135 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'google-io-2026-what-ai-builders-should-actually-care-about',
+    title: "Google I/O 2026: The Three Announcements That Actually Matter for AI Builders",
+    subtitle: "A lot of keynote. A handful of things worth building with. Here's the signal in the noise.",
+    date: "June 1, 2026",
+    readTime: "6 min read",
+    tags: ["Google", "Gemini", "Developer Tools", "Agentic AI"],
+    excerpt: "Google I/O dropped a huge amount of product last week. Most of it is noise. But three announcements — Managed Agents API, Gemini 3.5 Flash, and WebMCP — could change how you build in the next 12 months.",
+    content: [
+      {
+        type: 'p',
+        text: "Google I/O 2026 was enormous. New models, a new desktop app, native Android vibe coding, a browser standard proposal, platform integrations — the keynote ran long and the developer sessions ran longer. The temptation is to cover all of it. That would be a waste of your time."
+      },
+      {
+        type: 'p',
+        text: "Three announcements actually matter for engineers building AI products. Here they are, ranked by how much they should change what you do in the next 12 months."
+      },
+      {
+        type: 'h2',
+        text: "1. Managed Agents API — Build With This Now"
+      },
+      {
+        type: 'p',
+        text: "Google shipped Managed Agents in the Gemini API, and it's the most immediately actionable thing that came out of I/O. One API call. Google spins up an isolated Linux environment on their infrastructure. The agent reasons, uses tools, executes code, checks the output, and iterates — all inside that sandbox. When it's done, the environment is torn down."
+      },
+      {
+        type: 'p',
+        text: "This is built on the Antigravity agent harness and it's Google's direct answer to Anthropic's Claude Agents and OpenAI's Assistants API. The difference is that Google's version comes with a real execution environment included. You're not wiring up a code interpreter yourself. You're not provisioning EC2. You make an API call and a computer appears."
+      },
+      {
+        type: 'callout',
+        title: "What this actually unlocks",
+        text: "Any product workflow that requires running code on behalf of users — data processing, automated reporting, code generation, multi-step research — just got dramatically cheaper to build. The infrastructure problem that used to require a backend engineer is now a line of configuration."
+      },
+      {
+        type: 'p',
+        text: "The honest competitive framing: Claude Code and Codex CLI are excellent tools for developers running agents locally. They use your machine as the execution environment. That works for individual developer tooling. It doesn't work when you're building a product where agents run on behalf of thousands of users. Managed Agents solves that problem. This is what to build with right now."
+      },
+      {
+        type: 'h2',
+        text: "2. Gemini 3.5 Flash — The Cost/Performance Ratio Finally Makes Sense"
+      },
+      {
+        type: 'p',
+        text: "Gemini 3.5 Flash isn't just an incremental update. It outperforms Gemini 3.1 Pro on almost all benchmarks while running 4x faster than other frontier models. That combination — better quality, radically faster, and in the Flash pricing tier — changes the economics of running AI in production."
+      },
+      {
+        type: 'p',
+        text: "If you've been holding off on using Gemini in production because the cost/performance trade-off wasn't compelling enough, look again. Flash-class models were always fast and cheap. The quality gap with Pro-tier models that made them a compromise for complex tasks has narrowed significantly. For agentic workflows where you're making many sequential calls, this matters a lot."
+      },
+      {
+        type: 'p',
+        text: "Managed Agents runs on Flash. That's not an accident. Google is betting that fast, affordable, and genuinely capable is the right profile for agentic use cases — and the benchmark data on this round suggests they're right."
+      },
+      {
+        type: 'h2',
+        text: "3. WebMCP — The Sleeper Announcement"
+      },
+      {
+        type: 'p',
+        text: "This one didn't get the keynote treatment it deserved. WebMCP is a proposed open web standard that lets developers expose structured tools to AI agents directly via a web page. It's currently in an experimental origin trial in Chrome 149. Most people skimmed the announcement. They shouldn't have."
+      },
+      {
+        type: 'p',
+        text: "Here's why this is significant: right now, if you want an AI agent to interact with a web service, you have two options. You write a custom integration — which means API keys, rate limit handling, parsing whatever format that service speaks — or you don't integrate. Every AI-callable service requires bespoke work. WebMCP proposes a third option: the website itself declares what tools it exposes, in a standard format that any AI agent can discover and call."
+      },
+      {
+        type: 'quote',
+        text: "If WebMCP becomes a standard, every website could become AI-callable without custom integrations. That's not a marginal improvement. That's a different internet.",
+      },
+      {
+        type: 'p',
+        text: "The caveat is significant: if. Browser standards proposals fail all the time. Origin trials don't always make it to general availability. Chrome shipping an experiment is not the same as the web platform adopting it. But Google proposing this as an open standard — rather than a proprietary Chrome feature — means other browsers can adopt it, which means the incentive structure for websites to implement it becomes real."
+      },
+      {
+        type: 'p',
+        text: "The Model Context Protocol (MCP) is having a moment right now, with half the developer tools ecosystem racing to add MCP support. WebMCP is the browser-native version of that idea. If it lands, the integration work that currently makes agentic products hard to build collapses dramatically. Pay attention to this one. You probably won't build with it this year, but in 12 months it might be the most important thing from this keynote."
+      },
+      {
+        type: 'h2',
+        text: "What Didn't Make the List"
+      },
+      {
+        type: 'h3',
+        text: "Google Antigravity 2.0"
+      },
+      {
+        type: 'p',
+        text: "Antigravity 2.0 is described as \"Cursor meets Vercel from Google\" — a new desktop app, one-click deploy to Cloud Run, Firebase integrations. The vision is an agent-first development platform where you go from prompt to deployed app without leaving the tool. It's genuinely interesting as a product direction. But it's early, the desktop app is new, and the ecosystem around it is thin. Worth watching. Not worth betting on yet."
+      },
+      {
+        type: 'h3',
+        text: "Native Android Vibe Coding in AI Studio"
+      },
+      {
+        type: 'p',
+        text: "AI Studio now lets you build native Android apps by prompting. This is practical for mobile AI apps and will be useful to people building in that space. It didn't make the top three because it's a narrow use case and not a platform shift."
+      },
+      {
+        type: 'h3',
+        text: "The Microsoft angle"
+      },
+      {
+        type: 'p',
+        text: "While Google was doing I/O, Microsoft announced Copilot Cowork with Anthropic — autonomous task execution inside Microsoft 365. The platform wars are accelerating. Google's announcements and Microsoft's announcement in the same week is not coincidence. Both companies are racing to make their platforms the place where AI agents run. That context matters for understanding why Google shipped Managed Agents now."
+      },
+      {
+        type: 'h2',
+        text: "The Actual Takeaway"
+      },
+      {
+        type: 'p',
+        text: "Google I/O 2026 was the clearest signal yet that Google is serious about the agentic AI developer market. Not just the consumer AI market, where Gemini competes with ChatGPT — the developer infrastructure market, where they're competing with Anthropic and OpenAI for where production agents run."
+      },
+      {
+        type: 'list',
+        items: [
+          "Managed Agents: try it this week if you're building anything that needs to run code on behalf of users. The infrastructure problem just disappeared.",
+          "Gemini 3.5 Flash: re-evaluate if you dismissed Gemini on cost/performance grounds six months ago. The math changed.",
+          "WebMCP: watch the origin trial. If Chrome 149 ships it and the usage numbers are good, start thinking about what it means for your integration strategy.",
+          "Antigravity 2.0: on the radar, not in the build plan yet."
+        ]
+      },
+      {
+        type: 'p',
+        text: "The keynote will be forgotten in a week. The infrastructure Google shipped will still be running six months from now. That's what's worth paying attention to."
+      }
+    ]
+  },
+  {
     slug: 'github-copilot-usage-billing-what-it-means-for-ai-developers',
     title: "Your Copilot Bill Just Changed. Here's What You're Actually Paying For Now.",
     subtitle: "GitHub flipped to token-based billing today. For light users, nothing changes. For agentic power users, the math got brutal.",
