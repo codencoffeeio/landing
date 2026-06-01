@@ -61,6 +61,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://codencoffee.io/blog/github-copilot-usage-billing-what-it-means-for-ai-developers</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codencoffee.io/blog/google-io-2026-what-ai-builders-should-actually-care-about</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codencoffee.io/blog/junior-dev-hiring-down-40-percent-what-it-means-for-your-career</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://codencoffee.io/blog/google-managed-agents-what-developers-need-to-know</loc>
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>

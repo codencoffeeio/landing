@@ -19,6 +19,365 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'google-io-2026-what-ai-builders-should-actually-care-about',
+    title: "Google I/O 2026: The Three Announcements That Actually Matter for AI Builders",
+    subtitle: "A lot of keynote. A handful of things worth building with. Here's the signal in the noise.",
+    date: "June 1, 2026",
+    readTime: "6 min read",
+    tags: ["Google", "Gemini", "Developer Tools", "Agentic AI"],
+    excerpt: "Google I/O dropped a huge amount of product last week. Most of it is noise. But three announcements — Managed Agents API, Gemini 3.5 Flash, and WebMCP — could change how you build in the next 12 months.",
+    content: [
+      {
+        type: 'p',
+        text: "Google I/O 2026 was enormous. New models, a new desktop app, native Android vibe coding, a browser standard proposal, platform integrations — the keynote ran long and the developer sessions ran longer. The temptation is to cover all of it. That would be a waste of your time."
+      },
+      {
+        type: 'p',
+        text: "Three announcements actually matter for engineers building AI products. Here they are, ranked by how much they should change what you do in the next 12 months."
+      },
+      {
+        type: 'h2',
+        text: "1. Managed Agents API — Build With This Now"
+      },
+      {
+        type: 'p',
+        text: "Google shipped Managed Agents in the Gemini API, and it's the most immediately actionable thing that came out of I/O. One API call. Google spins up an isolated Linux environment on their infrastructure. The agent reasons, uses tools, executes code, checks the output, and iterates — all inside that sandbox. When it's done, the environment is torn down."
+      },
+      {
+        type: 'p',
+        text: "This is built on the Antigravity agent harness and it's Google's direct answer to Anthropic's Claude Agents and OpenAI's Assistants API. The difference is that Google's version comes with a real execution environment included. You're not wiring up a code interpreter yourself. You're not provisioning EC2. You make an API call and a computer appears."
+      },
+      {
+        type: 'callout',
+        title: "What this actually unlocks",
+        text: "Any product workflow that requires running code on behalf of users — data processing, automated reporting, code generation, multi-step research — just got dramatically cheaper to build. The infrastructure problem that used to require a backend engineer is now a line of configuration."
+      },
+      {
+        type: 'p',
+        text: "The honest competitive framing: Claude Code and Codex CLI are excellent tools for developers running agents locally. They use your machine as the execution environment. That works for individual developer tooling. It doesn't work when you're building a product where agents run on behalf of thousands of users. Managed Agents solves that problem. This is what to build with right now."
+      },
+      {
+        type: 'h2',
+        text: "2. Gemini 3.5 Flash — The Cost/Performance Ratio Finally Makes Sense"
+      },
+      {
+        type: 'p',
+        text: "Gemini 3.5 Flash isn't just an incremental update. It outperforms Gemini 3.1 Pro on almost all benchmarks while running 4x faster than other frontier models. That combination — better quality, radically faster, and in the Flash pricing tier — changes the economics of running AI in production."
+      },
+      {
+        type: 'p',
+        text: "If you've been holding off on using Gemini in production because the cost/performance trade-off wasn't compelling enough, look again. Flash-class models were always fast and cheap. The quality gap with Pro-tier models that made them a compromise for complex tasks has narrowed significantly. For agentic workflows where you're making many sequential calls, this matters a lot."
+      },
+      {
+        type: 'p',
+        text: "Managed Agents runs on Flash. That's not an accident. Google is betting that fast, affordable, and genuinely capable is the right profile for agentic use cases — and the benchmark data on this round suggests they're right."
+      },
+      {
+        type: 'h2',
+        text: "3. WebMCP — The Sleeper Announcement"
+      },
+      {
+        type: 'p',
+        text: "This one didn't get the keynote treatment it deserved. WebMCP is a proposed open web standard that lets developers expose structured tools to AI agents directly via a web page. It's currently in an experimental origin trial in Chrome 149. Most people skimmed the announcement. They shouldn't have."
+      },
+      {
+        type: 'p',
+        text: "Here's why this is significant: right now, if you want an AI agent to interact with a web service, you have two options. You write a custom integration — which means API keys, rate limit handling, parsing whatever format that service speaks — or you don't integrate. Every AI-callable service requires bespoke work. WebMCP proposes a third option: the website itself declares what tools it exposes, in a standard format that any AI agent can discover and call."
+      },
+      {
+        type: 'quote',
+        text: "If WebMCP becomes a standard, every website could become AI-callable without custom integrations. That's not a marginal improvement. That's a different internet.",
+      },
+      {
+        type: 'p',
+        text: "The caveat is significant: if. Browser standards proposals fail all the time. Origin trials don't always make it to general availability. Chrome shipping an experiment is not the same as the web platform adopting it. But Google proposing this as an open standard — rather than a proprietary Chrome feature — means other browsers can adopt it, which means the incentive structure for websites to implement it becomes real."
+      },
+      {
+        type: 'p',
+        text: "The Model Context Protocol (MCP) is having a moment right now, with half the developer tools ecosystem racing to add MCP support. WebMCP is the browser-native version of that idea. If it lands, the integration work that currently makes agentic products hard to build collapses dramatically. Pay attention to this one. You probably won't build with it this year, but in 12 months it might be the most important thing from this keynote."
+      },
+      {
+        type: 'h2',
+        text: "What Didn't Make the List"
+      },
+      {
+        type: 'h3',
+        text: "Google Antigravity 2.0"
+      },
+      {
+        type: 'p',
+        text: "Antigravity 2.0 is described as \"Cursor meets Vercel from Google\" — a new desktop app, one-click deploy to Cloud Run, Firebase integrations. The vision is an agent-first development platform where you go from prompt to deployed app without leaving the tool. It's genuinely interesting as a product direction. But it's early, the desktop app is new, and the ecosystem around it is thin. Worth watching. Not worth betting on yet."
+      },
+      {
+        type: 'h3',
+        text: "Native Android Vibe Coding in AI Studio"
+      },
+      {
+        type: 'p',
+        text: "AI Studio now lets you build native Android apps by prompting. This is practical for mobile AI apps and will be useful to people building in that space. It didn't make the top three because it's a narrow use case and not a platform shift."
+      },
+      {
+        type: 'h3',
+        text: "The Microsoft angle"
+      },
+      {
+        type: 'p',
+        text: "While Google was doing I/O, Microsoft announced Copilot Cowork with Anthropic — autonomous task execution inside Microsoft 365. The platform wars are accelerating. Google's announcements and Microsoft's announcement in the same week is not coincidence. Both companies are racing to make their platforms the place where AI agents run. That context matters for understanding why Google shipped Managed Agents now."
+      },
+      {
+        type: 'h2',
+        text: "The Actual Takeaway"
+      },
+      {
+        type: 'p',
+        text: "Google I/O 2026 was the clearest signal yet that Google is serious about the agentic AI developer market. Not just the consumer AI market, where Gemini competes with ChatGPT — the developer infrastructure market, where they're competing with Anthropic and OpenAI for where production agents run."
+      },
+      {
+        type: 'list',
+        items: [
+          "Managed Agents: try it this week if you're building anything that needs to run code on behalf of users. The infrastructure problem just disappeared.",
+          "Gemini 3.5 Flash: re-evaluate if you dismissed Gemini on cost/performance grounds six months ago. The math changed.",
+          "WebMCP: watch the origin trial. If Chrome 149 ships it and the usage numbers are good, start thinking about what it means for your integration strategy.",
+          "Antigravity 2.0: on the radar, not in the build plan yet."
+        ]
+      },
+      {
+        type: 'p',
+        text: "The keynote will be forgotten in a week. The infrastructure Google shipped will still be running six months from now. That's what's worth paying attention to."
+      }
+    ]
+  },
+  {
+    slug: 'github-copilot-usage-billing-what-it-means-for-ai-developers',
+    title: "Your Copilot Bill Just Changed. Here's What You're Actually Paying For Now.",
+    subtitle: "GitHub flipped to token-based billing today. For light users, nothing changes. For agentic power users, the math got brutal.",
+    date: "June 1, 2026",
+    readTime: "5 min read",
+    tags: ["Tools", "GitHub Copilot", "Agentic Coding"],
+    excerpt: "GitHub Copilot moved to usage-based billing today. Developers doing heavy agentic work are reporting 10x–50x cost jumps. Here's what changed, who gets hit hardest, and what to do about it.",
+    content: [
+      {
+        type: 'p',
+        text: "As of today, June 1, 2026, GitHub Copilot no longer sells you unlimited AI. It sells you a monthly credit allotment, and when you blow past it, you pay overage. This is not a small footnote update. For developers doing heavy agentic work, this is a fundamental repricing of how you use the tool."
+      },
+      {
+        type: 'p',
+        text: "Reports are already coming in from developer forums: bills jumping from $29/month to $750. From $50 to $3,000. Those aren't outliers — they're power users who spent the last year treating Copilot's flat rate as an all-you-can-eat ticket for agentic sessions. That ticket has been torn up."
+      },
+      {
+        type: 'h2',
+        text: "What Actually Changed"
+      },
+      {
+        type: 'p',
+        text: "The plan prices are unchanged. Pro is still $10/month. Pro+ is still $39/month. Business is $19/user, Enterprise $39/user. GitHub isn't raising the headline number — they're changing what you get for it."
+      },
+      {
+        type: 'p',
+        text: "Each plan now comes with a monthly AI Credit allotment. Use within that allotment and nothing changes. Go over, and you're paying overage rates. The model that always burned credits hard but was previously throttled by fallback — that safety valve is now gone."
+      },
+      {
+        type: 'callout',
+        title: "The thing that's quietly disappeared",
+        text: "Previously, when you exhausted your premium request units (PRUs), Copilot fell back to cheaper models. That kept bills predictable and agentic sessions affordable. That fallback mechanism no longer exists. When you hit your limit, you're paying full overage rates, full stop."
+      },
+      {
+        type: 'h2',
+        text: "What Burns Credits and What Doesn't"
+      },
+      {
+        type: 'p',
+        text: "Not everything costs you credits. Code completions — the inline suggestions as you type — are still free. Next Edit Suggestions are free. The features that work like glorified autocomplete don't touch your allotment."
+      },
+      {
+        type: 'p',
+        text: "What burns credits hard: Copilot Chat, large context operations, automated code review, and agentic sessions. That last one is the killer for heavy users. Agentic sessions — where Copilot is autonomously planning, executing, and iterating across your codebase — are routinely consuming $30 to $40 per session for Pro users alone."
+      },
+      {
+        type: 'list',
+        items: [
+          "Code completions: free, no credits consumed",
+          "Next Edit Suggestions: free, no credits consumed",
+          "Copilot Chat: burns credits",
+          "Large context operations: burns credits",
+          "Automated code review: burns credits",
+          "Agentic sessions: burns credits hard — $30–$40 per session is being reported"
+        ]
+      },
+      {
+        type: 'h2',
+        text: "Who Gets Hit Hardest"
+      },
+      {
+        type: 'p',
+        text: "The developers in pain right now are the ones who treated Copilot's flat-rate pricing as a structural advantage. They picked Copilot specifically because it let them run long agentic sessions — the kind that Cursor or Claude Code would charge serious money for — under a $39/month ceiling. That calculus is now completely inverted."
+      },
+      {
+        type: 'p',
+        text: "If you've been using agentic sessions daily, you need to do the maths today. Not tomorrow. Run a single session, watch what it consumes, and project it across a month. The sticker shock is real and it's happening to people who thought they had a sustainable workflow."
+      },
+      {
+        type: 'quote',
+        text: "Copilot's flat-rate agentic pricing was genuinely good value. It was also probably unsustainable. GitHub has decided that now is the time to find out.",
+      },
+      {
+        type: 'h2',
+        text: "Light Users: Relax"
+      },
+      {
+        type: 'p',
+        text: "If Copilot is part of your workflow but not the centre of it — you use autocomplete daily, open Chat a few times a week for quick questions, and rarely run anything you'd describe as an agentic session — you're probably fine. Your monthly usage will likely stay within the allotment and your bill stays flat."
+      },
+      {
+        type: 'p',
+        text: "The key is to actually check. GitHub is rolling out a usage dashboard alongside this change. Look at where your credits are actually going before you panic. If Chat and completions are your primary use cases, this change might not touch you at all."
+      },
+      {
+        type: 'h2',
+        text: "What To Do If You're a Power User"
+      },
+      {
+        type: 'p',
+        text: "First: instrument your usage immediately. You cannot manage what you cannot see. Check the GitHub dashboard, understand where your credits are being consumed, and identify the sessions that are costing the most per unit of value."
+      },
+      {
+        type: 'list',
+        items: [
+          "Audit your agentic sessions. Not all of them are equally valuable. The expensive ones that output mediocre results are now especially expensive.",
+          "Consider the alternatives seriously. Claude Code Pro is $100/month with generous agent usage. Cursor is competitive on agentic pricing. If you were using Copilot specifically for agentic work at flat rate, that specific use case needs re-evaluation.",
+          "Set a budget cap immediately. GitHub allows you to configure a monthly spend limit. Do this today before your next session, not after your first bill lands.",
+          "Be more deliberate with context window usage. Large context burns more credits. Tighter, more focused prompts are now cheaper to run."
+        ]
+      },
+      {
+        type: 'h2',
+        text: "The Honest Take on What This Means"
+      },
+      {
+        type: 'p',
+        text: "GitHub building Copilot for Microsoft means this pricing model has been approved at the very top. This is not a beta experiment. Usage-based billing for AI is the direction the entire industry is heading, and Copilot flipping the switch today is the clearest signal yet that the \"unlimited AI for a flat fee\" era is over."
+      },
+      {
+        type: 'p',
+        text: "That's not inherently bad. Usage-based pricing aligns incentives correctly — you pay for value you consume rather than subsidising heavy users through a flat pool. But it does require you to actually think about your AI usage as a cost centre, which most developers haven't had to do yet."
+      },
+      {
+        type: 'p',
+        text: "The developers who adapt fastest are the ones who treat their AI tooling stack like the infrastructure decision it now is: deliberate, monitored, and chosen based on what delivers value at what cost. Welcome to the new normal."
+      }
+    ]
+  },
+  {
+    slug: 'junior-dev-hiring-down-40-percent-what-it-means-for-your-career',
+    title: "Junior Dev Hiring Is Down 40%. Here's What That Actually Means.",
+    subtitle: "The entry-level job market for developers has quietly contracted. But the story is more nuanced — and more actionable — than the headline suggests.",
+    date: "June 1, 2026",
+    readTime: "6 min read",
+    tags: ["Career", "Junior Developers", "AI Engineering", "Hiring"],
+    excerpt: "New data shows junior developer demand has fallen roughly 40% at companies seriously deploying AI tools. That's a real shift worth understanding — not panicking about, but understanding. Here's what the numbers mean and what to do with them.",
+    content: [
+      {
+        type: 'p',
+        text: "The 2026 Agentic Coding Report and the latest Stack Overflow survey landed within a week of each other, and together they carry a number that's been making the rounds in developer circles: companies seriously deploying AI tools have seen roughly a 40% decline in junior developer hiring over the past 18 months."
+      },
+      {
+        type: 'p',
+        text: "That number is real. It deserves a clear-eyed look — not dismissal, and not panic. The story is more specific, more nuanced, and more actionable than the headline suggests."
+      },
+      {
+        type: 'h2',
+        text: "What's Actually Being Cut"
+      },
+      {
+        type: 'p',
+        text: "The drop is not spread evenly across all junior work. It's concentrated in specific tasks: boilerplate generation, CRUD endpoints, simple bug fixes, ticket-based execution work. The kind of clearly-scoped, well-defined tasks that used to be the natural entry point for a developer's first year on the job."
+      },
+      {
+        type: 'p',
+        text: "AI does that work now. Not perfectly, but well enough that a mid-level engineer with the right prompting habits can handle the output review faster than a junior can handle the original implementation. That's the honest economics of it."
+      },
+      {
+        type: 'p',
+        text: "The roles that aren't shrinking — that are in fact growing — are mid and senior roles, specifically for engineers who can orchestrate AI systems, review AI output with genuine judgment, and design the systems that agents operate within. Demand for that profile is up. The contraction is at the bottom of the execution ladder, not across the board."
+      },
+      {
+        type: 'callout',
+        title: "The floor is being raised, not removed",
+        text: "Companies aren't eliminating junior roles entirely — they're hiring fewer juniors and expecting the ones they do hire to arrive already comfortable with AI tools. The bar to get in the door has moved. That's different from the door closing."
+      },
+      {
+        type: 'h2',
+        text: "The Tool Gap Is Closing Fast"
+      },
+      {
+        type: 'p',
+        text: "65% of developers now use AI coding tools at least weekly. The tool gap — the advantage that early adopters had simply by using the tools — is compressing rapidly. Using AI is becoming table stakes, not a differentiator."
+      },
+      {
+        type: 'p',
+        text: "Which means the question for a junior developer isn't \"should I learn to use AI tools?\" It's \"how do I use them in a way that's actually impressive to a hiring manager?\" Those are different questions and they require different answers."
+      },
+      {
+        type: 'h2',
+        text: "The Auckland Market Is Different — Slightly"
+      },
+      {
+        type: 'p',
+        text: "New Zealand's tech market is smaller and the concentration effects hit differently. The companies deploying AI at scale that are driving the US numbers are mostly large enterprises and well-funded startups with hundreds of engineers. That's a smaller slice of the Auckland market, where many employers are SMEs, agencies, and government-adjacent orgs moving more cautiously."
+      },
+      {
+        type: 'p',
+        text: "The trend is the same direction, but the timeline is slower. If the US market has shifted 40%, Auckland is probably 12–18 months behind that curve. That's not reassurance — it's a window. The shift is coming. The question is whether you use the window to get ahead of it."
+      },
+      {
+        type: 'h2',
+        text: "What the Juniors Getting Hired Are Doing Differently"
+      },
+      {
+        type: 'p',
+        text: "The most important nuance in the data: companies aren't just hiring fewer juniors. They're hiring fewer juniors who can't demonstrate AI fluency. The juniors who are getting offers right now aren't just using AI tools — they understand them well enough to explain their workflow, catch when the output is wrong, and articulate the tradeoff between delegating to AI and reviewing manually."
+      },
+      {
+        type: 'p',
+        text: "That's a different kind of junior developer than the one the hiring pipeline was optimised for three years ago. And it's achievable — it just requires deliberately building those skills rather than waiting for them to arrive."
+      },
+      {
+        type: 'quote',
+        text: "The engineers who move fastest aren't waiting to be senior. They're using AI to operate at a senior level of output right now."
+      },
+      {
+        type: 'h2',
+        text: "What to Do If You're a Junior Dev Right Now"
+      },
+      {
+        type: 'list',
+        items: [
+          "Get genuinely good at one AI coding tool — not just familiar. Know its failure modes. Know when to trust its output and when to scrutinise it. Have a specific example of catching it getting something wrong. This is what interviewers are checking for.",
+          "Stop building things that demonstrate you can write code. Start building things that demonstrate you can ship a complete, working product. A finished small project with clear decisions documented beats an unfinished ambitious one every time.",
+          "Learn to read and review AI-generated code critically. The engineers companies want aren't the ones who can generate code fastest — they're the ones who can spot when generated code is subtly wrong for the specific context. That skill takes deliberate practice.",
+          "Build something that uses an AI API, not just AI tools. Understanding how to call a model, handle context, and get structured output reliably puts you in a genuinely small group of junior developers. It's not hard to learn and it signals a lot.",
+          "Document your thinking, not just your output. In your portfolio, README files, GitHub commit messages — show the reasoning behind decisions. AI can generate code. It cannot explain your specific judgment calls. That's your differentiator."
+        ]
+      },
+      {
+        type: 'h2',
+        text: "The Honest Take"
+      },
+      {
+        type: 'p',
+        text: "The 40% number is real and it reflects a real structural shift in what companies need from entry-level developers. The work that used to be the natural starting point for a junior's career is increasingly being handled by AI, and that changes the on-ramp."
+      },
+      {
+        type: 'p',
+        text: "But the shift doesn't mean junior roles are disappearing. It means the junior roles that survive — and that are created — require a different kind of skill than they did. Less execution of clearly-defined tasks, more judgment about what to delegate to AI and how to verify it came back right."
+      },
+      {
+        type: 'p',
+        text: "That's a learnable skill. It doesn't require years to develop — it requires deliberate practice and intentional exposure to building with AI tools at a level beyond autocomplete. The developers who treat that as the actual challenge to solve right now are the ones the market is looking for. Start there."
+      }
+    ]
+  },
+  {
     slug: 'from-coding-to-orchestrating-what-gets-you-hired-in-2026',
     title: "You're Not Getting Hired to Code Anymore. You're Getting Hired to Orchestrate.",
     subtitle: "The 2026 job market has quietly split in two. Here's which side you want to be on — and what it takes to get there.",
