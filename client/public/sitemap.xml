@@ -73,6 +73,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://codencoffee.io/blog/claude-code-overtook-copilot-what-it-means</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codencoffee.io/blog/ai-agents-in-production-the-quality-problem</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codencoffee.io/blog/ai-agent-compliance-the-new-engineering-discipline</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://codencoffee.io/blog/junior-dev-hiring-down-40-percent-what-it-means-for-your-career</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>

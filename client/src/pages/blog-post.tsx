@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "wouter";
-import { Menu, Clock, ArrowLeft, CheckCircle2, ChevronRight } from "lucide-react";
+import { Menu, Clock, ArrowLeft, CheckCircle2, ChevronRight, ExternalLink, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { BLOG_POSTS, type ContentBlock } from "@/lib/blog-posts";
@@ -65,6 +65,28 @@ function renderBlock(block: ContentBlock, index: number) {
         >
           <p className="font-heading font-bold text-foreground mb-2">{block.title}</p>
           <p className="text-muted-foreground leading-relaxed">{block.text}</p>
+        </div>
+      );
+
+    case 'sources':
+      return (
+        <div key={index} className="mt-10 pt-6 border-t border-border/40">
+          <h4 className="text-xs font-semibold text-foreground/40 uppercase tracking-widest mb-3">Sources</h4>
+          <ul className="space-y-2">
+            {block.items.map((item, i) => (
+              <li key={i}>
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
+                >
+                  <ExternalLink className="w-3 h-3 shrink-0" />
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       );
 
@@ -190,11 +212,20 @@ export default function BlogPost() {
                 {post.subtitle}
               </p>
 
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center flex-wrap gap-2 text-sm text-muted-foreground">
                 <Clock className="w-4 h-4" />
                 <span>{post.date}</span>
                 <span className="opacity-40">·</span>
                 <span>{post.readTime}</span>
+                {post.author && (
+                  <>
+                    <span className="opacity-40">·</span>
+                    <span className="inline-flex items-center gap-1">
+                      <User className="w-3.5 h-3.5" />
+                      {post.author}
+                    </span>
+                  </>
+                )}
               </div>
             </header>
 
