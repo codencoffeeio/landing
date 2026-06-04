@@ -4,7 +4,8 @@ export type ContentBlock =
   | { type: 'h3'; text: string }
   | { type: 'quote'; text: string; attribution?: string }
   | { type: 'list'; items: string[] }
-  | { type: 'callout'; title: string; text: string };
+  | { type: 'callout'; title: string; text: string }
+  | { type: 'sources'; items: Array<{ title: string; url: string }> };
 
 export interface BlogPost {
   slug: string;
@@ -14,10 +15,139 @@ export interface BlogPost {
   readTime: string;
   tags: string[];
   excerpt: string;
+  author?: string;
   content: ContentBlock[];
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: 'claude-code-overtook-copilot-what-it-means',
+    title: "Claude Code Went From Zero to #1 in Eight Months. Here's What That Tells Us.",
+    subtitle: "GitHub Copilot held the top spot for years. Then Claude Code launched in May 2025, and by 2026 it was leading on adoption, satisfaction, and loyalty. How did that happen?",
+    date: "June 4, 2026",
+    readTime: "6 min read",
+    tags: ["Tools", "Claude Code", "AI Coding", "Developer Trends"],
+    author: "Aira",
+    excerpt: "Claude Code launched in May 2025 and is already the most-used AI coding tool by developers who actually use AI heavily at work. CSAT of 91%, NPS of 54. GitHub Copilot had years of head start. What happened?",
+    content: [
+      { type: 'p', text: "Eight months. That's how long it took Claude Code to go from public launch to leading the category on every metric that matters — satisfaction, loyalty, and daily active use among the developers who actually ship production software." },
+      { type: 'p', text: "GitHub Copilot had years. A Microsoft distribution deal. Native IDE integration. 76% brand awareness among developers. And it's still losing on the metrics that predict long-term retention: CSAT and NPS." },
+      { type: 'h2', text: "The Numbers Are Not Close" },
+      { type: 'p', text: "The JetBrains Developer Ecosystem Survey for 2026 puts Claude Code at 91% CSAT and an NPS of 54. Those are the highest loyalty scores in the category. Not by a little." },
+      { type: 'p', text: "GitHub Copilot is still the most widely known tool — 76% of developers have heard of it, 29% use it at work. But knowing something and loving it are different things. Copilot's satisfaction scores have been sliding as power users migrate to tools built around agentic workflows." },
+      { type: 'callout', title: "By the numbers (JetBrains Research, 2026)", text: "Claude Code: 91% CSAT, NPS 54 — highest in category. GitHub Copilot: 76% brand awareness, 29% workplace adoption, satisfaction declining. Cursor: briefly led the agentic wave, now third in satisfaction rankings." },
+      { type: 'h2', text: "What Actually Changed: Copilot vs. Agent" },
+      { type: 'p', text: "The name 'Copilot' was always a metaphor — and it turned out to be the wrong one. A copilot sits next to you and helps. An agent goes and does the thing." },
+      { type: 'p', text: "For years, AI coding tools were glorified autocomplete. Useful, sure. But you were still the one holding every context switch, every terminal command, every file edit. The AI was a fast typist riding shotgun." },
+      { type: 'p', text: "Claude Code shipped with a different assumption: you describe what you want, it figures out how to do it. Terminal-first. Agentic by default. No IDE plugin required, no hand-holding needed. It treats you like an engineer, not a user." },
+      { type: 'quote', text: "The shift wasn't about better autocomplete. It was about who's driving." },
+      { type: 'p', text: "55% of developers now regularly use AI agents — and among staff-level and above engineers, that number is 63.5%. These are the people whose opinions propagate through teams. When they switch, teams switch." },
+      { type: 'h2', text: "Cursor's Brief Window" },
+      { type: 'p', text: "Cursor deserves credit. It saw the agentic shift coming and built for it inside a familiar IDE wrapper. For a lot of developers, Cursor was the first taste of what autonomous coding assistance could actually feel like." },
+      { type: 'p', text: "But Cursor was still fundamentally IDE-shaped. Claude Code didn't try to be a better IDE. It ran in the terminal, talked to your filesystem, spawned subprocesses, read your git history. It acted more like a senior engineer pair-programming over SSH than a plugin sitting inside VS Code." },
+      { type: 'h2', text: "The Copilot Token Billing Moment" },
+      { type: 'p', text: "On June 1, 2026, GitHub flipped Copilot to usage-based token billing. The reaction was immediate and ugly. Power users — the exact developers driving Claude Code adoption — did the math and didn't like it." },
+      { type: 'p', text: "When you're running complex, multi-step agentic tasks, token costs are not predictable. Flat-rate pricing is a feature, not a pricing strategy. Teams paying $100–200 per engineer per month for Claude Code Max knew exactly what they were getting each month. Token billing introduced the kind of uncertainty that finance teams and engineering leads hate equally." },
+      { type: 'quote', text: "'What a joke' was the top comment on Hacker News the day Copilot's new billing dropped. That's not a recoverable moment.", attribution: "TechCrunch, May 30 2026" },
+      { type: 'h2', text: "The 95% Baseline" },
+      { type: 'p', text: "95% of developers now use AI coding tools at least weekly. This isn't a category that's still trying to prove value. It's a category where the question is purely which tool wins." },
+      { type: 'list', items: ["95% of devs use AI coding tools at least weekly", "55% regularly use AI agents (not just autocomplete)", "63.5% of staff+ engineers are on agentic workflows", "$100–200/month per engineer is the new normal for 'max' tier plans"] },
+      { type: 'p', text: "GitHub Copilot optimized for the developer who was skeptical of AI. Claude Code optimized for the developer who was ready to hand off the boring parts entirely. In 2025 that was a risky bet. In 2026 it's the obvious call." },
+      { type: 'sources', items: [
+        { title: "JetBrains Developer Ecosystem Survey 2026", url: "https://blog.jetbrains.com/research/2026/04/which-ai-coding-tools-do-developers-actually-use-at-work/" },
+        { title: "2026 Agentic Coding Trends Report — Anthropic", url: "https://resources.anthropic.com/hubfs/2026%20Agentic%20Coding%20Trends%20Report.pdf" },
+        { title: "AI Tooling for Software Engineers in 2026 — Pragmatic Engineer", url: "https://newsletter.pragmaticengineer.com/p/ai-tooling-2026" },
+        { title: "GitHub Copilot moves to usage-based billing — TechCrunch", url: "https://techcrunch.com/2026/05/30/what-a-joke-github-copilots-new-token-based-billing-spurs-consternation-among-devs/" },
+      ]},
+    ],
+  },
+  {
+    slug: 'ai-agents-in-production-the-quality-problem',
+    title: "57% of Companies Have AI Agents in Production. Most Are Struggling With the Same Thing.",
+    subtitle: "Getting an AI agent to work in a demo is easy. Getting it to work reliably on Tuesday afternoon in a real system is something else entirely.",
+    date: "June 4, 2026",
+    readTime: "7 min read",
+    tags: ["AI Agents", "Production", "Engineering", "LLMs"],
+    author: "Aira",
+    excerpt: "More than half of companies now have AI agents in production. But 1 in 3 engineering teams cite quality as their #1 blocker. Not the models. Not the cost. The output quality. Here's what that actually means and what teams doing it well are doing differently.",
+    content: [
+      { type: 'p', text: "According to LangChain's State of Agent Engineering report, 57% of respondents now have AI agents running in production. That number would have seemed ambitious two years ago. Today it just sounds like Tuesday." },
+      { type: 'p', text: "But buried in the same data is a number that should get more attention: 32% of engineering teams cite output quality as their top barrier to production AI. Not cost. Not latency. Not the models themselves. The quality of what the agents actually produce when real users start throwing real inputs at them." },
+      { type: 'h2', text: "The Demo-to-Production Gap Is Real" },
+      { type: 'p', text: "There is a specific kind of pain that comes from watching an agent nail every eval you throw at it, shipping it, and then having it start hallucinating tool parameters on day three. It is not a model problem. The model is the same. What changed is everything around it." },
+      { type: 'p', text: "Production inputs are messier than eval inputs. Context windows fill up in ways you did not anticipate. Tool calls chain together and surface edge cases that never appeared in your test suite. A user phrases something slightly differently than your prompt was tuned for, and the whole thing quietly goes sideways." },
+      { type: 'h2', text: "Quality in Production Means Something Specific" },
+      { type: 'list', items: [
+        "Consistency across diverse inputs — the agent handles the clean case well but degrades on anything outside the distribution it was tuned on",
+        "Graceful degradation when tools fail — instead of recovering, the agent loops, hallucinates a result, or returns something confidently wrong",
+        "Hallucinated tool parameters — the agent invents arguments for a function call rather than acknowledging it doesn't have the information it needs",
+        "Context loss on long-running tasks — multi-step tasks that work fine at step three start losing coherence by step eight as the context window fills",
+      ]},
+      { type: 'h2', text: "Rate Limits Are Also a Production Reality" },
+      { type: 'p', text: "Datadog's State of AI Engineering found that in February 2026, roughly 5% of all LLM call spans reported errors — and 60% of those errors were rate limits. That's a significant chunk of production failures that have nothing to do with prompt quality. They are infrastructure problems dressed up as AI problems." },
+      { type: 'p', text: "Production readiness for agents is not just about getting the outputs right. It is about building systems that degrade gracefully when the infrastructure underneath them hiccups. Retry logic, fallback routing, and rate limit awareness are table stakes." },
+      { type: 'h2', text: "The Framework Moment" },
+      { type: 'p', text: "Framework adoption for agent development nearly doubled year-over-year — from around 9% of organisations in early 2025 to roughly 18% by early 2026. LangChain, LangGraph, Pydantic AI, and Vercel AI SDK are all gaining ground." },
+      { type: 'callout', title: "The core insight", text: "The quality problem in production AI is not a model problem. It is a systems problem. Production quality is determined by how well your surrounding system handles the inputs the model wasn't trained on, the tools that don't behave as expected, and the edge cases your evals never surfaced." },
+      { type: 'h2', text: "What Teams Doing This Well Are Actually Doing" },
+      { type: 'list', items: [
+        "Building evaluation sets from real production traffic, not synthetic examples — so evals reflect the actual distribution of inputs the agent will see",
+        "Using structured outputs with validation at every tool call boundary — if the model can't produce a valid structured response, treat it as a failure and handle it explicitly",
+        "Adding human-in-the-loop checkpoints for high-stakes decisions — as a circuit breaker while you build confidence in the agent's behaviour",
+        "Shipping in shadow mode before full rollout — running the agent on real traffic, logging outputs, but not acting on them until quality is verified",
+        "Treating context management as a first-class engineering concern — designing tasks so the information the agent needs is available when it needs it",
+        "Building explicit failure modes into tool definitions — so when a tool call can't be completed, the agent returns a structured 'I cannot do this' rather than inventing an answer",
+      ]},
+      { type: 'p', text: "The technology is ready enough. The engineering practices are catching up. The gap is closeable — but only if you take it seriously as an engineering problem rather than a model problem." },
+      { type: 'sources', items: [
+        { title: "State of Agent Engineering — LangChain", url: "https://www.langchain.com/state-of-agent-engineering" },
+        { title: "State of AI Engineering — Datadog", url: "https://www.datadoghq.com/state-of-ai-engineering/" },
+        { title: "AI Agent Development Tools in 2026 — n8n Blog", url: "https://blog.n8n.io/we-need-re-learn-what-ai-agent-development-tools-are-in-2026/" },
+        { title: "2026 Agentic Coding Trends Report — Anthropic", url: "https://resources.anthropic.com/hubfs/2026%20Agentic%20Coding%20Trends%20Report.pdf" },
+      ]},
+    ],
+  },
+  {
+    slug: 'ai-agent-compliance-the-new-engineering-discipline',
+    title: "The New Engineering Discipline Nobody's Job Title Reflects Yet",
+    subtitle: "Workday just launched a system to test and audit every AI agent against OWASP and NIST before it touches production. NetFoundry shipped Zero Trust gateways for LLM APIs. AI governance is becoming a real engineering discipline — fast.",
+    date: "June 4, 2026",
+    readTime: "6 min read",
+    tags: ["AI Governance", "Security", "Enterprise AI", "Career"],
+    author: "Aira",
+    excerpt: "Workday's Agent Passport audits every AI agent against OWASP LLM Top 10 and NIST AI RMF before production. NetFoundry shipped Zero Trust gateways for LLM APIs. AI governance is turning into a real engineering role — and most orgs don't have anyone doing it yet.",
+    content: [
+      { type: 'p', text: "Two announcements dropped this week that, taken together, signal something bigger than either story alone. On June 2, Workday launched Agent Passport — a system that tests and verifies every AI agent before it touches production data. On June 3, NetFoundry launched enterprise-grade Zero Trust gateways specifically for LLM APIs. Neither is a startup. These are mature enterprise software organisations building compliance and security infrastructure for AI agents." },
+      { type: 'h2', text: "What Workday Actually Shipped" },
+      { type: 'p', text: "Agent Passport isn't a marketing concept. It's a testing and attestation pipeline that applies to every AI agent operating inside Workday's ecosystem — whether Workday built it or a third party did. Every agent gets tested against the OWASP LLM Top 10, mapped to NIST AI RMF controls, and cross-referenced with MITRE ATLAS threat vectors. When an agent passes, it gets a signed, auditable record of exactly what it was tested for." },
+      { type: 'p', text: "The signed record part matters more than people are giving it credit for. This isn't a checkbox. It's a verifiable artefact — the kind of thing a CISO can point to during an audit. That's the same posture enterprises adopted for production APIs around 2015, and it fundamentally changed how engineering teams operated." },
+      { type: 'quote', text: "Every AI agent — Workday-built or third-party — must pass security and compliance attestation before it touches production. The era of 'we'll figure out governance later' is closing.", attribution: "Workday Agent Passport launch, June 2, 2026" },
+      { type: 'h2', text: "NetFoundry and the Zero Trust Layer for LLMs" },
+      { type: 'p', text: "NetFoundry's gateway model eliminates API key distribution and port exposure entirely. Agents get Zero Trust access to LLM providers — OpenAI, Anthropic, Azure OpenAI, AWS Bedrock, Google Vertex AI, Ollama — authenticated, policy-controlled, and auditable, without the credential sprawl that currently makes enterprise AI deployments a security team's nightmare." },
+      { type: 'h2', text: "The M&A Layer Confirms the Trend" },
+      { type: 'p', text: "Asana acquired StackAI (no-code agent execution infrastructure). Palo Alto Networks acquired Portkey (AI gateway for routing, observability, and runtime policy). When Palo Alto Networks decides the AI gateway layer is worth acquiring, that's a strong signal about where security engineering attention is heading." },
+      { type: 'h2', text: "OWASP LLM Top 10 Is Becoming the Standard" },
+      { type: 'p', text: "The fact that Workday anchored Agent Passport to OWASP LLM Top 10 matters. OWASP frameworks become standards because they give compliance teams and engineers a shared vocabulary. Prompt injection, insecure output handling, training data poisoning — these aren't theoretical. Expect OWASP LLM Top 10 in vendor contracts and job descriptions within 12 months." },
+      { type: 'h2', text: "The Role That's Forming" },
+      { type: 'p', text: "AI agents are being treated like production software — which means they need security reviews, compliance sign-off, audit trails, and ongoing monitoring. Every one of those requirements maps to an engineering function that most organisations either don't have, or have spread awkwardly across security, ML, and platform teams." },
+      { type: 'list', items: [
+        "Fluency with LLM behaviour — context windows, prompt injection mechanics, output reliability, agentic tool use",
+        "Working knowledge of OWASP LLM Top 10, NIST AI RMF, and MITRE ATLAS",
+        "Experience with API security, Zero Trust architecture, and credential management",
+        "Ability to design and document audit trails and attestation processes",
+        "Understanding of enterprise compliance requirements (SOC 2, HIPAA, GDPR as they apply to AI systems)",
+        "Familiarity with AI observability tooling — monitoring agent behaviour in production, not just at deployment",
+      ]},
+      { type: 'callout', title: "The Career Opportunity Is Real and It's Early", text: "Most organisations deploying AI agents today don't have anyone whose explicit job is AI governance and security. Engineers who build this combination of skills now are positioning for a role that will exist formally at most enterprises within two to three years. This is what the cloud security engineering opportunity looked like in 2012." },
+      { type: 'p', text: "The infrastructure is taking shape faster than most people realise. The remaining gap is the human function — the engineering discipline that runs this infrastructure, maintains the audit trail, and keeps agents compliant as models evolve. That gap is the opportunity." },
+      { type: 'sources', items: [
+        { title: "Workday Launches Agent Passport — Workday Newsroom", url: "https://newsroom.workday.com/2026-06-02-Workday-Launches-Agent-Passport-to-Test,-Verify,-and-Continuously-Monitor-Every-AI-Agent-in-the-Enterprise" },
+        { title: "NetFoundry Launches Enterprise-Class MCP and LLM Gateways — PR Newswire", url: "https://www.prnewswire.com/news-releases/netfoundry-launches-enterprise-class-mcp-and-llm-gateways-bringing-zero-trust-to-ai-deployments-302789053.html" },
+        { title: "OWASP LLM Top 10", url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/" },
+        { title: "State of Agent Engineering — LangChain", url: "https://www.langchain.com/state-of-agent-engineering" },
+      ]},
+    ],
+  },
   {
     slug: 'google-io-2026-what-ai-builders-should-actually-care-about',
     title: "Google I/O 2026: The Three Announcements That Actually Matter for AI Builders",
