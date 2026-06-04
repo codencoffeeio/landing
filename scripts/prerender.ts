@@ -90,9 +90,15 @@ function buildHtml({ title, description, type, datePublished, urlPath }: PageMet
     `<script type="application/ld+json">${jsonLd}</script>`,
   ].join('\n    ');
 
-  // Strip any placeholder <title> Vite injects, then insert our tags
+  // Strip any title/meta tags the template may already contain, then inject ours
   return template
-    .replace(/<title>[^<]*<\/title>/, '')
+    .replace(/<title>[^<]*<\/title>/g, '')
+    .replace(/<meta\s+name="description"[^>]*>/gi, '')
+    .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+    .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
+    .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+    .replace(/<link\s+rel="canonical"[^>]*>/gi, '')
+    .replace(/<script\s+type="application\/ld\+json">[^<]*<\/script>/gi, '')
     .replace('</head>', `  ${injected}\n  </head>`);
 }
 
