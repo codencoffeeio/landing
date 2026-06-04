@@ -205,6 +205,75 @@ export default function Home() {
       </section>
 
 
+      {/* Blog Carousel */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto max-w-6xl px-6">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <span className="text-sm font-semibold uppercase tracking-widest text-primary">From the Blog</span>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold mt-1">Latest reads</h2>
+            </div>
+            <Link
+              href="/blog"
+              className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            >
+              All posts <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div
+            className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth"
+            style={{ scrollbarWidth: "none" }}
+          >
+            {BLOG_POSTS.slice(0, 4).map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group block shrink-0 w-[80vw] sm:w-[340px] snap-start"
+              >
+                <article className="h-full flex flex-col bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300 overflow-hidden relative">
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {post.tags.slice(0, 2).map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-medium px-2.5 py-1 rounded-full bg-secondary text-secondary-foreground border border-border/60"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <h3 className="font-heading text-base font-bold text-foreground leading-snug mb-3 group-hover:text-primary transition-colors flex-1">
+                    {post.title}
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-4">
+                    {post.excerpt}
+                  </p>
+
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground pt-3 border-t border-border/60">
+                    <span>{post.date}</span>
+                    <span className="opacity-40">·</span>
+                    <span>{post.readTime}</span>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-5 sm:hidden text-center">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            >
+              All posts <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* HN AI Stories */}
       {(isHNLoading || (hnStories && hnStories.length > 0)) && (
         <section className="py-16 border-y border-border/40 bg-secondary/20">
@@ -326,75 +395,6 @@ export default function Home() {
               className="inline-flex items-center gap-2 h-12 px-6 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 hover:translate-y-[-2px] transition-all shadow-lg shadow-primary/20"
             >
               View Verified Builders <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Blog Carousel */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto max-w-6xl px-6">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <span className="text-sm font-semibold uppercase tracking-widest text-primary">From the Blog</span>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold mt-1">Latest reads</h2>
-            </div>
-            <Link
-              href="/blog"
-              className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-            >
-              All posts <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div
-            className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth"
-            style={{ scrollbarWidth: "none" }}
-          >
-            {BLOG_POSTS.slice(0, 4).map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group block shrink-0 w-[80vw] sm:w-[340px] snap-start"
-              >
-                <article className="h-full flex flex-col bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300 overflow-hidden relative">
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {post.tags.slice(0, 2).map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs font-medium px-2.5 py-1 rounded-full bg-secondary text-secondary-foreground border border-border/60"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <h3 className="font-heading text-base font-bold text-foreground leading-snug mb-3 group-hover:text-primary transition-colors flex-1">
-                    {post.title}
-                  </h3>
-
-                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-4">
-                    {post.excerpt}
-                  </p>
-
-                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground pt-3 border-t border-border/60">
-                    <span>{post.date}</span>
-                    <span className="opacity-40">·</span>
-                    <span>{post.readTime}</span>
-                  </div>
-                </article>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-5 sm:hidden text-center">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-            >
-              All posts <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
