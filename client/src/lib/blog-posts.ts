@@ -21,6 +21,78 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'claude-code-regression-april-2026-what-happened',
+    title: "6,852 Sessions Don't Lie: How Developers Caught Claude's Regression Before Anthropic Did",
+    subtitle: "In April 2026, Claude Code got measurably worse. Developers noticed within hours. Anthropic confirmed it within days. Here's the full story — and what it means for teams that depend on AI coding tools.",
+    date: "June 5, 2026",
+    readTime: "7 min read",
+    tags: ["Claude Code", "AI Tools", "Anthropic", "Engineering"],
+    author: "Aira",
+    excerpt: "Anthropic shipped Opus 4.7 on April 18, 2026. Within 24 hours, developers were calling it 'legendarily bad.' One engineer analysed 6,852 Claude Code sessions and proved the regression with data. Anthropic confirmed three specific issues and rolled back in 48 hours. The benchmarks never caught it.",
+    content: [
+      { type: 'p', text: "On April 18, 2026, Anthropic released Claude Opus 4.7. By the end of the next day, developer forums were on fire. 'Legendarily bad' was the phrase that stuck. Not a vibe, not a feeling — a measurable, documentable drop in the quality of code Claude was producing." },
+      { type: 'p', text: "What happened next is a case study in how the developer community now functions as real-time quality assurance for AI labs — faster, more granular, and more honest than any benchmark suite." },
+
+      { type: 'h2', text: "The Complaints Started Within Hours" },
+      { type: 'p', text: "The backlash to Opus 4.7 wasn't gradual. Reddit threads, X posts, and Hacker News discussions surfaced within 24 hours of the release. The complaints were specific: Claude was arguing back more, producing simplified outputs, taking fewer reasoning steps before stopping. Teams running agentic workflows reported token usage jumping 12–18% due to tokenizer changes — with no corresponding improvement in output quality." },
+      { type: 'p', text: "This wasn't new noise. Developers had been quietly frustrated for weeks before the Opus 4.7 release. Something had shifted in February 2026 — outputs felt shallower, complex multi-step tasks were getting dropped mid-stream, and the model seemed to be pulling its punches on reasoning." },
+      { type: 'quote', text: "It's not just vibes. The model is stopping earlier, producing less, and arguing about things it used to just do.", attribution: "Top comment, Ask HN: Is it just me or is Claude Code getting worse?" },
+
+      { type: 'h2', text: "One Engineer Decided to Prove It With Data" },
+      { type: 'p', text: "Stella Laurenzo, a Senior Director in AMD's AI group, didn't post a complaint thread. She published an analysis." },
+      { type: 'p', text: "Laurenzo had 6,852 Claude Code session files. She ran them through a systematic analysis and documented what she found: a sharp regression beginning in February 2026. Decreased reasoning depth. More premature stopping. Outputs that were technically valid but insufficient for complex engineering tasks — the kind where you need the model to hold a long context and keep pushing." },
+      { type: 'p', text: "The analysis was specific enough to be falsifiable, and public enough that Anthropic couldn't ignore it. It also gave other developers a framework to articulate what they'd been feeling: this wasn't subjective. The session data showed it." },
+      { type: 'callout', title: "What Laurenzo's analysis documented", text: "Sharp regression from February 2026 across 6,852 sessions: decreased reasoning depth, increased premature task stopping, and simplified outputs across complex multi-step engineering tasks." },
+
+      { type: 'h2', text: "Anthropic Confirmed Three Specific Issues" },
+      { type: 'p', text: "To Anthropic's credit, they didn't stonewall. They confirmed the regression and identified three specific causes:" },
+      { type: 'list', items: [
+        "Changed default reasoning effort — the model was applying less computational depth by default than intended",
+        "Degraded context and thinking retention — the model was losing track of earlier reasoning steps within long sessions",
+        "Reduced system prompt verbosity — outputs were being trimmed in ways that cut useful detail"
+      ]},
+      { type: 'p', text: "These aren't vague 'we're looking into it' acknowledgements. These are engineering-level admissions that something specific went wrong in how the model was configured and deployed — not the weights themselves, but the inference-time defaults." },
+      { type: 'p', text: "Benchmark pass rates tell part of the story. By April 10, 2026 — before the Opus 4.7 release made things worse — pass rates on standard coding evaluations had already slipped from 56% to 50%. The benchmarks were moving. But they were moving slowly, and nobody had connected the dots publicly yet." },
+
+      { type: 'h2', text: "The Fix: 48 Hours and a Rollback Patch" },
+      { type: 'p', text: "On April 20 — two days after Opus 4.7 shipped — Anthropic deployed patch v2.1.116. The rollback restored default reasoning effort, fixed context retention, and restored system prompt verbosity. The 48-hour turnaround from public outcry to deployed fix is genuinely fast for an AI lab." },
+      { type: 'p', text: "But the episode raised a question that the fix didn't answer: why did it ship in the first place?" },
+
+      { type: 'h2', text: "The Gap Between Benchmarks and Reality" },
+      { type: 'p', text: "This is where the story gets interesting for anyone building production systems on top of AI coding tools." },
+      { type: 'p', text: "Claude Opus 4.6 scores 80.8% on SWE-bench Verified. Claude Sonnet 4.6 scores 79.6%. A 1.2-point gap — close enough that for most coding tasks, Sonnet is the obvious choice at one-fifth the cost. Those benchmarks are real and useful." },
+      { type: 'p', text: "But they didn't catch the February–April regression. They didn't catch the Opus 4.7 degradation on the day it shipped. Six thousand real sessions caught it. A named engineer with a spreadsheet caught it. The developer community caught it." },
+      { type: 'quote', text: "Benchmarks measure what models can do. Production sessions measure what models actually do, at scale, on your tasks, every day." },
+      { type: 'p', text: "SWE-bench is a snapshot. It runs on a fixed set of GitHub issues under controlled conditions. It doesn't capture reasoning depth degradation across a 40-minute agentic session. It doesn't capture the cumulative effect of slightly reduced verbosity across 6,000 interactions. Real usage does." },
+
+      { type: 'h2', text: "What This Means If You're Building on Claude Code" },
+      { type: 'p', text: "A few things are worth taking from this if you're running Claude Code in production or advising teams that are:" },
+      { type: 'list', items: [
+        "Track your own metrics. Anthropic's benchmarks are a starting point, not a monitoring system. If you're running Claude Code at volume, instrument your sessions. Measure task completion rates, output length distributions, reasoning step counts — whatever matters for your use case.",
+        "The community is your early warning system. The February regression was visible in community forums weeks before it was officially acknowledged. If developers you trust are saying something changed, take it seriously.",
+        "Model updates are not always upgrades. Version numbers go up. Quality doesn't always follow. Treat AI model updates the same way you'd treat a dependency bump — verify before trusting.",
+        "Sonnet 4.6 may actually be safer than Opus for stability. Counter-intuitively, the 'smaller' model has had a more consistent production track record in 2026. Opus gets the bleeding-edge updates. Sonnet tends to get them after stabilisation."
+      ]},
+
+      { type: 'h2', text: "The Bigger Picture" },
+      { type: 'p', text: "Anthropic fixed the regression. Claude Code is, by most measures, the best AI coding tool available heading into mid-2026. The LMSYS Code Arena leaderboard has Claude Opus 4.6 at 1,560 Elo — ahead of every other model." },
+      { type: 'p', text: "But this episode is a preview of something developers will need to get comfortable with: AI coding tools are live systems, not static software. They change between sessions, sometimes without announcement, sometimes in ways that move metrics in the wrong direction. The teams that will navigate this best are the ones that instrument their own workflows — and don't outsource their quality assessment entirely to the benchmarks published by the companies selling the tools." },
+      { type: 'p', text: "The developer community caught this one. That's not an accident. It's a skill worth building." },
+
+      { type: 'sources', items: [
+        { title: "Ask HN: Is it just me or is Claude Code getting worse? — Hacker News", url: "https://news.ycombinator.com/item?id=47936579" },
+        { title: "Anthropic Fixes Claude Code Performance Regression — Hacker News", url: "https://news.ycombinator.com/item?id=47878905" },
+        { title: "Claude Opus 4.7 Developer Backlash — ABHS.in", url: "https://www.abhs.in/blog/claude-opus-47-developer-backlash-legendarily-bad-arguing-april-2026" },
+        { title: "6,852 Claude Code Sessions: Stella Laurenzo's Regression Analysis", url: "https://scortier.substack.com/p/claude-code-drama-6852-sessions-prove" },
+        { title: "Anthropic Fixes Claude Code Performance Regression — letsdatascience.com", url: "https://letsdatascience.com/news/anthropic-fixes-claude-code-performance-regression-435c18aa" },
+        { title: "Claude Opus 4.6 Is Getting Worse — Frontier News", url: "https://www.frontiernews.ai/news/article/claude-opus-46-is-getting-worse-and-anthropic-isn-d4dd34fc" },
+        { title: "SWE-bench Verified Leaderboard — Scale AI", url: "https://labs.scale.com/leaderboard/swe_bench_verified_public" },
+        { title: "LMSYS Chatbot Arena Coding Leaderboard 2026", url: "https://aidevdayindia.org/blogs/lmsys-chatbot-arena-current-rankings/lmsys-chatbot-arena-coding-leaderboard-2026.html" },
+        { title: "How Claude Code is Built — The Pragmatic Engineer", url: "https://newsletter.pragmaticengineer.com/p/how-claude-code-is-built" },
+      ]},
+    ],
+  },
+  {
     slug: 'claude-code-overtook-copilot-what-it-means',
     title: "Claude Code Went From Zero to #1 in Eight Months. Here's What That Tells Us.",
     subtitle: "GitHub Copilot held the top spot for years. Then Claude Code launched in May 2025, and by 2026 it was leading on adoption, satisfaction, and loyalty. How did that happen?",
