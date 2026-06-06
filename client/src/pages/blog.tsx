@@ -25,12 +25,12 @@ export default function Blog() {
         <title>Blog — Code, Coffee & AI</title>
         <meta
           name="description"
-          content="Insights, stories, and practical guides for developers navigating the age of AI. Career advice, job search tactics, and community wisdom from Auckland's tech community."
+          content="Insights, tutorials, and honest takes from Auckland's AI engineering community."
         />
         <meta property="og:title" content="Blog — Code, Coffee & AI" />
         <meta
           property="og:description"
-          content="Insights, stories, and practical guides for developers navigating the age of AI."
+          content="Insights, tutorials, and honest takes from Auckland's AI engineering community."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://codencoffee.io/blog" />
@@ -40,7 +40,7 @@ export default function Blog() {
         <meta name="twitter:title" content="Blog — Code, Coffee & AI" />
         <meta
           name="twitter:description"
-          content="Insights, stories, and practical guides for developers navigating the age of AI."
+          content="Insights, tutorials, and honest takes from Auckland's AI engineering community."
         />
         <meta name="twitter:image" content="https://codencoffee.io/logo.png" />
       </Helmet>
