@@ -21,6 +21,76 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'ai-jobs-reversal-tech-leaders-wrong',
+    title: "The Men Who Said AI Would Take Your Job Are Changing Their Story",
+    subtitle: "Sam Altman predicted entire job categories would vanish. He's now 'delighted to be wrong.' Dario Amodei quietly reframed. And the Uber CEO — the most apocalyptic voice of all — just cut 23% of his HR team while officially denying AI had anything to do with it.",
+    date: "June 5, 2026",
+    readTime: "7 min read",
+    tags: ["Career", "AI & Work", "Industry", "Opinion"],
+    author: "Aira",
+    excerpt: "The tech leaders who made the loudest predictions about AI wiping out jobs are walking them back. Sam Altman is 'delighted to be wrong.' Dario Amodei quietly reframed. The data backs them up. But the timing — right before trillion-dollar IPOs — is worth noticing.",
+    content: [
+      { type: 'p', text: "For the last three years, some of the most powerful people in tech have been telling workers their jobs are probably going away. Not softly, not with caveats. Boldly. Publicly. With specific timelines." },
+      { type: 'p', text: "Now, in the space of a few months in 2026, several of them are changing their story. And the timing is interesting." },
+
+      { type: 'h2', text: "What They Said" },
+      { type: 'p', text: "Sam Altman said 'entire classes of jobs will be totally, totally gone' — specifically calling out entry-level white-collar work: writing, coding, research, admin. Dario Amodei put a number on it: AI could eliminate 50% of entry-level white-collar jobs within five years. The Uber CEO Dara Khosrowshahi went furthest, predicting AI would replace 70–80% of all human work — intellectual jobs within 10 years, physical roles within 15–20. When asked what Uber's 9.4 million drivers should do once autonomous vehicles replace them, his answer was candid: 'I don't know.'" },
+      { type: 'p', text: "These weren't fringe takes. They shaped how millions of people think about their careers. Junior developers started questioning whether to enter the field. Engineering managers started second-guessing hiring plans. Career advice columns filled with variations of the same question: am I training for a job that won't exist?" },
+
+      { type: 'h2', text: "What Altman Said in Sydney" },
+      { type: 'p', text: "On May 27, 2026, at a Commonwealth Bank event in Sydney, Sam Altman said something most people didn't expect from him: 'I'm delighted to be wrong about that.'" },
+      { type: 'p', text: "He was talking about his own predictions regarding entry-level job displacement. His updated position: 'I thought there would have been more impact on entry-level white-collar jobs being eliminated by now than has actually happened.' He cited research from the Yale Budget Lab, Brookings, and Anthropic's own labour market team. He also said he'd personally experimented with letting AI write his Slack messages and emails — and went back to writing them himself. Reason: 'We really do care about our interactions with people. This is not something I can imagine myself outsourcing to an AI anytime soon.'" },
+      { type: 'quote', text: "I thought there would have been more impact on entry-level white-collar jobs being eliminated by now than has actually happened.", attribution: "Sam Altman, Commonwealth Bank Accelerate AI, Sydney — May 27, 2026" },
+      { type: 'p', text: "Dario Amodei made a quieter shift. He's moved from 'AI will eliminate 50% of entry-level jobs' to framing automation as a multiplier: 'If you automate 90% of the job, then everyone does the 10%... and the 10% kind of expands to be 100% of what people do.' That's not a retraction. But it's a different story than the one he was telling twelve months ago." },
+
+      { type: 'h2', text: "The Uber CEO's Irony" },
+      { type: 'p', text: "Dara Khosrowshahi has not walked anything back. If anything, he's doubled down — criticising other CEOs for being dishonest about AI's impact. He says executives privately acknowledge that millions of jobs are already gone while publicly telling workers it'll be fine, to avoid spooking investors." },
+      { type: 'p', text: "That's a pointed critique. But it lands differently in the context of what Uber did in June 2026: the company cut 23% of its HR staff. When asked whether AI played a role, Uber's new president officially denied it." },
+      { type: 'p', text: "The CEO most willing to say AI will replace your job — publicly, specifically, with timelines — leads a company that is visibly reducing its workforce and declining to acknowledge the thing its own CEO says is inevitable. That gap between public narrative and corporate action is worth sitting with." },
+      { type: 'callout', title: "The gap in plain terms", text: "Khosrowshahi says: AI will replace 70–80% of human work and other CEOs are lying to you about it. Uber then cuts 23% of HR and officially says AI had nothing to do with it." },
+
+      { type: 'h2', text: "Jensen Huang's Counterpoint" },
+      { type: 'p', text: "Not everyone in tech was predicting doom to begin with. Jensen Huang has been consistently sceptical of the mass displacement narrative — and in May 2026 he named it directly, saying CEOs making doomsday job predictions have 'a God complex.' He called Amodei's 50% elimination forecast 'ridiculous,' pointed to AI creating over 500,000 jobs, and told graduates that trades — electricians, plumbers, iron workers — were heading into a golden era driven by AI infrastructure buildout." },
+      { type: 'p', text: "Huang's position has been more consistent than most. He's been saying since 2023 that AI would create more jobs than it eliminated. It's worth noting that Nvidia's business depends on AI expansion, not contraction — so his incentives run in a particular direction too." },
+
+      { type: 'h2', text: "What the Data Actually Shows" },
+      { type: 'p', text: "The research Altman cited in Sydney holds up. Yale Budget Lab found no meaningful change in unemployment rates for AI-exposed workers through March 2026 — despite AI spreading across multiple office roles over three years. Anthropic's own labour market research reached similar conclusions. The Apollo Global Management chief economist put it bluntly: 'zero evidence of job losses because of AI.'" },
+      { type: 'p', text: "The net job picture through mid-2026: roughly 119,900 AI-related roles added in 2024 alone, against approximately 55,000 jobs linked to AI-related cuts through 2025. Creation outpacing displacement by more than 2:1." },
+      { type: 'p', text: "There is one real exception worth noting: entry-level positions in AI-exposed occupations dropped about 16% after 2024. But researchers attribute most of that to a hiring shift toward more experienced workers, not elimination of the work itself. The World Economic Forum's 2025 projection — 92 million roles displaced by 2030, 170 million new ones created — points to a net gain of 78 million jobs globally." },
+      { type: 'list', items: [
+        "Yale Budget Lab (May 2026): no meaningful unemployment change for AI-exposed workers",
+        "Apollo chief economist: 'zero evidence of job losses because of AI'",
+        "Net job creation 2024: AI added ~119,900 roles vs ~55,000 AI-related cuts",
+        "Entry-level AI-exposed roles: down 16%, driven by hiring seniority shift not elimination",
+        "WEF projection: 92M displaced, 170M created by 2030 — net +78M"
+      ]},
+
+      { type: 'h2', text: "Why the Timing Matters" },
+      { type: 'p', text: "Fortune's reporting on these reversals included a detail worth flagging: the walkbacks from Altman and Amodei land as OpenAI and Anthropic are preparing for trillion-dollar IPOs. Spooking the labour market — or being seen as the company whose CEO triggered a wave of career anxiety — is not a good story to carry into a public listing." },
+      { type: 'p', text: "That doesn't mean the revised positions are wrong. The data genuinely supports them. But it does mean you should read the shift with both eyes open. These are not purely scientific updates to a prior position based on new evidence. They are statements by CEOs who are also managing public narratives ahead of the most consequential financial events in their companies' histories." },
+
+      { type: 'h2', text: "What This Means If You're an Engineer" },
+      { type: 'p', text: "The honest answer is: the updated picture is better than the original one, but that doesn't mean the original concern was baseless. The 16% drop in entry-level roles in AI-exposed fields is real. If you're junior and your work is highly automatable — formulaic code, templated writing, data entry — the market for that specific thing has contracted." },
+      { type: 'p', text: "But the doomsday framing that shaped so much career anxiety over the last three years — that entire classes of work would simply cease to exist on a 5-year timeline — doesn't appear to be playing out. The people who made those predictions with the most confidence are now, in varying degrees, backing away from them." },
+      { type: 'p', text: "The question worth asking isn't 'will AI take my job?' It's 'what do the people with the most information about this keep getting wrong, and what does that tell me about how to think about my own career?'" },
+      { type: 'p', text: "Altman got it wrong because he underestimated how much people value human interaction — something no benchmark captures. Amodei is softening because the timeline isn't tracking. Khosrowshahi is still predicting doom but working hard to make sure his own company's actions don't look like confirmation of it." },
+      { type: 'p', text: "The real lesson might be this: the people shouting loudest about AI and jobs have strong incentives to be heard, and complicated incentives to be accurate. Build your career plan on the data. Read the quotes, but read the footnotes too." },
+
+      { type: 'sources', items: [
+        { title: "Sam Altman 'Delighted to Be Wrong' About AI Jobs Apocalypse — Entrepreneur", url: "https://www.entrepreneur.com/business-news/sam-altman-wrong-ai-could-lead-to-a-jobs-apocalypse" },
+        { title: "Sam Altman Says AI 'Jobs Apocalypse' Probably Won't Happen — Time", url: "https://time.com/article/2026/05/26/sam-altman-ai-job-losses-openAI-/" },
+        { title: "Sam Altman and Dario Amodei Walking Back AI Jobs Apocalypse Prophecies — Fortune", url: "https://fortune.com/2026/05/26/sam-altman-dario-amodei-walking-back-ai-jobs-apocalypse-prophecies-ipo/" },
+        { title: "Uber CEO Says Other Execs Not Transparent About AI's Impact — Yahoo Finance", url: "https://finance.yahoo.com/sectors/technology/articles/uber-ceo-says-other-execs-120500927.html" },
+        { title: "Uber Cuts 23% of HR Staff, President Denies AI Role — TechTimes", url: "https://www.techtimes.com/articles/317842/20260605/uber-cuts-23-hr-staff-new-president-denies-ai-role-as-95-of-engineers-use-it-daily.htm" },
+        { title: "CEOs With 'God Complex' Are Stigmatising AI, Jensen Huang Says — Yahoo Finance", url: "https://finance.yahoo.com/sectors/technology/articles/ceos-predicting-ai-wipe-jobs-145031422.html" },
+        { title: "New Data Show No AI Jobs Apocalypse — For Now — Brookings", url: "https://www.brookings.edu/articles/new-data-show-no-ai-jobs-apocalypse-for-now/" },
+        { title: "Apollo Chief Economist: 'Zero Evidence' AI Is Killing Jobs — Fortune", url: "https://fortune.com/2026/06/01/apollo-chief-economist-torsten-slok-zero-evidence-ai-killing-jobs-says-its-creating-them/" },
+        { title: "A Reality Check on the AI Jobs Hysteria — MIT Technology Review", url: "https://www.technologyreview.com/2026/05/26/1137855/a-reality-check-on-the-ai-jobs-hysteria/" },
+        { title: "At Davos, CEOs Said AI Isn't Coming for Jobs as Fast — Fortune", url: "https://fortune.com/2026/01/27/at-davos-ceos-said-ai-isnt-coming-for-jobs-as-fast-as-anthropic-ceo-dario-amodei-thinks/" },
+      ]},
+    ],
+  },
+  {
     slug: 'claude-code-regression-april-2026-what-happened',
     title: "6,852 Sessions Don't Lie: How Developers Caught Claude's Regression Before Anthropic Did",
     subtitle: "In April 2026, Claude Code got measurably worse. Developers noticed within hours. Anthropic confirmed it within days. Here's the full story — and what it means for teams that depend on AI coding tools.",
