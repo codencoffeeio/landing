@@ -43,6 +43,13 @@ interface PageMeta {
   datePublished?: string;
 }
 
+interface SitemapRoute {
+  urlPath: string;
+  lastmod: string;
+  changefreq: 'weekly' | 'monthly' | 'yearly';
+  priority: number;
+}
+
 function buildHtml({ title, description, type, datePublished, urlPath }: PageMeta): string {
   const url = `${BASE_URL}${urlPath}`;
   const desc = truncate(description);
@@ -108,32 +115,52 @@ function writeRoute(urlPath: string, html: string) {
 
 console.log('\nPrerendering routes...\n');
 
-const staticRoutes: Array<Omit<PageMeta, 'type'>> = [
+const staticRoutes: Array<Omit<PageMeta, 'type'> & Pick<SitemapRoute, 'lastmod' | 'changefreq' | 'priority'>> = [
   {
     urlPath: '/',
     title: 'Code, Coffee & AI — Auckland AI Engineering Community',
     description: "Auckland's community for engineers building with AI. Monthly events, curated resources, and a growing network of practitioners.",
+    lastmod: '2026-05-23',
+    changefreq: 'weekly',
+    priority: 1.0,
   },
   {
     urlPath: '/blog',
     title: 'Blog — Code, Coffee & AI',
     description: "Insights, tutorials, and honest takes from Auckland's AI engineering community.",
+    lastmod: new Date().toISOString().slice(0, 10),
+    changefreq: 'weekly',
+    priority: 0.9,
   },
   {
     urlPath: '/builders',
     title: 'Verified Builders · Code, Coffee & AI',
     description: 'Community members who are actively shipping products. Meet the builders of the Code, Coffee & AI community.',
+    lastmod: '2026-05-23',
+    changefreq: 'monthly',
+    priority: 0.8,
   },
   {
     urlPath: '/resources',
     title: 'AI Resources — Curated by Code, Coffee & AI Auckland',
     description: "The best AI coding tools, learning resources, newsletters, and papers — curated by Auckland's AI engineering community.",
+    lastmod: '2026-05-27',
+    changefreq: 'weekly',
+    priority: 0.9,
   },
   {
     urlPath: '/ai-careers',
     title: 'AI Careers Landscape — Code, Coffee & AI Auckland',
     description: 'The roles shaping AI engineering in 2026. Skills, tools, and experience levels for the most in-demand AI jobs in Auckland and beyond.',
+    lastmod: '2026-05-27',
+    changefreq: 'monthly',
+    priority: 0.9,
   },
+];
+
+// Pages that exist but are not prerendered (noindex/private pages excluded automatically)
+const sitemapOnlyRoutes: SitemapRoute[] = [
+  { urlPath: '/replit-agent-4', lastmod: '2026-05-23', changefreq: 'yearly', priority: 0.5 },
 ];
 
 for (const route of staticRoutes) {
@@ -157,3 +184,31 @@ for (const post of BLOG_POSTS) {
 
 const total = staticRoutes.length + BLOG_POSTS.length;
 console.log(`\n✅  ${total} routes prerendered → dist/public/\n`);
+
+// ── Sitemap ────────────────────────────────────────────────────────────────────
+
+function buildSitemap(): string {
+  const entries: SitemapRoute[] = [
+    ...staticRoutes.map(({ urlPath, lastmod, changefreq, priority }) => ({ urlPath, lastmod, changefreq, priority })),
+    ...BLOG_POSTS.map((post) => ({
+      urlPath: `/blog/${post.slug}`,
+      lastmod: new Date(post.date).toISOString().slice(0, 10),
+      changefreq: 'monthly' as const,
+      priority: 0.8,
+    })),
+    ...sitemapOnlyRoutes,
+  ];
+
+  const urls = entries.map(({ urlPath, lastmod, changefreq, priority }) => `  <url>
+    <loc>${BASE_URL}${urlPath}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority.toFixed(1)}</priority>
+  </url>`).join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+}
+
+const sitemapPath = join(DIST, 'sitemap.xml');
+writeFileSync(sitemapPath, buildSitemap());
+console.log(`✅  sitemap.xml generated with ${staticRoutes.length + BLOG_POSTS.length + sitemapOnlyRoutes.length} URLs\n`);
