@@ -21,6 +21,61 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'boil-the-ocean-ambition-ai-era',
+    title: "Boil the Ocean: Why Small Ambitions Are the Real AI Risk",
+    subtitle: "A recent essay argues that 'don't boil the ocean' is the wrong advice for the AI era. It's a compelling case — with one important caveat developers shouldn't ignore.",
+    date: "June 7, 2026",
+    readTime: "6 min read",
+    tags: ["AI", "Careers", "Builder Mindset", "Industry"],
+    author: "Aira",
+    excerpt: "Garry Tan's 'Boil the Ocean' essay makes a bold argument: in the age of AI, playing it safe is the actual risk. Fear of AI is proportional to how small your ambitions are. If your plan is to keep doing exactly what you're doing, a machine that does it faster and cheaper is terrifying. But if your plan is to do something dramatically bigger, it's the best news you've ever gotten.",
+    content: [
+      { type: 'p', text: "There's an essay making rounds in builder circles right now. It's short. It's confident. And it makes an argument worth sitting with: that 'don't boil the ocean' — the classic advice to stay focused, keep scope tight, avoid overreach — is the wrong mental model for this particular moment in technology." },
+      { type: 'p', text: "The author's framing is sharp: 'our fear of the future is directly proportional to how small our ambitions are.' If your plan is to keep doing exactly what you're doing, then a machine that can do it faster and cheaper is genuinely terrifying. But if your plan is to do something dramatically bigger, the machine is the best news you've ever gotten." },
+      { type: 'p', text: "It's a good reframe. And it's worth unpacking carefully — both what's right about it and what it leaves out." },
+
+      { type: 'h2', text: "The Core Argument" },
+      { type: 'p', text: "The essay opens with a telling anecdote: a university endowment's head of private investing whose engineers were 'terrified for their jobs' after seeing what Claude Code could do. The author's response is that this is the wrong reaction — a zero-sum response to a positive-sum moment." },
+      { type: 'p', text: "The alternative posed is radical ambition. Why settle for 10% IRR when 50% is now an engineering problem? Why not build a product 100x better than the incumbent? Why not talk to every single user and have perfect understanding of every bug in your product? These aren't rhetorical questions anymore, the argument goes. They're tractable." },
+      { type: 'quote', text: "If your plan is to keep doing exactly what you're doing, then yes, a machine that can do it faster and cheaper is terrifying. But if your plan is to do something dramatically bigger, then the machine is the best news you've ever gotten." },
+      { type: 'p', text: "The essay grounds this in two intellectual frameworks. First, Buckminster Fuller's 'ephemeralization' — doing more and more with less and less, tracing civilisational progress from stone bridges to steel cables. Not job destruction. Civilisation getting better at being civilisation. Second, Jevons Paradox: when you make a resource dramatically more efficient, demand for it doesn't fall — it explodes. Steam engines didn't reduce coal consumption. They made coal so useful that consumption went vertical. The same dynamic, the argument runs, is about to happen with intelligence." },
+
+      { type: 'h2', text: "What's Compelling About This" },
+      { type: 'p', text: "The Jevons Paradox framing is genuinely useful and underused in AI conversations. Most fear-of-AI discourse implicitly assumes a fixed demand for work: if AI does more of it, humans do less. History doesn't support this. Every major productivity technology — electricity, computing, the internet — created more work than it displaced, over time, by expanding what was economically possible to attempt." },
+      { type: 'p', text: "The ambition reframe is also correct in a specific and practical sense. The developers who are doing well right now are not the ones who found a defensible corner of work that AI can't touch. They're the ones who took on larger problems than they could have managed before — who used AI to punch above their weight class on scope, complexity, and output. The tool rewards ambition more than it rewards defensiveness." },
+      { type: 'p', text: "And the call for workers to think like builders — to see this as a moment to start something rather than a threat to survive — is worth taking seriously. The cost of building has dropped significantly. The leverage available to a small team has never been higher. If there was ever a time to attempt something ambitious, the infrastructure argument for that time is now." },
+      { type: 'callout', title: "The Jevons framing in practice", text: "Steam engines didn't reduce coal consumption — they made coal so useful that demand exploded. If the same pattern holds for intelligence, the question isn't 'will there be less work?' It's 'what becomes worth doing that wasn't before?'" },
+
+      { type: 'h2', text: "What the Essay Leaves Out" },
+      { type: 'p', text: "The argument is written from the perspective of capital and management. It's addressed to people deciding what to build next, not necessarily to the engineer who needs to pay rent next month while the transition plays out." },
+      { type: 'p', text: "Jevons Paradox is real — but it operates on decade timescales, not quarter timescales. The steam engine did create enormous demand for coal. It also destroyed livelihoods in handloom weaving and barge navigation before the new industries were large enough to absorb displaced workers. The long-run aggregate was positive. The medium-run for specific people in specific roles was often brutal." },
+      { type: 'p', text: "The entry-level data supports this concern. Yale Budget Lab research shows no aggregate jobs apocalypse — but a meaningful relative employment decline for early-career workers in AI-exposed roles. The 22-25 year old software developer cohort is down nearly 20% from its employment peak. The Jevons transition is real. The transition cost is also real, and it doesn't fall evenly." },
+      { type: 'p', text: "The essay acknowledges this indirectly — 'it requires capital and management to actually raise their ambitions' — but treats it as an exhortation rather than a structural problem. Capital raising its ambitions does not automatically translate to entry-level developers getting more opportunities. It may translate to smaller senior teams building larger things." },
+
+      { type: 'h2', text: "The Useful Tension" },
+      { type: 'p', text: "Both things can be true. The macro argument — more intelligence in the system means more problems worth solving, which means more work over time — is probably correct. And the individual argument — that this transition has real costs for real people, particularly early in their careers, and that 'just raise your ambitions' is not a complete answer — is also correct." },
+      { type: 'p', text: "The most useful reading of the essay is not as a dismissal of legitimate concern. It's as a corrective to a specific failure mode: treating AI as a fixed threat to defend against rather than a capability to direct. The developers who frame their careers around 'how do I protect what I have' are likely to find that framing increasingly costly. The ones who frame it around 'what can I now attempt that I couldn't before' are finding the environment more generative." },
+      { type: 'p', text: "That's not a guarantee. It's a better bet." },
+
+      { type: 'h2', text: "What It Means for Developers Specifically" },
+      { type: 'p', text: "The practical implication isn't 'quit your job and start a company' — though if that's been on your mind, the infrastructure case for attempting it has never been stronger. The practical implication is more about orientation." },
+      { type: 'list', items: [
+        "Stop asking 'will AI replace this task' and start asking 'what's now worth attempting that wasn't before'",
+        "The developers getting traction are those who own the problem and direction — not those who execute tasks more efficiently",
+        "Scope that felt unreasonable for a small team 18 months ago often isn't anymore — recheck your assumptions about what's feasible",
+        "Entry-level is harder right now — but the path through is building judgment and context faster, not waiting for conditions to normalise",
+        "Ambition is a skill. It atrophies. The essay is a useful reminder to exercise it.",
+      ]},
+      { type: 'p', text: "The ocean metaphor is apt in one way the essay doesn't quite spell out: oceans don't need to be boiled all at once. You start with a lake. Then another. The point isn't reckless scale from day one. It's refusing to cap your ambition at what last year's tooling made possible." },
+
+      { type: 'sources', items: [
+        { title: "Boil the Ocean — garryslist.org", url: "https://garryslist.org/posts/boil-the-ocean" },
+        { title: "The Real Job Destruction from AI Is Hitting Before Careers Can Start — Yale Insights", url: "https://insights.som.yale.edu/insights/the-real-job-destruction-from-ai-is-hitting-before-careers-can-start" },
+        { title: "Ephemeralization — Buckminster Fuller Institute", url: "https://www.bfi.org/about-fuller/big-ideas/ephemeralization/" },
+      ]},
+    ],
+  },
+  {
     slug: 'tech-leaders-revising-ai-jobs-predictions-what-data-shows',
     title: "Tech Leaders Are Revising Their AI Jobs Predictions. Here's What the Data Actually Shows.",
     subtitle: "Sam Altman says he's 'delighted to be wrong.' Dario Amodei has quietly reframed his warnings. But what does the employment data actually tell us — and should developers believe the new narrative?",
