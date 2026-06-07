@@ -22,13 +22,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.excerpt,
       type: "article",
       url: `https://codencoffee.io/blog/${slug}`,
-      images: [{ url: "https://codencoffee.io/logo.png" }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${post.title} — Code, Coffee & AI`,
       description: post.excerpt,
-      images: ["https://codencoffee.io/logo.png"],
+      images: [`https://codencoffee.io/blog/${slug}/opengraph-image`],
     },
     alternates: { canonical: `https://codencoffee.io/blog/${slug}` },
   };
