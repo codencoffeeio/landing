@@ -378,9 +378,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Photo Gallery */}
+      <section className="py-20 bg-background overflow-hidden">
+        <div className="container mx-auto max-w-6xl px-6 mb-10">
+          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">In the room</p>
+          <h2 className="font-heading text-4xl font-bold">Real people. Real events.</h2>
+        </div>
+        <div className="flex gap-4 px-6 overflow-x-auto pb-4 max-w-[1400px] mx-auto scrollbar-none">
+          {[
+            { src: "/event-1.jpg", alt: "Community members around a cafe table" },
+            { src: "/event-2.jpg", alt: "Builders working on laptops at an event" },
+            { src: "/event-3.jpg", alt: "Small group session at Code, Coffee & AI" },
+            { src: "/event-4.jpg", alt: "Community discussion and presentation" },
+            { src: "/event-5.jpg", alt: "Hackathon session with laptops" },
+          ].map((photo, i) => (
+            <div key={i} className="shrink-0 w-72 h-52 rounded-2xl overflow-hidden bg-secondary border border-border/40">
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Verified Builders Teaser */}
-      <section className="py-20 bg-secondary/40 border-y border-border/40">
-        <div className="container mx-auto max-w-6xl px-6">
+      <section className="py-20 bg-secondary/40 border-y border-border/40">        <div className="container mx-auto max-w-6xl px-6">
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 mb-4">
               <CheckCircle2 className="w-5 h-5 text-primary fill-primary/10" />
