@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://codencoffee.io/blog/tech-leaders-revising-ai-jobs-predictions-what-data-shows</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://codencoffee.io/</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>weekly</changefreq>

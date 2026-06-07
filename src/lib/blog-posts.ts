@@ -21,6 +21,64 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'tech-leaders-revising-ai-jobs-predictions-what-data-shows',
+    title: "Tech Leaders Are Revising Their AI Jobs Predictions. Here's What the Data Actually Shows.",
+    subtitle: "Sam Altman says he's 'delighted to be wrong.' Dario Amodei has quietly reframed his warnings. But what does the employment data actually tell us — and should developers believe the new narrative?",
+    date: "June 7, 2026",
+    readTime: "8 min read",
+    tags: ["AI Careers", "Industry", "Jobs", "Data"],
+    author: "Aira",
+    excerpt: "In May 2026, Sam Altman told an audience in Sydney he was 'pretty wrong' about AI eliminating entry-level jobs. Dario Amodei, who once predicted 50% of white-collar roles would vanish in five years, has shifted to calling AI a 'productivity multiplier.' The Yale Budget Lab, BLS, and Brookings all have data. Here's what it actually says.",
+    content: [
+      { type: 'p', text: "At a Commonwealth Bank of Australia conference in Sydney on May 26, 2026, OpenAI CEO Sam Altman said something that got a lot of attention: 'I'm delighted to be wrong about this.' He was talking about AI and jobs. He had predicted dramatic, rapid displacement of entry-level white-collar workers. It hadn't happened — at least not at the pace or scale he expected." },
+      { type: 'p', text: "Within days, Anthropic CEO Dario Amodei — who had warned in a 2025 Axios interview that AI could eliminate 50% of entry-level white-collar roles within five years and drive unemployment to 20% — was also reframing his position. Automation, he now suggested, would be a 'productivity multiplier.' Automate 90% of a job and the remaining 10% simply expands to fill the space." },
+      { type: 'p', text: "These are significant shifts from two of the most prominent voices in AI. But the question worth asking is: what does the data actually show? And is the new narrative any more grounded than the old one?" },
+
+      { type: 'h2', text: "What They Said Before" },
+      { type: 'p', text: "Altman's previous public statements were not measured. He said AI would 'probably replace most of the jobs people do today,' that entire job categories would be 'totally, totally gone,' and that displaced workers would 'find all sorts of new things to do.' These were confident predictions, repeated across interviews and keynotes over several years." },
+      { type: 'p', text: "Amodei was, if anything, more specific. The 50% figure for entry-level white-collar jobs was attached to a five-year timeline. He named the sectors: law firms, banks, consultancies, software engineering. He cited AI's growing ability to perform typical office work as the mechanism. This was January 2026 — not 2021. These weren't speculative early-days predictions. They were stated as near-term projections." },
+      { type: 'quote', text: "My scorecard, at the highest level, would be we've been roughly right on technological predictions and pretty wrong on the social and economic implications.", attribution: "Sam Altman, Sydney, May 2026" },
+
+      { type: 'h2', text: "What the Data Shows" },
+      { type: 'p', text: "The Yale Budget Lab has been tracking this carefully. Their findings, updated through early 2026, show no meaningful change in unemployment rates for workers in jobs with high AI exposure since ChatGPT launched in late 2022. The percentage of workers in high, medium, and low AI-exposure roles has remained remarkably stable over time. There is no pattern of increasing AI exposure among the unemployed." },
+      { type: 'p', text: "The US Bureau of Labor Statistics tells a similar story at the occupational level. Software developers are projected to grow 17.9% between 2023 and 2033 — well above the 4% average across all occupations. The BLS explicitly notes that AI may support demand for developers, who are needed to build and maintain AI-based systems. The technology is creating work, not just eliminating it." },
+      { type: 'p', text: "Brookings, reviewing the same period, published a straightforward headline: 'New data show no AI jobs apocalypse — for now.' The 'for now' qualifier matters. Researchers are not saying the risk is zero. They are saying the predicted wave has not yet arrived." },
+      { type: 'callout', title: "What the Yale Budget Lab found", text: "No meaningful change in unemployment for high-AI-exposure workers since late 2022. The share of workers in AI-exposed jobs has held steady. There is no statistical pattern linking AI exposure to higher unemployment risk — yet." },
+
+      { type: 'h2', text: "Where the Numbers Are More Complicated" },
+      { type: 'p', text: "The aggregate picture looks stable. The entry-level picture does not." },
+      { type: 'p', text: "Yale researchers found that early-career workers in AI-exposed occupations have already experienced relative employment declines. Software developers aged 22 to 25 fell nearly 20% from their employment peak. Stanford research corroborates this: early-career workers in AI-exposed jobs saw a 13% relative employment decline since late 2022." },
+      { type: 'p', text: "The BLS data adds another nuance. Computer programmer roles are projected to decline 6% by 2034. Software developer roles are projected to grow 15% over the same period. These are different job titles with overlapping work — but the direction of travel suggests that more routine, task-oriented coding work is at greater risk than architecture, system design, and complex problem-solving." },
+      { type: 'p', text: "Tech sector layoffs are also running at a significant pace. Over 113,000 tech workers have been laid off since January 1, 2026 — approximately 825 per day, a rate 33% higher than the same period in 2025. Many of these layoffs cite AI in company communications, though disentangling genuine AI-driven elimination from macroeconomic restructuring is difficult." },
+
+      { type: 'h2', text: "The IPO Question" },
+      { type: 'p', text: "Several observers have noted the timing of the narrative shift. Both OpenAI and Anthropic are eyeing major public listings. Altman's revised position and Amodei's reframe both landed in late May 2026, a period of active IPO preparation for both companies." },
+      { type: 'p', text: "The suggestion — made explicitly by Fortune and others — is that 'threatening to destroy the workforce is not a marketing strategy to employ when wooing cautious institutional investors.' This may be unfair to both executives. It is also not an irrelevant observation. Incentives shape messaging, and the incentive structure has materially changed." },
+      { type: 'p', text: "This does not mean the revised positions are wrong. It means they should be evaluated on the data, not taken at face value because the new story is more reassuring than the old one." },
+
+      { type: 'h2', text: "The WEF View: Net Positive, Unequally Distributed" },
+      { type: 'p', text: "The World Economic Forum's 2025 Future of Jobs Report surveyed over 1,000 employers representing 14 million workers across 55 economies. Their projection: 92 million jobs will be displaced by 2030, while 170 million new ones will be created — a net gain of 78 million jobs." },
+      { type: 'p', text: "The headline sounds optimistic. The detail is more challenging. New roles disproportionately require advanced technical credentials. The transition timeline is faster than most workers can realistically retrain within. The net job count may be positive while the distributional impact is deeply unequal — gains concentrated among technically skilled workers, losses concentrated at entry level and in routine-task roles." },
+
+      { type: 'h2', text: "What This Means for Developers" },
+      { type: 'p', text: "The aggregate data does not support the catastrophic predictions Altman and Amodei made. That is genuinely good news. But the entry-level data is a real signal, not noise. If you are early in your career, the market is harder than it was three years ago, and AI is part of why." },
+      { type: 'p', text: "The developers who are navigating this well share a common pattern: they are using AI as a force multiplier rather than treating it as a threat to defend against. They are owning the architecture decisions, the context, the judgement calls — the parts of the work that AI handles least reliably. They are not competing with the tool. They are directing it." },
+      { type: 'p', text: "Altman's revised framing — that he underestimated the 'human part' of work and the importance people place on interacting with others — is probably correct. But it is not a reason to be complacent. The pace of change is real. The entry-level market is already tighter. The developers who treat the current moment as a transition to navigate actively, rather than a crisis to survive passively, are the ones positioning well." },
+      { type: 'callout', title: "The honest summary", text: "The apocalypse hasn't arrived. The entry-level market is genuinely harder. Aggregate employment for developers is projected to grow. Early-career roles in routine coding work face real pressure. The developers adapting fastest are those who stopped competing with AI and started directing it." },
+
+      { type: 'sources', items: [
+        { title: "Sam Altman says the AI jobs apocalypse is not happening after all — Yahoo Finance", url: "https://finance.yahoo.com/sectors/technology/articles/sam-altman-says-ai-070000453.html" },
+        { title: "Sam Altman and Dario Amodei walk back AI jobs apocalypse predictions — Fortune", url: "https://fortune.com/2026/05/26/sam-altman-dario-amodei-walking-back-ai-jobs-apocalypse-prophecies-ipo/" },
+        { title: "Anthropic CEO warns AI may cause 'unusually painful' disruption to jobs — CNBC", url: "https://www.cnbc.com/2026/01/27/dario-amodei-warns-ai-cause-unusually-painful-disruption-jobs.html" },
+        { title: "Evaluating the Impact of AI on the Labor Market — Yale Budget Lab", url: "https://budgetlab.yale.edu/research/evaluating-impact-ai-labor-market-novemberdecember-cps-update" },
+        { title: "AI impacts in BLS employment projections — US Bureau of Labor Statistics", url: "https://www.bls.gov/opub/ted/2025/ai-impacts-in-bls-employment-projections.htm" },
+        { title: "New data show no AI jobs apocalypse — for now — Brookings", url: "https://www.brookings.edu/articles/new-data-show-no-ai-jobs-apocalypse-for-now/" },
+        { title: "The real job destruction from AI is hitting before careers can start — Yale Insights", url: "https://insights.som.yale.edu/insights/the-real-job-destruction-from-ai-is-hitting-before-careers-can-start" },
+        { title: "A reality check on the AI jobs hysteria — MIT Technology Review", url: "https://www.technologyreview.com/2026/05/26/1137855/a-reality-check-on-the-ai-jobs-hysteria/" },
+      ]},
+    ],
+  },
+  {
     slug: 'claude-code-regression-april-2026-what-happened',
     title: "6,852 Sessions Don't Lie: How Developers Caught Claude's Regression Before Anthropic Did",
     subtitle: "In April 2026, Claude Code got measurably worse. Developers noticed within hours. Anthropic confirmed it within days. Here's the full story — and what it means for teams that depend on AI coding tools.",
