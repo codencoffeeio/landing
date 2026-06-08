@@ -21,6 +21,66 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'garry-tan-gstack-office-hours-what-developers-need-to-know',
+    title: "Garry Tan Shipped 600,000 Lines of Code in 60 Days While Running YC. Here's What gstack Actually Is.",
+    subtitle: "The YC CEO's open-source Claude Code setup has 89,000+ GitHub stars and a /office-hours skill that simulates a YC partner conversation. Here's what's real, what's hype, and what developers should take from it.",
+    date: "June 7, 2026",
+    readTime: "7 min read",
+    tags: ["AI Tools", "Claude Code", "Builders", "Productivity"],
+    author: "Aira",
+    excerpt: "Garry Tan's gstack landed in March 2026 and immediately divided the developer community. 89,000 GitHub stars. 600,000 lines of code shipped in 60 days while running Y Combinator full time. A /office-hours skill that gives you six forcing questions distilled from how YC partners evaluate startups. Here's what it actually is — and what the pattern means for how developers work in 2026.",
+    content: [
+      { type: 'p', text: "In March 2026, Garry Tan — president and CEO of Y Combinator, one of the most powerful people in startup funding — published a GitHub repo called gstack. Within weeks it had 89,700 stars and 10,000 forks. The claim attached to it was striking: in the previous 60 days, Tan had shipped 600,000 lines of code, three production services, and 40+ features — part time, while running YC full time. His 2026 coding output was approximately 810 times his 2013 pace." },
+      { type: 'p', text: "The reaction split the developer community cleanly in two. One camp said this was proof that a single engineer with the right setup could outproduce a mid-sized team. The other said it was well-branded prompt engineering that anyone could have written, dressed up in a GitHub repo with good marketing." },
+      { type: 'p', text: "Both reactions are partially right. And the reality between them is more interesting than either." },
+
+      { type: 'h2', text: "What gstack Actually Is" },
+      { type: 'p', text: "gstack is 23 SKILL.md files. That's it. SKILL.md is a format Anthropic introduced in October 2025 — a structured way to give Claude Code a persistent role, workflow, and set of behaviours. Each file in gstack defines a specialist: CEO reviewer, designer, engineering manager, release manager, QA engineer, documentation writer, browser tester." },
+      { type: 'p', text: "The skills are opinionated. They encode specific workflows, output formats, and decision frameworks. The QA skill doesn't just test — it writes structured bug reports in a specific format. The design skill doesn't just suggest — it produces design documents that flow into the engineering review skill. The whole system is a pipeline, not a collection of independent prompts." },
+      { type: 'p', text: "Is it 'just prompts'? Technically yes. But that framing misses the point in the same way that dismissing a well-designed API as 'just HTTP requests' misses the point. The value is in the curation, the workflow design, and the integration between steps — not the novelty of the underlying mechanism." },
+      { type: 'callout', title: "The gstack structure", text: "23 SKILL.md files covering: CEO review, design, engineering management, release management, QA, documentation, browser testing, and office hours. Each skill has defined inputs, outputs, and handoff points to adjacent skills in the pipeline." },
+
+      { type: 'h2', text: "The /office-hours Skill" },
+      { type: 'p', text: "The skill getting the most attention is /office-hours. Tan describes it as '10% of the value of working with a real YC partner' — the other 90% being the network of founders, batch pressure to ship, weekly dinners with successful founders, and a partner who knows your specific business deeply. That's an honest framing. The 10% he's giving you is the structured interrogation — the questions that expose whether you actually have a real problem to solve." },
+      { type: 'p', text: "The skill runs in two modes. Startup Mode asks six forcing questions distilled from how YC partners evaluate products. Builder Mode is designed for side projects, hackathons, and open source — more collaborative, less adversarial, optimised for 'what makes someone say whoa' rather than 'does this business actually work'." },
+      { type: 'p', text: "The six startup questions cover: demand reality (who specifically needs this and why now), status quo (what are they doing instead today), desperate specificity (can you name an actual human who has this problem), narrowest viable wedge (what is the smallest thing you could ship that would prove the thesis), observation and surprise (what have you seen that made you think this was real), and future fit (why does this have to be built now rather than three years from now)." },
+      { type: 'quote', text: "Specificity is the only currency. 'Enterprises in healthcare' is not a customer. Name a person." },
+      { type: 'p', text: "The skill explicitly pushes on vague answers. It does not accept 'enterprises' or 'anyone who does X' as customer descriptions. It does not treat waitlist signups as demand validation. The philosophy baked into the prompts is the same one YC has been teaching for twenty years: talk to specific humans, observe specific behaviour, solve a specific problem — then build." },
+      { type: 'p', text: "The output is a design document written to your local project directory. That document then feeds directly into /plan-eng-review or /plan-ceo-review. The skill explicitly does not generate code, scaffolding, or implementation details. Its job is to produce clarity before any code is written." },
+
+      { type: 'h2', text: "The 20x Company Thesis Behind It" },
+      { type: 'p', text: "gstack is not just a productivity tool. It's a working demonstration of a broader argument Tan has been making publicly: that AI-native teams can outperform companies twenty times their size. He calls these '20x companies.'" },
+      { type: 'p', text: "The examples he cites are concrete. GigaML built an AI sales agent that closed DoorDash — with four or five engineers. Legion Health grew 4x in revenue without adding a single new hire. Phase Shift runs with 12 people doing what would conventionally require hundreds. The pattern is not '10% efficiency gain on existing work.' It's 'a small team doing things that used to require organisational scale.'" },
+      { type: 'p', text: "gstack is Tan building that thesis into his own workflow. Every specialist role in the pipeline — design review, engineering management, QA, release management — is something that traditionally required a person or a team. Running them as structured AI skills doesn't fully replace those functions. But it closes enough of the gap that a single founder can move with more rigour than an unassisted team." },
+
+      { type: 'h2', text: "What Divided the Developer Community" },
+      { type: 'p', text: "The criticism is fair on its own terms. The SKILL.md files are not technically sophisticated. An experienced developer could read them and replicate most of the functionality in a weekend. The 600,000 line figure mixes generated scaffolding with shipped production code in ways that aren't fully transparent. And 89,000 GitHub stars is partly a function of Tan's platform — the YC brand creates distribution that independent developers don't have access to." },
+      { type: 'p', text: "The defence is also fair. Most developers don't write these kinds of structured, workflow-integrated prompt files — not because they can't, but because they haven't invested the time to design the workflow. gstack makes the design available. The stars are a signal that a lot of developers found the design useful even if they could have built it themselves. And the productivity numbers, even discounted significantly, represent a real change in output rate." },
+      { type: 'p', text: "The more interesting question is not whether gstack is impressive as a technical artefact. It's whether the pattern it demonstrates — specialist roles, structured handoffs, design-first workflows — is the right mental model for AI-assisted development in 2026. The evidence suggests it is." },
+
+      { type: 'h2', text: "What Developers Should Take From This" },
+      { type: 'p', text: "You don't need to use gstack to benefit from what it demonstrates. The underlying pattern is transferable:" },
+      { type: 'list', items: [
+        "Design before you code — the /office-hours forcing questions are useful regardless of the tool. If you can't answer them, you're not ready to build.",
+        "Specialist prompts outperform generalist prompts — giving Claude Code a specific role and a defined output format produces more consistent, usable results than open-ended instructions.",
+        "Pipeline thinking — the value multiplies when skills hand off to each other. Design doc → engineering review → QA is a better workflow than isolated AI queries.",
+        "The /office-hours six questions are worth running manually even without any tooling: who specifically needs this, what are they doing instead, can you name them, what's the smallest proof, what did you observe, why now.",
+        "The 20x company pattern is real — small teams are doing things that used to require organisational scale. The developers positioning well are the ones building toward that, not optimising around the edges of traditional team structures.",
+      ]},
+      { type: 'p', text: "Tan's honest framing of /office-hours as 10% of a real YC partner conversation is worth sitting with. The 90% — network, batch pressure, someone who knows your business — is not something any tool replicates. But 10% of a YC partner conversation, available on demand, at the start of every project, is not a trivial thing. Most ideas never get that quality of structured interrogation before the first line of code gets written." },
+      { type: 'p', text: "That's probably the real value of gstack. Not the star count. Not the lines of code. The habit of asking hard questions before building — encoded into a tool so you actually do it." },
+
+      { type: 'sources', items: [
+        { title: "gstack — GitHub (garrytan/gstack)", url: "https://github.com/garrytan/gstack" },
+        { title: "Inside Garry Tan's AI Coding Setup — YC Startup Library", url: "https://www.ycombinator.com/library/OW-inside-garry-tan-s-ai-coding-setup" },
+        { title: "The New Way To Build A Startup — Y Combinator", url: "https://www.ycombinator.com/library/NH-the-new-way-to-build-a-startup" },
+        { title: "gstack office-hours skill — explainx.ai", url: "https://explainx.ai/skills/garrytan/gstack/office-hours" },
+        { title: "Garry Tan's gstack and the rise of AI agent teams — Agents' Codex", url: "https://agentscodex.com/posts/2026-03-20-garry-tan-gstack-agent-teams-claude-code/" },
+        { title: "Garry Tan on X: launching /office-hours skill", url: "https://x.com/garrytan/status/2034304114574909681" },
+      ]},
+    ],
+  },
+  {
     slug: 'boil-the-ocean-ambition-ai-era',
     title: "Boil the Ocean: Why Small Ambitions Are the Real AI Risk",
     subtitle: "A recent essay argues that 'don't boil the ocean' is the wrong advice for the AI era. It's a compelling case — with one important caveat developers shouldn't ignore.",
