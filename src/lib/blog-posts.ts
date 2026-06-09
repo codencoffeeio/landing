@@ -21,6 +21,63 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'anthropic-ipo-mythos-safety-tension',
+    title: "Anthropic Is Filing for a $965 Billion IPO. It Also Has a Model Too Dangerous to Release. These Two Facts Are Connected.",
+    subtitle: "Anthropic confidentially filed its S-1 on June 1, 2026 — weeks after revealing a model that can autonomously exploit zero-day vulnerabilities in every major OS and browser. The tension between the two stories tells you everything about where the company actually stands.",
+    date: "June 7, 2026",
+    readTime: "8 min read",
+    tags: ["Anthropic", "AI Safety", "Industry", "Claude"],
+    author: "Aira",
+    excerpt: "In the space of two weeks in June 2026, Anthropic confidentially filed for an IPO at a $965 billion valuation and released Fable 5 — a public version of Mythos with its most dangerous cybersecurity capabilities stripped out. The full Mythos 5 remains restricted to Project Glasswing partners. The company that was founded on a safety-first mission is now navigating one of the most complex public narratives in tech.",
+    content: [
+      { type: 'p', text: "On June 1, 2026, Anthropic confidentially submitted a draft S-1 registration statement to the SEC. The company had just closed a $65 billion Series H round at a $965 billion post-money valuation. Its annualised revenue run rate had crossed $47 billion in May — up from roughly $10 billion a year earlier. An October 2026 IPO is the target window." },
+      { type: 'p', text: "Eight days later, on June 9, Anthropic released Claude Fable 5 to the public. It is the first Mythos-class model available outside Project Glasswing, Anthropic's restricted-access programme for its most capable — and most dangerous — AI. Fable 5 performs at near-Mythos levels across coding, reasoning, and research. Its cybersecurity and bio-risk capabilities are deliberately disabled, routed to Claude Opus 4.8 instead." },
+      { type: 'p', text: "These two events, separated by eight days, are not coincidental. They are the same story." },
+
+      { type: 'h2', text: "What Mythos Actually Is" },
+      { type: 'p', text: "Anthropic announced Mythos Preview on April 7, 2026. The announcement was unusual. Rather than a standard model launch, it came with a frank safety disclosure: the model was too capable at cybersecurity tasks to release publicly." },
+      { type: 'p', text: "The specifics were striking. In internal testing, Mythos Preview produced 181 working exploits against Mozilla's Firefox JavaScript engine. It can find and exploit zero-day vulnerabilities — previously undiscovered security flaws — in every major operating system and every major web browser, autonomously. Not assisted. Autonomously." },
+      { type: 'p', text: "The last time a major AI lab withheld a model on safety grounds was OpenAI in 2019, when they staged the release of GPT-2 citing concerns about misuse. That decision was widely mocked at the time — the model turned out to be far less dangerous than the framing suggested. Mythos is a different situation. The cybersecurity capabilities are documented, specific, and verified." },
+      { type: 'callout', title: "What Mythos Preview can do", text: "181 working exploits against Firefox's JS engine in testing. Zero-day vulnerability discovery across every major OS and browser. Fully autonomous — no human direction needed per exploit. Restricted to Project Glasswing partners: AWS, Microsoft, Apple, CrowdStrike, and selected others." },
+      { type: 'p', text: "Project Glasswing is the framework Anthropic built around this. Selected technology and cybersecurity companies get access to Mythos for defensive purposes — finding vulnerabilities in their own systems before adversaries do. The programme is invite-only, involves mandatory 30-day data retention for safety monitoring, and includes organisations with the technical capacity to use the model responsibly." },
+
+      { type: 'h2', text: "The Fable 5 Calculation" },
+      { type: 'p', text: "Fable 5, released June 9, is Mythos with the dangerous parts removed. Cybersecurity and bio-risk queries are automatically routed to Opus 4.8 instead of being handled by the Mythos-class model. The result is a publicly available model that achieves 80.3% on SWE-Bench Pro — state of the art for coding — while not providing the capabilities that made Mythos Preview too dangerous to release." },
+      { type: 'p', text: "Pricing: $10 input / $50 output per million tokens — less than half the cost of Mythos Preview. Available on Claude API, AWS Bedrock, Vertex AI, Microsoft Foundry, and included on Pro, Max, Team, and Enterprise plans." },
+      { type: 'p', text: "For most developers, Fable 5 is the relevant model. It is more capable than anything previously publicly available from Anthropic. The restricted capabilities are irrelevant to the vast majority of use cases." },
+      { type: 'p', text: "Bloomberg's headline on the day of release was pointed: 'Anthropic Calls Mythos Dangerous. Why Is It Expanding Access?' It is a fair question. The honest answer involves several things happening simultaneously." },
+
+      { type: 'h2', text: "The IPO Lens" },
+      { type: 'p', text: "Anthropic was founded in 2021 by Dario Amodei, Daniela Amodei, and others who left OpenAI specifically over safety concerns. The company's founding thesis was that safety and commercial success were not in tension — that building AI responsibly was the path to building AI that was actually useful. That framing has been central to Anthropic's public identity and its fundraising narrative." },
+      { type: 'p', text: "A $965 billion IPO filing changes the context. Not the mission — but the pressures, the scrutiny, and the incentives around how that mission is communicated." },
+      { type: 'p', text: "Staging Fable 5 as a public release while keeping Mythos 5 restricted is, among other things, a clean product narrative for the IPO: here is what the public gets, here is what responsible actors in critical infrastructure get, here is why that distinction is defensible. It is also, genuinely, a reasonable approach to deploying dangerous capability. These two things are not mutually exclusive." },
+      { type: 'quote', text: "Anthropic confidentially filed its S-1 eight days before releasing its first public Mythos-class model. That sequencing was not accidental.", attribution: "Fortune, June 2026" },
+      { type: 'p', text: "The revenue numbers are extraordinary by any measure. $10.9 billion in Q2 2026 — more than doubling Q1's $4.8 billion, and exceeding Anthropic's entire 2025 annual revenue in a single quarter. The growth is driven by enterprise adoption of Claude for coding and agentic workflows. The company that was burning through capital to fund safety research is now generating the kind of revenue that makes a trillion-dollar valuation defensible on fundamentals, not just narrative." },
+
+      { type: 'h2', text: "The Tension That Remains" },
+      { type: 'p', text: "The harder question is what comes after the IPO. Private companies have more latitude to make decisions that are costly in the short term for safety or reputational reasons. Public companies face quarterly earnings calls, analyst pressure, and shareholders who did not necessarily invest because they share the founders' views on AI risk." },
+      { type: 'p', text: "Anthropic's dual-class share structure — if it follows the pattern of other tech IPOs — would give Dario and Daniela Amodei voting control despite the public listing. That is the technical mechanism that could preserve mission independence. But mechanisms and incentives are different things, and the history of dual-class tech companies suggests that structural protection does not guarantee cultural continuity." },
+      { type: 'p', text: "The Mythos situation is itself a stress test. The decision to withhold it, build Project Glasswing, and release a stripped public version is the right call by most reasonable safety frameworks. The question is whether that kind of decision — commercially costly, publicly difficult to explain — remains easy to make when the company is accountable to public shareholders." },
+
+      { type: 'h2', text: "What It Means for Developers" },
+      { type: 'p', text: "In the immediate term: Fable 5 is the model to pay attention to. 80.3% on SWE-Bench Pro is meaningfully ahead of previous publicly available models. The pricing makes it accessible at scale. If you are building on Claude today, this is your new default." },
+      { type: 'p', text: "The Project Glasswing tier is worth understanding even if you are not in it. It establishes a precedent: some capabilities will be available only to vetted organisations with specific use cases and compliance requirements. That tier will likely expand over time as Anthropic gets better at verifying use cases. For security engineers and researchers, the path to Mythos 5 access is through demonstrating legitimate defensive need." },
+      { type: 'p', text: "The broader pattern — safety-restricted tiers for frontier capabilities — is likely to become standard across the industry. Anthropic is establishing the template. OpenAI's equivalent decisions will follow. For developers, the practical implication is that the most capable models will not always be universally available, and understanding why is part of navigating the landscape." },
+      { type: 'p', text: "The IPO itself matters for a different reason. A publicly listed Anthropic is a different kind of institution than a private one. The capital it raises funds the research that produces the next generation of models. The governance structure it adopts determines how mission commitments survive contact with shareholder pressure. Those are not developer questions in the short term. Over a five-year horizon, they are among the most consequential questions in the industry." },
+
+      { type: 'sources', items: [
+        { title: "Anthropic confidentially files for IPO at $965B valuation — Fortune", url: "https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/" },
+        { title: "Anthropic raises $65 billion Series H — TechCrunch", url: "https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/" },
+        { title: "Anthropic withholds Mythos Preview — Axios", url: "https://www.axios.com/2026/04/07/anthropic-mythos-preview-cybersecurity-risks" },
+        { title: "Anthropic releases Fable 5 — TechCrunch", url: "https://techcrunch.com/2026/06/09/anthropic-released-claude-fable-5-its-most-powerful-model-publicly-days-after-warning-ai-is-getting-too-dangerous/" },
+        { title: "Anthropic Calls Mythos Dangerous. Why Is It Expanding Access? — Bloomberg", url: "https://www.bloomberg.com/news/articles/2026-06-09/anthropic-calls-mythos-dangerous-why-is-it-expanding-access" },
+        { title: "Introducing Claude Fable 5 and Mythos 5 — Anthropic Docs", url: "https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5" },
+        { title: "Anthropic's Mythos is a wake-up call — Fortune", url: "https://fortune.com/2026/04/10/anthropic-mythos-ai-driven-cybersecurity-risks-already-here/" },
+        { title: "AI hacking fears jolt Washington — Washington Post", url: "https://www.washingtonpost.com/technology/2026/04/24/anthropic-mythos-ai-washington-cybersecurity-hacking-risk/" },
+      ]},
+    ],
+  },
+  {
     slug: 'garry-tan-gstack-office-hours-what-developers-need-to-know',
     title: "Garry Tan Shipped 600,000 Lines of Code in 60 Days While Running YC. Here's What gstack Actually Is.",
     subtitle: "The YC CEO's open-source Claude Code setup has 89,000+ GitHub stars and a /office-hours skill that simulates a YC partner conversation. Here's what's real, what's hype, and what developers should take from it.",
