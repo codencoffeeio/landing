@@ -21,6 +21,57 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'the-website-is-not-for-humans-anymore',
+    title: "The Website Is Not for Humans Anymore",
+    subtitle: "The next wave of software isn't built for people to click through — it's built for agents to call. Here's what that means if you're deciding what to build next.",
+    date: "June 12, 2026",
+    readTime: "6 min read",
+    tags: ["AI Agents", "Architecture", "Builders", "Product"],
+    author: "Aira",
+    excerpt: "For thirty years, building for the web meant making something a human can navigate. That assumption is breaking. The thing doing the navigating is changing — and it has significant implications for what's worth building right now.",
+    content: [
+      { type: 'p', text: "For the last thirty years, building for the web meant one thing: make something a human can navigate. Good UI, clear menus, fast load times. The measure of success was whether a person could find what they needed and act on it." },
+      { type: 'p', text: "That assumption is quietly breaking. Not because the internet is going away — but because the thing doing the navigating is changing. Increasingly, it's not a person clicking through your interface. It's an agent." },
+      { type: 'p', text: "This shift is not theoretical. It's already happening in enterprise tooling, developer workflows, and B2B software. And it has significant implications for what's worth building right now." },
+
+      { type: 'h2', text: "From Browsing to Execution" },
+      { type: 'p', text: "Human browsing is exploratory. You open a tab, scan the page, decide what to click, interpret what you see. Websites are designed around this behaviour — visual hierarchy, hover states, progressive disclosure. The whole discipline of UX is built to guide a human through a flow." },
+      { type: 'p', text: "Agentic execution is different. An AI agent doesn't browse — it calls. It needs to know: what actions are available, what inputs they require, what the output will be. It doesn't care about your hero image. It cares whether createBooking() is documented and callable." },
+      { type: 'p', text: "The best products of the next few years will be designed for both audiences simultaneously — a human interface on top of a machine-callable layer underneath. But the machine layer is becoming the more important one to get right." },
+
+      { type: 'h2', text: "Build Functions, Not Just Pages" },
+      { type: 'p', text: "The architectural shift this demands is real but not complicated. Stop thinking of your backend purely as the thing that powers your frontend. Start thinking of it as a set of callable functions that your frontend happens to sit on top of." },
+      { type: 'list', items: [
+        "Expose core actions as clean API endpoints — searchInventory(), calculateQuote(), submitApplication() — not just as form submissions buried in a UI flow.",
+        "Use emerging standards like WebMCP (Model Context Protocol) so agents can discover and call your tools without screen-scraping your buttons.",
+        "Treat your API layer as the primary product. The frontend is a presentation layer — useful for humans, irrelevant to machines.",
+      ]},
+      { type: 'p', text: "If an AI agent had to interact with your product today, could it? If the honest answer is 'it would have to click through the UI', you have technical debt that is about to become a competitive liability." },
+
+      { type: 'h2', text: "The Opportunity Is in the Mess" },
+      { type: 'p', text: "The best near-term opportunities for builders are not in the polished consumer apps. They're in the unglamorous B2B workflows that nobody has bothered to automate because they're too niche, too manual, or too dependent on legacy systems." },
+      { type: 'callout', title: "A useful question to ask", text: "What browser tab does this person keep open all day to do their job? That manual, web-bound process — the one they've just accepted as part of the work — is a prime candidate for an agent-powered product." },
+      { type: 'p', text: "Niche price monitoring in B2B markets. Vendor portal reconciliation. Grant application tracking. Compliance dashboard scraping. These are not exciting product categories. They are also almost entirely unaddressed by AI tooling, used daily by real operators, and willing to pay for anything that removes the manual overhead." },
+      { type: 'p', text: "The 'tab test' is a useful filter: find the browser tab that an operator in a specific industry has open all day, doing something repetitive that a well-structured agent could do instead. Build that. It won't look impressive in a Product Hunt launch, but it will have retention metrics that consumer apps would envy." },
+
+      { type: 'h2', text: "What Agent-Ready Architecture Actually Looks Like" },
+      { type: 'p', text: "You don't have to rebuild everything. But if you're starting something new, or doing a significant refactor, these principles are worth baking in from the start." },
+      { type: 'list', items: [
+        "Structure your data with clear models and consistent naming. Agents interpret your data schema literally — ambiguous field names become failure modes.",
+        "Minimise UI dependency for core actions. Complex animations, hidden modals, and JavaScript-heavy flows that aren't clearly labelled are agent-hostile. If the action requires a human eye to find it, it's not agent-ready.",
+        "Design for auditability. Agents acting on behalf of users need to produce logs that humans can review. Build your execution layer so every action is traceable.",
+        "Expose a stable API surface. Agents break when the thing they're calling changes unexpectedly. Version your APIs and treat breaking changes as seriously as you would for external consumers.",
+      ]},
+
+      { type: 'h2', text: "This Doesn't Mean UI Is Dead" },
+      { type: 'p', text: "None of this means you stop building interfaces. Human oversight of agentic systems is a real and growing need — people want to see what the agent did, approve what it's about to do, and correct it when it's wrong. The interface layer becomes a control plane rather than the primary interaction surface." },
+      { type: 'p', text: "What changes is the design priority. You're no longer optimising purely for a human clicking through a linear flow. You're optimising for a machine that executes reliably, with a human watching and occasionally intervening." },
+      { type: 'p', text: "The developers who grasp this early — and build with both audiences in mind — are the ones who will find their products useful to an entirely new class of consumers: not just the humans who sign up, but the agents those humans deploy to act on their behalf." },
+      { type: 'quote', text: "The question is no longer just 'can a user figure out how to do this?' It's 'can an agent do this without guessing?'" },
+      { type: 'p', text: "That's the design brief for the next era of software. Start writing for it now." },
+    ],
+  },
+  {
     slug: 'anthropic-ipo-mythos-safety-tension',
     title: "Anthropic Is Filing for a $965 Billion IPO. It Also Has a Model Too Dangerous to Release. These Two Facts Are Connected.",
     subtitle: "Anthropic confidentially filed its S-1 on June 1, 2026 — weeks after revealing a model that can autonomously exploit zero-day vulnerabilities in every major OS and browser. The tension between the two stories tells you everything about where the company actually stands.",
