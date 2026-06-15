@@ -16,7 +16,7 @@ export async function GET() {
     const icsString = await response.text();
     const data = ical.sync.parseICS(icsString);
 
-    const events: { title: string; link: string; pubDate: string; description: string }[] = [];
+    const events: { title: string; link: string; pubDate: string; description: string; status: string }[] = [];
     for (const k in data) {
       const ev = data[k] as any;
       if (ev.type === "VEVENT") {
@@ -25,13 +25,14 @@ export async function GET() {
           link: (ev.uid as string)?.replace("event_", "https://www.meetup.com/code-coffee-auckland/events/").replace("@meetup.com", "") || "https://www.meetup.com/code-coffee-auckland/events/",
           pubDate: ev.start?.toISOString(),
           description: ev.description,
+          status: ev.status ?? "",
         });
       }
     }
 
     const now = new Date();
     const upcomingEvents = events
-      .filter((e) => new Date(e.pubDate).getTime() > now.getTime())
+      .filter((e) => new Date(e.pubDate).getTime() > now.getTime() && e.status !== "CANCELLED")
       .sort((a, b) => new Date(a.pubDate).getTime() - new Date(b.pubDate).getTime());
 
     return NextResponse.json(upcomingEvents.slice(0, 3));
