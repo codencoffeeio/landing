@@ -21,6 +21,50 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'ed-zitron-uncomfortable-numbers-ai-gold-rush',
+    title: "Ed Zitron and the Uncomfortable Numbers Behind the AI Gold Rush",
+    subtitle: "The most prominent AI sceptic says the whole thing is a con. The numbers he cites are real. Here's an honest look at what he gets right — and what builders should weigh for themselves.",
+    date: "June 16, 2026",
+    readTime: "8 min read",
+    tags: ["AI Industry", "Opinion", "Builders", "Industry"],
+    author: "Aira",
+    excerpt: "Ed Zitron has 80,000 newsletter subscribers and a simple thesis: the AI boom is financially unsustainable, the IPOs are exit liquidity for VCs, and retail investors are the marks. The numbers he cites are real. So why isn't anyone in the industry taking him seriously?",
+    content: [
+      { type: 'p', text: "Ed Zitron is not easy to dismiss. He has 80,000 subscribers to his newsletter Where's Your Ed At, a podcast in the Top 20, and a book coming out this year. More importantly, the numbers he cites are real numbers. He doesn't make them up. He reads the filings, does the arithmetic, and publishes what he finds." },
+      { type: 'p', text: "His thesis, stated plainly on Bloomberg earlier this year: Anthropic and OpenAI are dangerous and unsustainable companies that shouldn't IPO. The AI bubble is a con. Retail investors are the marks. AI doesn't have ROI. There is no post-bubble recovery story." },
+      { type: 'p', text: "That's a strong position. Let's look at what he's actually working from." },
+
+      { type: 'h2', text: "The Numbers He's Citing" },
+      { type: 'p', text: "OpenAI's non-GAAP profit margin is negative 122%. Anthropic burned $5.3 billion last year, the vast majority on compute. Claude Code — Anthropic's developer tool, heavily marketed as a transformative product — generates approximately $28 million a month in revenue. Zitron's point: for something positioned as the most important tool in technology, that's a small number relative to the burn." },
+      { type: 'p', text: "He's also sceptical of the revenue growth figures. Anthropic reportedly went from $700 million in monthly revenue in December 2025 to $2.3–2.5 billion by April 2026. Zitron asks the obvious question: how does a company grow revenue by more than 3x in four months? His answer: either the numbers are being presented in a way that doesn't reflect actual economics, or Silicon Valley is effectively subsidising Anthropic through what he calls 'an industry-wide token-burning psychosis' — enterprises buying AI compute not because it generates ROI but because not buying it feels like falling behind." },
+      { type: 'callout', title: "The data center problem", text: "Zitron argues hyperscalers like Microsoft are trapped — building data centers with GPUs that take 6–12 months just to install, for workloads that haven't materialised at the scale required to justify the infrastructure. He calls it a 'rock com bubble': the build-out precedes and may never be matched by the demand." },
+      { type: 'p', text: "On the IPO question, his argument is structural. When a company that has burned billions goes public, the early investors get liquidity. The people buying shares on day one of the IPO are the ones holding the bag if the company's economics don't improve. Zitron's view is that the current AI IPO wave — Anthropic, potentially OpenAI — is primarily a mechanism for venture capital to exit, dressed up in transformative-technology language." },
+
+      { type: 'h2', text: "Where He's Making a Fair Point" },
+      { type: 'p', text: "The financial unsustainability argument is not wrong. Companies spending billions on compute while running negative margins at scale are making a bet that future revenue will justify current losses. That bet may be right — AWS ran at a loss for years before becoming the most profitable part of Amazon. But the bet is a bet, not a certainty, and the scale of capital being deployed means the downside is significant if it doesn't come off." },
+      { type: 'p', text: "The IPO timing concern is also legitimate. Anthropic filed its S-1 in June 2026. That's while the company is still burning billions annually and has not demonstrated a clear path to profitability. The question of who benefits from that IPO — and who bears the risk — is a reasonable one to ask." },
+      { type: 'p', text: "And the data center argument has real substance. Oracle's investors have been punishing the stock over its data center commitments to OpenAI. The infrastructure build-out is massive, long-dated, and dependent on demand materialising at a scale that hasn't been independently verified." },
+
+      { type: 'h2', text: "Where It Gets More Complicated" },
+      { type: 'p', text: "Zitron's broader claim — that AI has no ROI and people don't want it — runs into a harder empirical problem. 84% of developers use AI coding tools daily. Enterprise adoption of Claude and GPT-4 class models for document processing, customer service, and code review is documented and growing. GitHub reports 46% of new code is AI-assisted. These aren't astroturfed numbers from AI company press releases — they're showing up in productivity surveys, enterprise earnings calls, and developer communities." },
+      { type: 'p', text: "The $28 million monthly Claude Code figure Zitron cites as evidence of weak demand is also doing a lot of work in his argument. $336 million annualised is not nothing — it's a meaningful product line that didn't exist two years ago, growing fast, in a market that's still early. Dismissing it as insufficient proves too much: by the same logic, AWS's early revenue figures would have looked unimpressive against the infrastructure costs of building it." },
+      { type: 'p', text: "The more honest version of Zitron's argument is not 'AI has no value' — it's 'the current investment levels are not justified by current demonstrated returns, and the gap is being papered over by hype and circular investment.' That's a more defensible position, and one worth taking seriously even if you believe AI is genuinely useful." },
+
+      { type: 'h2', text: "Why Builders Should Pay Attention Anyway" },
+      { type: 'p', text: "If Zitron is even partially right about the financial dynamics, the practical implications for people building AI-powered products are real. A correction in AI infrastructure spending — or a meaningful drop in hyperscaler valuations — would tighten the availability and increase the cost of AI compute. Models that are currently cheap to call because they're being subsidised by venture capital may not stay cheap." },
+      { type: 'p', text: "This isn't a reason not to build. It's a reason to build products where the value is in what you create with AI, not in the assumption that AI compute stays at current prices indefinitely. Products that deliver enough value that users would pay a higher API price. Products with moats that aren't just 'we use the latest model.'" },
+      { type: 'quote', text: "The question isn't whether AI is useful. It's whether the current investment levels are justified by current demonstrated returns — and whether the gap is being papered over by hype.", attribution: "Ed Zitron, Where's Your Ed At" },
+      { type: 'p', text: "Zitron is sometimes too certain in his conclusions and too quick to dismiss evidence that complicates his thesis. But he's doing something that almost nobody else in the AI discourse is doing: reading the actual financial documents and asking what the numbers mean. For builders, that's worth engaging with — not to agree with everything he says, but because the questions he's asking are ones you should be asking too." },
+      { type: 'p', text: "The AI gold rush is real. The gold may be real too. The uncomfortable numbers are also real. Holding all of that simultaneously is harder than picking a side — but it's probably closer to the truth." },
+      { type: 'sources', items: [
+        { title: "Ed Zitron's Where's Your Ed At newsletter", url: "https://www.wheresyoured.at/" },
+        { title: "Ed Zitron on Bloomberg: Anthropic and OpenAI shouldn't IPO", url: "https://x.com/edzitron/status/2061940946095292688" },
+        { title: "AI Skeptic Ed Zitron: Math on Data Centers Doesn't Add Up — Newsweek", url: "https://www.newsweek.com/ai-skeptic-ed-zitron-says-math-on-data-centers-doesnt-add-up-11594219" },
+        { title: "Ed Zitron: Anthropic and OpenAI Shouldn't IPO — StartupHub.ai", url: "https://www.startuphub.ai/ai-news/artificial-intelligence/2026/ed-zitron-anthropic-and-openai-shouldn-t-ipo" },
+      ]},
+    ],
+  },
+  {
     slug: 'mcp-the-plumbing-nobody-is-talking-about',
     title: "MCP Is the Plumbing Nobody's Talking About (But Everyone's Installing)",
     subtitle: "97 million monthly downloads. 10,000+ servers. Adopted by every major AI lab within months. Model Context Protocol is quietly becoming the HTTP of AI-tool integration.",
