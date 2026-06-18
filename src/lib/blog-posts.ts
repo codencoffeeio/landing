@@ -21,6 +21,60 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'forward-deployed-engineer-job-exists-because-enterprise-ai-fails',
+    title: "The Job That Exists Because 95% of Enterprise AI Projects Fail",
+    subtitle: "Forward Deployed Engineers are the fastest-growing role in tech, with 224 open positions across 118 companies and comp clearing $500K at senior level. They exist because the bottleneck in AI was never the model.",
+    date: "June 18, 2026",
+    readTime: "7 min read",
+    tags: ["AI Careers", "Enterprise AI", "Industry", "Builders"],
+    author: "Aira",
+    excerpt: "An MIT study examined 300 enterprise AI projects and found that 95% produced little or no measurable impact on profit and loss. The model wasn't the problem. Deployment was. The Forward Deployed Engineer role exists to fix that — and it's now the hottest job title in tech.",
+    content: [
+      { type: 'p', text: "In late 2025, MIT's NANDA initiative published findings from a study of 300 public enterprise AI projects. 95% produced little or no measurable impact on profit and loss." },
+      { type: 'p', text: "Not 95% failed to deploy. Not 95% went over budget. 95% didn't move the needle on the thing enterprises actually care about: revenue or cost." },
+      { type: 'p', text: "The models weren't the problem. GPT-4 class models had been available for two years. Anthropic, Google, and Microsoft were all selling enterprise contracts. The AI was capable. Something else was failing — and that something else created one of the fastest-growing job titles in tech." },
+
+      { type: 'h2', text: "What a Forward Deployed Engineer Actually Does" },
+      { type: 'p', text: "A Forward Deployed Engineer (FDE) is a senior software engineer who embeds directly inside an enterprise customer's environment and writes production code inside their systems. Not a consultant. Not a solutions architect. An engineer who ships working software in your codebase, against your data, connected to your infrastructure." },
+      { type: 'p', text: "The role originated at Palantir. Their model was simple and unusual: instead of shipping software and hoping customers would use it, embed engineers at the customer site. Make the deployment outcome the engineer's direct responsibility. If the system doesn't work in production, that's on you — not a separate professional services team that hands off and leaves." },
+      { type: 'p', text: "The difference from other customer-facing technical roles is accountability. ML engineers rarely talk to customers. Solutions engineers talk to customers but don't write production code. FDEs do both — they're in the room with the customer's technical and operational teams, and they're in the codebase making it work." },
+      { type: 'callout', title: "The Palantir model, now everywhere", text: "Palantir pioneered FDEs in the 2010s for defence and intelligence customers. By 2026, OpenAI, Anthropic, Databricks, Mistral, Cohere, Scale AI, Snowflake, and over 100 other companies have adopted the same model. Job postings for the role grew 800% between January and September 2025." },
+
+      { type: 'h2', text: "Why Every AI Lab Is Now Copying Palantir" },
+      { type: 'p', text: "In May 2026, OpenAI launched what it called 'The Deployment Company' — a dedicated FDE business unit with $4 billion in announced enterprise commitments. The name is pointed: OpenAI is explicitly positioning itself not just as a model provider but as a company that ships working AI systems inside enterprise environments." },
+      { type: 'p', text: "Anthropic went a different direction structurally but with the same intent: a $1.5 billion joint venture with Blackstone and Goldman Sachs specifically to embed Claude FDEs inside financial services customers. The JV structure gives the financial institutions a level of contractual accountability that a standard API contract doesn't." },
+      { type: 'p', text: "The companies hiring the most FDEs right now: Palantir (51 open roles), OpenAI (31), Databricks (12), Mistral (11), Cohere (10), Scale AI (8), Snowflake (7). 224 open positions across 118 companies in total, as of mid-2026." },
+      { type: 'p', text: "The reason they're all moving this direction is the same: the bottleneck in enterprise AI has never been model capability. It's been the gap between what a model can do in a demo and what it does in a real production environment with messy data, legacy systems, compliance requirements, and users who weren't trained on the tool." },
+
+      { type: 'h2', text: "What the Role Actually Requires" },
+      { type: 'p', text: "FDE job descriptions consistently ask for a combination of skills that's genuinely rare: strong software engineering ability, comfort with ambiguity, the ability to communicate clearly with non-technical stakeholders, and the resilience to work in environments you don't control." },
+      { type: 'list', items: [
+        "Production software engineering — you're writing code that runs in the client's systems, not a sandbox",
+        "Systems integration — connecting AI models to existing data pipelines, APIs, authentication systems, and workflows that weren't designed for AI",
+        "Customer communication — translating between what a business stakeholder wants and what's technically achievable, in real time",
+        "Debugging in the wild — diagnosing failures in production environments where you don't have full visibility into the stack",
+        "Rapid iteration — enterprise customers expect visible progress, not sprint cycles measured in weeks",
+      ]},
+      { type: 'p', text: "The profile that tends to succeed: engineers with 5–8 years of experience who've shipped production systems, have some tolerance for chaos, and can hold a conversation with a CFO and a data engineer in the same afternoon. It's not a role for people who prefer working autonomously on well-defined problems." },
+
+      { type: 'h2', text: "The Compensation Reflects the Scarcity" },
+      { type: 'p', text: "Mid-level FDE roles at AI companies currently clear $300K–$450K total compensation. Senior roles run $450K–$550K. Staff and principal-level FDEs at frontier labs are at $600K+. These are not outlier numbers for exceptional candidates — they're the market rate for the role." },
+      { type: 'p', text: "The compensation reflects two things: the scarcity of people who have the full combination of skills, and the direct revenue impact of the role. An FDE who successfully deploys an AI system for a $10M enterprise contract is directly attributable to that revenue in a way that an internal platform engineer isn't. Companies are willing to pay for that accountability." },
+
+      { type: 'h2', text: "What This Means for Developers Thinking About Their Career" },
+      { type: 'p', text: "The FDE role is worth understanding even if you're not planning to apply for one. It represents a broader shift in how AI value is being created and captured — not at the model layer, which is increasingly commoditised, but at the deployment layer, where the hard work of making AI actually change business outcomes happens." },
+      { type: 'p', text: "For developers who are good engineers and good communicators, and who've been building with AI tools, this is a career path that didn't exist three years ago and is now one of the highest-paid roles in the industry. The barrier isn't a specific credential — it's demonstrated ability to ship in complex environments and work directly with customers." },
+      { type: 'quote', text: "The bottleneck in enterprise AI was never the model. It was always the last mile — getting from a working demo to a production system that actually changes the numbers." },
+      { type: 'p', text: "95% of enterprise AI projects failing isn't a model problem. It's a deployment problem. The FDE role is the industry's answer to that problem. Whether you want to do the role or just understand the landscape, the fact that it exists — and is growing this fast — tells you something important about where AI value is actually being created in 2026." },
+      { type: 'sources', items: [
+        { title: "Forward Deployed Engineer Boom: 224 Open Roles Across 39 AI Companies — JobsByCulture", url: "https://jobsbyculture.com/blog/forward-deployed-engineer-boom-2026" },
+        { title: "What is a Forward Deployed Engineer: OpenAI, Anthropic, Google Are Hiring in 2026 — MarkTechPost", url: "https://www.marktechpost.com/2026/05/20/what-is-a-forward-deployed-engineer-the-ai-role-openai-anthropic-and-google-are-hiring-in-2026/" },
+        { title: "Why OpenAI Is Hiring Forward-Deployed AI Engineers Like Palantir — InterviewQuery", url: "https://www.interviewquery.com/p/openai-palantir-forward-deployed-ai-engineers" },
+        { title: "Why Forward Deployed Engineers Are the Hottest Job in 2026 — Christian & Timbers", url: "https://www.christianandtimbers.com/insights/why-forward-deployed-engineers-are-the-hottest-job-in-2026" },
+      ]},
+    ],
+  },
+  {
     slug: 'minimax-m3-beat-gpt-5-5-coding-free-to-run',
     title: "MiniMax M3 Just Beat GPT-5.5 on Coding. It's Also Free to Run.",
     subtitle: "A Shanghai-based lab released an open-weight model that outperforms GPT-5.5 and Gemini 3.1 Pro on SWE-bench Pro — with a 1-million-token context window and API pricing at 5–10% of the cost. The frontier just got a lot more open.",
