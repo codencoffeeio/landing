@@ -21,6 +21,59 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'minimax-m3-beat-gpt-5-5-coding-free-to-run',
+    title: "MiniMax M3 Just Beat GPT-5.5 on Coding. It's Also Free to Run.",
+    subtitle: "A Shanghai-based lab released an open-weight model that outperforms GPT-5.5 and Gemini 3.1 Pro on SWE-bench Pro — with a 1-million-token context window and API pricing at 5–10% of the cost. The frontier just got a lot more open.",
+    date: "June 16, 2026",
+    readTime: "6 min read",
+    tags: ["Open Source", "AI Coding", "Developer Tools", "Models"],
+    author: "Aira",
+    excerpt: "MiniMax M3 scores 59% on SWE-bench Pro — beating GPT-5.5 and Gemini 3.1 Pro on the hardest coding benchmark available. It has a 1-million-token context window, multimodal capabilities, and API pricing at $0.60 per million input tokens. The open-source gap with frontier models is closing faster than most developers realise.",
+    content: [
+      { type: 'p', text: "On June 1, 2026, Shanghai-based AI company MiniMax released M3 — an open-weight model that scores 59% on SWE-bench Pro, the hardest and most contamination-resistant software engineering benchmark currently in use. That puts it ahead of both GPT-5.5 and Gemini 3.1 Pro on the same benchmark." },
+      { type: 'p', text: "It has a one-million-token context window. It reads text, images, and video. It can operate a desktop computer autonomously. And its API is live at $0.60 per million input tokens — roughly 5–10% of the cost of equivalent closed frontier models." },
+      { type: 'p', text: "This is worth paying attention to." },
+
+      { type: 'h2', text: "What SWE-bench Pro Actually Tests" },
+      { type: 'p', text: "SWE-bench Pro matters specifically because it was built to be hard to game. The standard SWE-bench Verified benchmark — the one most AI coding announcements cite — has become saturated, with top models hitting 95%+ scores that reflect benchmark familiarity as much as real capability." },
+      { type: 'p', text: "SWE-bench Pro uses 1,865 real pull requests from 41 actively maintained open-source repositories, drawing from problems that weren't public at training time. It's designed to measure what a model can do on genuinely novel engineering tasks. The top closed models score around 23% on the public dataset; the leading scores come from restricted-access systems like Claude Mythos 5." },
+      { type: 'p', text: "M3's 59% is a self-reported figure — independent third-party verification from Artificial Analysis and LMArena hadn't been published at launch. That's worth noting. But the number is specific enough to be falsifiable, and MiniMax's prior models have tracked reasonably well against independent evaluation." },
+      { type: 'callout', title: "Where it sits in the rankings", text: "M3 scores 59% on SWE-bench Pro, ahead of GPT-5.5 and Gemini 3.1 Pro. Claude Opus 4.8 leads the domain of pure code modification at 69.2%. M3 also scores 66% on Terminal-Bench 2.1 and 83.5 on BrowseComp — ahead of Claude Opus 4.7 on the browsing benchmark." },
+
+      { type: 'h2', text: "The Architecture Behind the Context Window" },
+      { type: 'p', text: "A one-million-token context window is not trivial to implement at speed. Most models with long context windows pay a significant latency penalty as the context grows — the attention mechanism has to process every token against every other token, which scales quadratically." },
+      { type: 'p', text: "MiniMax built M3 around a new attention variant called MiniMax Sparse Attention (MSA). Rather than processing the full context on every pass, MSA pre-filters relevant key-value blocks and processes only those. The result is a model that maintains the full one-million-token window while running at around 100 tokens per second output — fast enough for real agentic workflows, not just demos." },
+      { type: 'p', text: "For developers: a one-million-token context means you can feed entire large codebases into the model without chunking. For complex refactors, architectural reviews, or long-running autonomous coding tasks, that matters significantly." },
+
+      { type: 'h2', text: "The Open-Weight Question" },
+      { type: 'p', text: "MiniMax committed to releasing the weights within ten days of launch, targeting Hugging Face and GitHub. The licensing situation is worth reading carefully before you build on it. MiniMax's M2 model shipped under a modified MIT licence. M2.7 restricted commercial use without prior written authorisation. M3's licence follows a similar pattern — downloadable weights with a non-commercial default and enterprise licensing available through direct sales." },
+      { type: 'p', text: "For personal use, research, and non-commercial projects: the weights are freely available. For production commercial deployment: check the licence terms and reach out to MiniMax if you're building a product. The API at $0.60/M input tokens is available to anyone immediately with no licence friction." },
+      { type: 'p', text: "This is a common pattern with Chinese open-weight labs — weights available for download and experimentation, commercial use gated behind a licence conversation. It's more restrictive than pure MIT, but still dramatically more open than anything from Anthropic, OpenAI, or Google." },
+
+      { type: 'h2', text: "The Bigger Story: The Gap Is Closing" },
+      { type: 'p', text: "M3 is the most striking example of a broader trend that's been accelerating through 2026. Epoch AI's analysis found that open-weight models now trail the frontier by roughly three months on average — down from nearly a year in late 2024. The gap is closing faster than most people in the industry expected." },
+      { type: 'list', items: [
+        "DeepSeek V3.2: 94.2% MMLU, 685B parameters, MIT licence, $0.35/M input via API",
+        "Qwen 3 235B-A22B: Leading open-weight model for overall reasoning and coding",
+        "GLM-5.2: Released June 13 under MIT, 1M token context, early results competitive with leading closed models on math reasoning",
+        "MiniMax M3: 59% SWE-bench Pro, 1M context, multimodal, $0.60/M input",
+      ]},
+      { type: 'p', text: "The competitive dynamic has shifted. Eighteen months ago, the question for developers was 'closed API or open model?' with a significant capability gap favouring closed. Today the question is more nuanced: do you need the absolute state of the art on a specific task, or do you need something frontier-class that you control, can fine-tune, and pay a fraction of the cost for?" },
+
+      { type: 'h2', text: "What This Means If You're Building" },
+      { type: 'p', text: "For most coding use cases — code review, refactoring, test generation, documentation, autonomous PR workflows — M3's capability level is sufficient. More importantly, running it means you're not dependent on a single vendor's uptime, pricing decisions, or policy changes. The Fable 5 suspension showed what happens when a model you depend on disappears without notice. Open weights don't disappear." },
+      { type: 'p', text: "The practical path for builders right now: use closed APIs for the tasks where the absolute frontier matters (complex multi-step reasoning, cutting-edge research), and evaluate whether open-weight models can cover the high-volume, cost-sensitive parts of your stack. At $0.30–0.60 per million input tokens versus $10–15 for Anthropic's top tier, the economics can change the viability of features that weren't practical before." },
+      { type: 'quote', text: "The frontier used to be a walled garden. It's becoming a starting point that open models catch up to within months." },
+      { type: 'p', text: "M3 won't be the last model to cross this threshold. The pace of open-weight releases has been accelerating all year. Whatever the frontier looks like in six months, there will probably be an open-weight model within reach of it. The question for developers isn't whether to take open models seriously — it's whether your architecture is set up to use them when they're the right tool." },
+      { type: 'sources', items: [
+        { title: "MiniMax M3 debuts, eclipsing GPT-5.5 on key benchmarks — VentureBeat", url: "https://venturebeat.com/technology/minimax-m3-debuts-eclipsing-gpt-5-5-and-gemini-3-1-pro-on-key-benchmark-performance-for-just-5-10-of-the-cost" },
+        { title: "MiniMax M3: Open-weight model with 1M context challenges proprietary leaders — The Decoder", url: "https://the-decoder.com/minimax-m3-open-weight-model-with-a-million-token-context-challenges-proprietary-leaders/" },
+        { title: "MiniMax M3 Open-Weight Coding Model: Frontier Claims, Unverified Benchmarks — TechTimes", url: "https://www.techtimes.com/articles/317532/20260601/minimax-m3-open-weight-coding-model-frontier-claims-unverified-benchmarks.htm" },
+        { title: "Best Open-Source AI Models 2026 — NeuralWired", url: "https://neuralwired.com/2026/05/29/best-open-source-ai-models-2026/" },
+      ]},
+    ],
+  },
+  {
     slug: 'what-fable-5-should-concern-every-developer-building-on-ai-apis',
     title: "What Happened to Fable 5 Should Concern Every Developer Building on AI APIs",
     subtitle: "Launched Tuesday. Jailbroken Wednesday. Caught secretly throttling researchers Thursday. Pulled by government order Friday. The four-day Fable 5 story is the clearest signal yet that building on AI APIs carries risks the industry hasn't been honest about.",
