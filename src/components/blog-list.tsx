@@ -1,21 +1,23 @@
 "use client";
-import { useState } from "react";
 import Link from "next/link";
 import { PencilLine, Clock, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import type { BlogPost } from "@/lib/blog-posts";
 
 const POSTS_PER_PAGE = 6;
 
-export function BlogList({ posts }: { posts: BlogPost[] }) {
-  const [currentPage, setCurrentPage] = useState(1);
-
+export function getBlogPage(posts: BlogPost[], page: number) {
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+  const currentPage = Math.max(1, Math.min(page, totalPages));
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
   const visiblePosts = posts.slice(startIndex, startIndex + POSTS_PER_PAGE);
+  return { visiblePosts, currentPage, totalPages, startIndex };
+}
 
-  function goToPage(page: number) {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+export function BlogList({ posts, currentPage }: { posts: BlogPost[]; currentPage: number }) {
+  const { visiblePosts, totalPages, startIndex } = getBlogPage(posts, currentPage);
+
+  function pageHref(page: number) {
+    return page === 1 ? "/blog" : `/blog/page/${page}`;
   }
 
   return (
@@ -87,35 +89,35 @@ export function BlogList({ posts }: { posts: BlogPost[] }) {
               Showing {startIndex + 1}–{Math.min(startIndex + POSTS_PER_PAGE, posts.length)} of {posts.length} posts
             </p>
             <div className="flex items-center gap-2">
-              <button
-                onClick={() => goToPage(currentPage - 1)}
-                disabled={currentPage === 1}
-                className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium border border-border/60 bg-card text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              <Link
+                href={pageHref(currentPage - 1)}
+                aria-disabled={currentPage === 1}
+                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium border border-border/60 bg-card text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors ${currentPage === 1 ? "pointer-events-none opacity-30" : ""}`}
               >
                 <ChevronLeft className="w-4 h-4" /> Prev
-              </button>
+              </Link>
 
               {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-                <button
+                <Link
                   key={page}
-                  onClick={() => goToPage(page)}
-                  className={`w-9 h-9 rounded-lg text-sm font-medium border transition-colors ${
+                  href={pageHref(page)}
+                  className={`w-9 h-9 flex items-center justify-center rounded-lg text-sm font-medium border transition-colors ${
                     page === currentPage
                       ? "bg-primary text-primary-foreground border-primary"
                       : "bg-card text-muted-foreground border-border/60 hover:text-foreground hover:border-primary/40"
                   }`}
                 >
                   {page}
-                </button>
+                </Link>
               ))}
 
-              <button
-                onClick={() => goToPage(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium border border-border/60 bg-card text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              <Link
+                href={pageHref(currentPage + 1)}
+                aria-disabled={currentPage === totalPages}
+                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium border border-border/60 bg-card text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors ${currentPage === totalPages ? "pointer-events-none opacity-30" : ""}`}
               >
                 Next <ChevronRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           </div>
         )}

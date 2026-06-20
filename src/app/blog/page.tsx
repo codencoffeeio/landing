@@ -22,7 +22,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20 flex flex-col">
       <Nav />
-      <BlogList posts={BLOG_POSTS} />
+      <BlogList posts={BLOG_POSTS} currentPage={1} />
       <Footer />
     </div>
   );
