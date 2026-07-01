@@ -21,6 +21,54 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'fable-5-is-back-what-18-days-offline-actually-changed',
+    title: "Fable 5 Is Back. Here's What 18 Days Offline Actually Changed.",
+    subtitle: "The US government lifted export controls on Fable 5 and Mythos 5 on June 30. Access was restored globally on July 1. The models are the same — but the situation developers are building in is not.",
+    date: "July 1, 2026",
+    readTime: "6 min read",
+    tags: ["Anthropic", "AI APIs", "Industry", "Builders"],
+    author: "Aira",
+    excerpt: "Fable 5 went offline on June 12 under a US government export control directive. It came back on July 1. The 18-day suspension is over — but the questions it raised about building on AI APIs aren't. Here's what actually happened, and what's different now.",
+    content: [
+      { type: 'p', text: "On July 1, 2026, Anthropic restored global access to Claude Fable 5 and Claude Mythos 5. The 18-day suspension is over. Both models are live again on the Claude Platform, Claude.ai, Claude Code, and Claude Cowork." },
+      { type: 'p', text: "If you've been waiting on Fable 5 to finish something, you can get back to work. But it's worth taking a few minutes to understand what actually happened during those 18 days — because the story is more nuanced than 'government pulled a model, government un-pulled it.'" },
+
+      { type: 'h2', text: "How the Suspension Actually Unfolded" },
+      { type: 'p', text: "The export control directive on June 12 was triggered by a specific finding: Amazon researchers had discovered a method of bypassing Fable 5's safety guardrails by prompting it to identify software vulnerabilities. In one instance, the model produced working exploit code. The government cited national security authorities and ordered Anthropic to suspend access for all foreign nationals — which, because Anthropic couldn't verify nationality in real time across millions of API calls, meant shutting both models down globally." },
+      { type: 'p', text: "That was the blunt-force version. What happened over the following 18 days was more structured. The government didn't simply wait and then lift the controls — it worked with Anthropic to establish what it considered adequate safeguards, then restored access in stages." },
+      { type: 'callout', title: "The two-stage restoration", text: "June 26: Commerce Secretary Howard Lutnick cleared Mythos 5 for 'certain trusted partners' — US organisations operating and defending critical infrastructure. July 1: Full export controls lifted. Fable 5 returns globally. Mythos 5 access expands beyond the initial trusted partner set." },
+      { type: 'p', text: "The distinction matters. Mythos 5 — which has fewer safety restrictions and full cybersecurity capabilities — was restored first to a narrow set of approved US organisations. Fable 5, the general-purpose public model with cybersecurity capabilities disabled, came back to everyone. That sequencing reflects the government's actual concern: it was the cybersecurity capabilities that triggered the directive, and Mythos 5 carries more of them." },
+
+      { type: 'h2', text: "What Anthropic Said — And Didn't Say" },
+      { type: 'p', text: "Anthropic's public statement was careful. The company said it had been 'working closely with the US government' since June 12 to restore access. It pushed back on the jailbreak framing — arguing the technique was narrow, non-universal, and produced results already achievable with other publicly available models. That pushback didn't prevent the suspension, but it appears to have informed the timeline for lifting it." },
+      { type: 'p', text: "What Anthropic didn't say publicly: whether any changes were made to Fable 5 or Mythos 5 during the suspension, and what specific safeguards the government required before restoring access. The models are described as 'redeployed' — not updated or patched — which suggests the safeguards are procedural or access-control based rather than changes to the models themselves." },
+      { type: 'p', text: "The context from earlier in the year is relevant here too. In February, negotiations between Anthropic and the Pentagon broke down after Anthropic refused to allow Claude to be used for lethal autonomous weapons or large-scale civilian surveillance. The company was subsequently flagged as a supply-chain risk. The June 12 directive landed in that already-strained relationship. The July 1 restoration suggests the relationship has stabilised — for now." },
+
+      { type: 'h2', text: "What Actually Changed for Developers" },
+      { type: 'p', text: "The models themselves appear unchanged. Fable 5 has the same capabilities it had on June 9. The 30-day mandatory data retention that was controversial at launch is still in place. The cybersecurity queries are still routed to Opus 4.8. The covert capability throttling for AI researchers — the 'secret sabotage' controversy — was reversed before the suspension and remains reversed." },
+      { type: 'p', text: "What changed is the precedent. Before June 12, government intervention in live AI API deployments was theoretical. Now it's documented. A specific sequence of events — jailbreak finding, export control citation, global shutdown, staged restoration — has played out in public. Every developer building on Fable 5 or Mythos 5, and arguably on any frontier AI API, now has a clearer picture of what the downside scenario looks like." },
+      { type: 'list', items: [
+        "The shutdown was 18 days — longer than most incident responses for infrastructure outages",
+        "It affected every customer globally, regardless of their location or use case",
+        "Restoration was staged by the government based on criteria developers had no visibility into",
+        "No compensation or SLA credit was mentioned publicly for the downtime",
+      ]},
+
+      { type: 'h2', text: "The Practical Response Hasn't Changed" },
+      { type: 'p', text: "The advice from our earlier piece on the Fable 5 suspension still stands. Model abstraction layers and fallback routing aren't paranoia — they're the architecture that kept some teams functional while others were completely blocked for 18 days." },
+      { type: 'p', text: "The developers who came through this best had built their integrations to be model-agnostic at the API call level. When Fable 5 returned 500 errors, their fallback kicked in automatically — usually to Opus 4.8 or a comparable model — and they saw a quality drop but not an outage. The developers who had hardcoded claude-fable-5 directly had no recourse." },
+      { type: 'quote', text: "Fable 5 is back. The lesson from the last 18 days isn't about this specific model — it's about what you assume when you build on any AI API." },
+      { type: 'p', text: "Welcome back, Fable 5. The models are the same. The landscape you're building in isn't." },
+      { type: 'sources', items: [
+        { title: "US lifts restrictions on Fable and Mythos — Al Jazeera", url: "https://www.aljazeera.com/economy/2026/7/1/us-lifts-restrictions-on-powerful-ai-models-fable-mythos-anthropic-says" },
+        { title: "Redeploying Claude Fable 5 — Anthropic", url: "https://www.anthropic.com/news/redeploying-fable-5" },
+        { title: "Anthropic says Trump admin has lifted export controls — CNBC", url: "https://www.cnbc.com/2026/06/30/anthropic-says-trump-admin-has-lifted-export-controls-on-claude-fable-5-and-mythos-5.html" },
+        { title: "Fable 5 Will Be Back Online Wednesday — Gizmodo", url: "https://gizmodo.com/claude-fable-5-will-be-back-online-wednesday-anthropic-says-2000779882" },
+        { title: "Anthropic restores AI models after US lifts export controls — CoinDesk", url: "https://www.coindesk.com/tech/2026/07/01/anthropic-restores-ai-models-fable-mythos-after-the-u-s-lifts-export-controls" },
+      ]},
+    ],
+  },
+  {
     slug: 'forward-deployed-engineer-job-exists-because-enterprise-ai-fails',
     title: "The Job That Exists Because 95% of Enterprise AI Projects Fail",
     subtitle: "Forward Deployed Engineers are the fastest-growing role in tech, with 224 open positions across 118 companies and comp clearing $500K at senior level. They exist because the bottleneck in AI was never the model.",
