@@ -109,23 +109,41 @@ export function HomeClient() {
                 <h2 className="text-sm font-semibold uppercase tracking-widest text-primary mb-4 flex items-center gap-2">
                   <Calendar className="w-4 h-4" /> Next Up
                 </h2>
-                <Card className="bg-background/40 backdrop-blur-xl border border-primary/20 shadow-2xl shadow-black/20">
-                  <CardContent className="p-6 flex flex-col gap-3">
-                    <div className="flex items-center gap-2 text-primary text-sm font-semibold">
-                      <Calendar className="w-4 h-4 shrink-0" />
-                      <span>Saturday, 12th July</span>
-                    </div>
-                    <p className="font-heading font-bold text-xl text-foreground leading-snug">Next meetup coming up — details dropping soon</p>
-                    <a
-                      href="https://www.meetup.com/code-coffee-auckland/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-1 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
-                    >
-                      Follow on Meetup to get notified
-                    </a>
-                  </CardContent>
-                </Card>
+                {isEventsLoading ? (
+                  <div className="animate-pulse bg-secondary/50 rounded-2xl h-36 border border-border/50"></div>
+                ) : nextEvent ? (
+                  <a href={nextEvent.link} target="_blank" rel="noopener noreferrer" className="block group">
+                    <Card className="bg-background/40 backdrop-blur-xl border border-border/50 transition-all hover:border-primary/50 hover:bg-background/60 shadow-2xl shadow-black/20 hover:-translate-y-1">
+                      <CardContent className="p-6">
+                        <div className="flex flex-col gap-4">
+                          <div>
+                            <h3 className="font-heading font-bold text-2xl mb-3 text-foreground group-hover:text-primary transition-colors leading-snug">
+                              {nextEvent.title}
+                            </h3>
+                            <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
+                              <Calendar className="w-4 h-4 text-primary shrink-0" />
+                              <span className="line-clamp-1">{format(new Date(nextEvent.pubDate), "EEEE, MMMM do 'at' h:mm a")}</span>
+                            </div>
+                          </div>
+                          <div className="pt-4 border-t border-border/50 flex justify-between items-center">
+                            <span className="text-sm text-foreground/70 font-medium group-hover:text-foreground transition-colors">See details on Meetup</span>
+                            <Button variant="default" className="shrink-0 transition-transform group-hover:scale-105 shadow-md">
+                              RSVP
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </a>
+                ) : (
+                  <Card className="bg-background/40 backdrop-blur-md border border-border/50 border-dashed">
+                    <CardContent className="p-6 flex flex-col items-center justify-center text-center text-muted-foreground">
+                      <Calendar className="w-8 h-8 mb-3 opacity-50" />
+                      <p className="text-sm font-medium">No upcoming events scheduled</p>
+                      <p className="text-xs mt-1">Check back soon or join the group to be notified.</p>
+                    </CardContent>
+                  </Card>
+                )}
               </div>
             </div>
 
