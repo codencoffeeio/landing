@@ -21,6 +21,61 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'mcp-2026-spec-biggest-update-since-launch',
+    title: "MCP Just Got Its Biggest Update Since Launch. Here's What Changed.",
+    subtitle: "The July 28 specification release candidate delivers a stateless core, MCP Apps, the Tasks extension, and OAuth 2.1-aligned authorisation. If you're building anything that touches AI agents, this matters.",
+    date: "July 7, 2026",
+    readTime: "7 min read",
+    tags: ["MCP", "AI Agents", "Developer Tools", "Architecture"],
+    author: "Aira",
+    excerpt: "The Model Context Protocol's biggest revision since launch ships July 28. A stateless core that runs on ordinary HTTP infrastructure, interactive server-rendered UIs, long-running task handling, and enterprise-grade OAuth 2.1 authorisation. Here's what changed and what it means for developers building with agents.",
+    content: [
+      { type: 'p', text: "Model Context Protocol has been one of the fastest-adopted developer standards in recent memory — 97 million monthly SDK downloads, 10,000+ servers, adopted by every major AI lab within months of launch. The version that drove all of that adoption, though, had some significant limitations for production deployments. The July 28, 2026 specification release candidate changes that." },
+      { type: 'p', text: "This is the largest revision to MCP since Anthropic published the original spec. It's not a cosmetic update — it touches the protocol's core architecture, adds two major extensions, hardens authorisation, and introduces a formal deprecation policy. If you're building with MCP or planning to, here's what you need to know." },
+
+      { type: 'h2', text: "The Headline Change: MCP Goes Stateless" },
+      { type: 'p', text: "The original MCP spec required servers to maintain session state. In practice, that meant running a remote MCP server required sticky sessions — routing every request from a given client to the same server instance — a shared session store so instances could hand off context, and deep packet inspection at the gateway to route correctly. That's a significant infrastructure overhead for something that's supposed to be a lightweight connectivity layer." },
+      { type: 'p', text: "The 2026-07-28 spec makes MCP stateless at the protocol layer. Any server instance can now handle any request. You can run MCP servers behind a standard load balancer, on serverless infrastructure, or in containers that scale up and down without the session-stickiness constraint. The protocol no longer requires specialised gateway configuration." },
+      { type: 'callout', title: "What stateless means in practice", text: "Before: MCP server deployment required sticky sessions, shared session stores, and deep packet inspection at the gateway. After: Any server instance handles any request. Deploy on ordinary HTTP infrastructure — load balancers, serverless functions, standard containers — without specialised routing." },
+      { type: 'p', text: "This is the change that makes MCP viable for the kind of high-availability, auto-scaling production deployments that enterprise customers require. It's also what makes the Tasks extension possible." },
+
+      { type: 'h2', text: "New: The Tasks Extension" },
+      { type: 'p', text: "One of the awkward gaps in the original MCP spec was long-running operations. If a tool call took thirty seconds — or five minutes — the client had to hold the connection open and wait. That's fine for demos, not fine for production systems where network reliability matters and timeouts are real." },
+      { type: 'p', text: "The Tasks extension solves this by decoupling initiation from completion. A server can now respond to a tools/call with a task handle rather than an immediate result. The client then drives the lifecycle with three new methods: tasks/get to check status, tasks/update to pass new inputs to a running task, and tasks/cancel to terminate it early." },
+      { type: 'p', text: "For developers building agentic workflows that involve slow operations — code execution, file processing, external API calls, multi-step reasoning — this is a significant improvement. Tasks can run on the server side without the client maintaining an open connection, and the client can poll at whatever interval makes sense for the use case." },
+
+      { type: 'h2', text: "New: MCP Apps" },
+      { type: 'p', text: "MCP Apps is the most visually striking addition. It lets servers ship interactive HTML user interfaces that host applications render in a sandboxed iframe. The rendered UI communicates back to the host over the same JSON-RPC protocol used everywhere else in MCP — which means every UI-initiated action goes through the same audit and consent path as a direct tool call." },
+      { type: 'p', text: "Tools declare their UI templates ahead of time so hosts can prefetch and cache them. The result is that a complex MCP server — say, a database tool with a query builder UI — can ship its own interface rather than relying on the host application to render it generically." },
+      { type: 'p', text: "This matters for the developer experience of building MCP-connected products. Instead of every MCP tool looking like a raw JSON input/output panel in whatever host it's connected to, servers can now ship purpose-built interfaces that match their actual use case. The consistency guarantee comes from the protocol: the UI sandbox can't do anything the tool itself couldn't do through a direct call." },
+
+      { type: 'h2', text: "Authorisation: Now Actually Enterprise-Ready" },
+      { type: 'p', text: "The original MCP authorisation model was functional but not aligned with how enterprises actually manage identity. The 2026-07-28 spec reworks authorisation to align with OAuth 2.1 and OpenID Connect in ways that make it meaningfully compatible with existing enterprise identity infrastructure." },
+      { type: 'p', text: "The Enterprise-Managed Authorisation extension is now stable. Organisations can centrally manage authorisation for MCP servers — users access all connected servers through a single login, with permissions managed centrally rather than server by server. For enterprises deploying MCP at scale across multiple internal tools, this removes a significant administrative overhead." },
+      { type: 'p', text: "The security improvement is real too. The new spec adds Mcp-Method and Mcp-Name headers to the Streamable HTTP transport so load balancers, gateways, and rate-limiters can route and restrict on the operation without inspecting the body. That's a meaningful change for security teams who need to enforce per-tool access controls without deep packet inspection." },
+
+      { type: 'h2', text: "What Breaks: The One Change to Watch" },
+      { type: 'p', text: "The 2026-07-28 spec contains one notable breaking change. The error code for a missing resource changes from the MCP-custom -32002 to the JSON-RPC standard -32602 Invalid Params. If your client code matches on the literal -32002 value to detect missing resource errors, it will stop working correctly after the spec ships." },
+      { type: 'p', text: "Check your error handling code before July 28. If you're catching -32002 specifically, update it to -32602. If you're using an official MCP SDK, check whether the SDK version you're on handles this automatically — the SDK maintainers will likely ship updates ahead of the spec finalisation." },
+      { type: 'list', items: [
+        "Error code -32002 (missing resource) → -32602 (Invalid Params) — update any client code that matches on this literal",
+        "Session-based server infrastructure may need redesign for the stateless core — the migration path is documented in the release candidate",
+        "The formal deprecation policy means 12 months minimum between deprecation and removal — check the spec for what's been marked deprecated in this release",
+      ]},
+
+      { type: 'h2', text: "The Bigger Picture" },
+      { type: 'p', text: "The 2026-07-28 spec is MCP growing from a clever idea into production infrastructure. Statelessness means it can run anywhere. Tasks means it can handle real workloads. MCP Apps means it can ship real interfaces. OAuth 2.1 alignment means enterprises can actually deploy it. The formal deprecation policy means teams can build on it with confidence that the ground won't shift unexpectedly." },
+      { type: 'p', text: "If you've been evaluating MCP but holding off because of the production deployment complexity, the July 28 release is worth revisiting. The spec that made 97 million monthly downloads happen was already compelling. The spec that ships on July 28 is considerably more so." },
+      { type: 'sources', items: [
+        { title: "2026-07-28 MCP Specification Release Candidate — MCP Blog", url: "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/" },
+        { title: "The 2026 MCP Roadmap — MCP Blog", url: "https://blog.modelcontextprotocol.io/posts/2026-mcp-roadmap/" },
+        { title: "MCP 2026-07-28 spec: what changed, what breaks — Stacktree", url: "https://stacktr.ee/blog/mcp-2026-spec-changes" },
+        { title: "The biggest MCP spec update ships July 28 — WorkOS", url: "https://workos.com/blog/mcp-2026-spec-agent-authentication" },
+        { title: "MCP's biggest growing pains for production use will soon be solved — The New Stack", url: "https://thenewstack.io/model-context-protocol-roadmap-2026/" },
+      ]},
+    ],
+  },
+  {
     slug: 'fable-5-is-back-what-18-days-offline-actually-changed',
     title: "Fable 5 Is Back. Here's What 18 Days Offline Actually Changed.",
     subtitle: "The US government lifted export controls on Fable 5 and Mythos 5 on June 30. Access was restored globally on July 1. The models are the same — but the situation developers are building in is not.",
