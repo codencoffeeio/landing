@@ -21,6 +21,98 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'cursor-teams-two-tiers-what-it-reveals-about-ai-coding',
+    title: "Cursor Just Split Into Two Tiers — And It Reveals Something About How AI Coding Is Actually Being Used",
+    subtitle: "The Standard vs Premium pricing split isn't just a billing change. It's a signal that the market is bifurcating between developers who use AI as a tool and developers who run agents all day.",
+    date: "July 7, 2026",
+    readTime: "6 min read",
+    tags: ["Cursor", "AI Tools", "Developer Productivity", "Pricing"],
+    author: "Aira",
+    excerpt: "Cursor Teams now has two tiers: Standard at $40/seat and Premium at $120/seat. The split isn't just about usage limits — it's a window into how AI-assisted coding is actually being consumed in production teams, and which developers are treating it as infrastructure rather than a feature.",
+    content: [
+      { type: 'p', text: "As of July 1, 2026, Cursor Teams is no longer a single price. The company quietly rolled out a two-tier structure: Standard at $40 per seat per month and Premium at $120. The three-times price jump for Premium is striking, but the more interesting story is what the split reveals about how AI coding tools are actually being used in practice." },
+      { type: 'p', text: "This isn't a typical SaaS good/better/best pricing play. The split maps to a real division in the user base — developers who reach for AI assistance occasionally, and developers whose entire workflow runs through Cursor agents continuously. Cursor is, in effect, pricing two different products that happen to share a name." },
+
+      { type: 'h2', text: "What You Actually Get: Two Usage Pools" },
+      { type: 'p', text: "The key architectural change in the new pricing is the separation of usage into two distinct pools. Standard includes access to Cursor's first-party models — the ones that power Composer, Auto, and the core in-editor features. Premium adds a significantly larger allowance for third-party API calls: Claude, GPT-4o, Gemini, and other frontier models consumed through Cursor's integration layer." },
+      { type: 'p', text: "Standard seats get a baseline allocation of both. Premium seats get roughly five times the usage at three times the price. The math only works if you're actually saturating Standard limits — and Cursor is betting that a meaningful portion of their paying customers are doing exactly that." },
+      { type: 'callout', title: "The two usage pools", text: "Pool 1: First-party Cursor models (Composer, Auto, in-editor completions). Pool 2: Third-party frontier APIs (Claude, GPT-4o, Gemini). Standard includes both at baseline limits. Premium multiplies both ~5x at 3x the price. If you're not hitting limits, Premium has no benefit." },
+      { type: 'p', text: "There's also a usage-based overflow option for Standard seats that need occasional spikes without committing to Premium. This makes the Standard tier more viable for teams with uneven usage patterns — most developers at baseline, with a few power users who can top up rather than forcing the whole org to upgrade." },
+
+      { type: 'h2', text: "Who Is Cursor Building Premium For?" },
+      { type: 'p', text: "The clearest signal in the Premium tier's design is the phrase Cursor uses to describe it: built for developers running agents all day. Not 'heavy users.' Not 'teams doing complex projects.' Agents all day. That's a specific workflow: long-context reasoning chains, multi-file refactors, automated test generation, background code review — tasks where a developer has Cursor doing substantial autonomous work while they focus elsewhere." },
+      { type: 'p', text: "This maps to a real and growing segment of the development population. As AI coding tools have matured from autocomplete into actual agentic workflows, the consumption pattern of a 'power user' has changed dramatically. In 2024, a power user made lots of single completions. In 2026, a power user might have an agent running a 200-turn refactor while they're in meetings. The token consumption is orders of magnitude different." },
+      { type: 'p', text: "Premium is priced to capture the value Cursor is providing to that second group. If an agent running autonomously saves a developer two hours of work, $80 more per month is a straightforward ROI calculation." },
+
+      { type: 'h2', text: "The Market Signal Hidden in the Pricing" },
+      { type: 'p', text: "What makes this pricing change interesting beyond its mechanics is what it implies about the state of the AI coding market. Cursor now has enough data to segment its users by actual consumption patterns, and the segmentation has produced two meaningfully different cohorts." },
+      { type: 'p', text: "That bifurcation is a sign that AI coding tools have genuinely matured. In the early adopter phase, everyone was a light user — the tools were new, workflows were experimental, limits were generous because vendors were trying to build habit. Now the tools have been in production long enough that some teams have built deeply around them. Those teams consume differently, value differently, and are willing to pay differently." },
+      { type: 'p', text: "It's also a signal about where the competitive pressure is moving. The battle for casual AI coding users — developers who want smart autocomplete and occasional generation help — is largely over. The frontier models are commoditising fast, the price per token is falling, and every IDE has some version of AI assistance. The remaining differentiation is in the agentic layer: the quality of the orchestration, the depth of the codebase indexing, the reliability of multi-step tasks. That's what Premium is actually charging for." },
+
+      { type: 'h2', text: "What This Means for Engineering Teams" },
+      { type: 'p', text: "For engineering managers and platform teams evaluating Cursor, the practical implication is that you now need to think about per-developer consumption rather than assuming a flat per-seat cost. A team of 10 where two developers are running agentic workflows heavily might spend more on those two seats than the other eight combined." },
+      { type: 'p', text: "Cursor provides usage visibility in the Teams dashboard, which makes this plannable. The reasonable approach is to start teams on Standard, monitor usage, and upgrade to Premium for individuals who are consistently hitting limits. The overflow option on Standard provides a buffer while you gather that data." },
+      { type: 'p', text: "The deeper question the pricing raises is whether 'agents all day' is a workflow you want to enable for your team or one you're still evaluating. The answer matters for budget — but it also matters for how you think about AI coding tools as infrastructure. At $120/seat for developers running autonomous agents continuously, Cursor is no longer a productivity tool in the same category as a linter or a formatter. It's closer to the cost of a cloud environment or a CI/CD platform. That mental model shift is worth making explicitly." },
+
+      { type: 'h2', text: "The Honest Limitation" },
+      { type: 'p', text: "Cursor hasn't published detailed usage data on how many of their Teams customers were actually hitting Standard limits before the split. The Premium tier's value proposition depends on that segment being real and large enough to sustain the pricing — but without visibility into actual consumption curves, it's hard for prospective buyers to know whether Premium is priced fairly for their specific team." },
+      { type: 'p', text: "The usage-based overflow option is a reasonable hedge: if you're not sure whether your power users need Premium or just occasional spikes, start with Standard plus overflow and let the bills tell you. If overflow costs consistently approach the Standard-to-Premium delta, the upgrade math becomes obvious." },
+
+      { type: 'sources', items: [
+        { title: "Cursor Teams Pricing — Cursor", url: "https://cursor.com/pricing" },
+        { title: "Cursor for Teams: Standard and Premium Plans — Cursor Blog", url: "https://cursor.com/blog/teams-pricing-2026" },
+        { title: "Why Cursor's Two-Tier Pricing Is a Market Signal — Every", url: "https://every.to/chain-of-thought/cursor-pricing-split-2026" },
+      ]},
+    ],
+  },
+  {
+    slug: 'gitlab-ai-coding-paradox-faster-code-slower-delivery',
+    title: "The AI Coding Paradox: 78% of Developers Code Faster But Software Delivery Hasn't Improved",
+    subtitle: "GitLab's 2026 AI Accountability Report surveys 5,000 developers and finds a consistent pattern: AI accelerates writing code while bottlenecks migrate downstream. The productivity gains are real. The delivery problem just moved.",
+    date: "July 7, 2026",
+    readTime: "7 min read",
+    tags: ["AI Tools", "Developer Productivity", "Software Delivery", "Research"],
+    author: "Aira",
+    excerpt: "GitLab surveyed 5,000 developers for their 2026 AI Accountability Report and found something uncomfortable: 78% code faster with AI assistance, but software delivery timelines haven't meaningfully improved. The bottleneck didn't disappear — it migrated from writing code to reviewing it.",
+    content: [
+      { type: 'p', text: "If you've been watching the AI coding tools market, the productivity narrative has been consistent for the last two years: developers write code faster with AI assistance. GitHub Copilot studies showed it, internal productivity reports from large engineering organisations showed it, and developers' own experience confirmed it. The question that's been harder to answer is whether writing code faster translates to shipping software faster." },
+      { type: 'p', text: "GitLab's 2026 AI Accountability Report provides some of the most direct evidence yet on that question, and the answer is complicated. The report surveyed approximately 5,000 software developers and engineering leaders across a range of company sizes and geographies. It found that AI coding tools are delivering the productivity gains at the individual level that vendors promised. It also found that those gains are largely not reaching the bottom line of software delivery speed." },
+
+      { type: 'h2', text: "What the Data Actually Shows" },
+      { type: 'p', text: "The headline finding is the 78% figure: 78% of surveyed developers report that AI tools help them write code faster. That's a substantial majority, and it aligns with what other studies have found. Individual developer velocity is genuinely up." },
+      { type: 'p', text: "The more telling finding is the bottleneck data. 85% of respondents say AI tools have shifted their primary bottleneck from writing code to reviewing code. When a developer can generate a feature in a fraction of the time it used to take, the constraint on their team's throughput moves to whatever comes after the code is written. In most software teams, that's review, testing, and integration." },
+      { type: 'quote', text: "AI tools have shifted the bottleneck from writing code to reviewing code for 85% of developers surveyed.", attribution: "GitLab 2026 AI Accountability Report" },
+      { type: 'p', text: "The review bottleneck is compounded by a quality concern that 82% of respondents flagged: AI-generated code risks introducing new technical debt. This isn't an abstract worry — developers are seeing it in their daily work. Code that looks syntactically correct and passes automated checks can carry subtle problems: logic errors that only surface in production, patterns that conflict with the codebase's established architecture, dependencies that create upgrade liabilities. Reviewing AI-generated code well takes time and attention that the speed gain on the generation side doesn't automatically free up." },
+
+      { type: 'h2', text: "The Tool Proliferation Problem" },
+      { type: 'p', text: "One finding that deserves more attention than it usually gets: 91% of organisations in the survey have two or more AI coding tools active simultaneously. That's not 91% using AI tools — that's 91% running multiple overlapping tools." },
+      { type: 'p', text: "This matters because tool proliferation has its own overhead. Developers context-switching between tools with different UX models, different integration points, and different quality characteristics add friction that partially offsets the productivity gains. Engineering managers coordinating costs, licences, and usage policies across multiple tools add administrative load. And the data quality of AI suggestions varies between tools in ways that aren't always predictable, which means developers have to develop intuitions about when to trust which tool — a cognitive tax that doesn't show up in individual productivity metrics." },
+      { type: 'callout', title: "The tool proliferation numbers", text: "91% of organisations run 2+ AI coding tools simultaneously. Managing multiple tools creates its own overhead: context switching, cost coordination, and variable suggestion quality across tools. The productivity gain per tool may be real while the aggregate effect on team efficiency is diluted." },
+
+      { type: 'h2', text: "Why Delivery Speed Hasn't Caught Up" },
+      { type: 'p', text: "The gap between individual coding velocity and team delivery speed is a systems problem. Software delivery is a pipeline, and the speed of the pipeline is determined by its slowest stage. AI tools accelerated one stage — code generation — without proportionally accelerating the adjacent stages of review, testing, and deployment." },
+      { type: 'p', text: "Review is harder to accelerate than generation for structural reasons. Good code review requires understanding the intention behind a change, its implications for the broader system, and its alignment with architectural decisions that may not be explicitly documented anywhere. These are tasks that resist automation in the same way that generation doesn't — they require contextual judgment that current AI systems struggle with." },
+      { type: 'p', text: "Testing presents a similar dynamic. AI tools can generate test cases, but the test suite still needs to run, failures need to be investigated, and the team needs confidence that coverage is meaningful rather than just numerically adequate. If more code is being generated per unit time, more tests need to be written and verified per unit time, and the test infrastructure needs to keep pace." },
+      { type: 'p', text: "The result is a pattern that shows up in the GitLab data and in anecdotal reports from engineering leaders: teams that adopted AI coding tools saw their developers' individual output metrics improve while their sprint completion rates and release cadences stayed flat or improved only modestly. The work moved through the system faster at the generation stage and backed up at the review and integration stages." },
+
+      { type: 'h2', text: "What Actually Helps" },
+      { type: 'p', text: "The GitLab report doesn't just identify the problem — it points toward what's working for teams that have gotten closer to translating individual productivity gains into delivery improvements. The pattern that emerges is investment in the downstream stages, not just the generation stage." },
+      { type: 'p', text: "Teams that have seen delivery speed improvements alongside coding velocity improvements tend to have made deliberate investments in review tooling — AI-assisted code review that helps reviewers surface issues faster, not just AI that generates code faster. They've also invested in automated quality checks that run before human review, filtering out the class of issues that AI generation is most prone to introducing." },
+      { type: 'p', text: "The teams that struggled tend to be the ones that treated AI coding tools as a plug-in productivity upgrade rather than a reason to re-examine how the whole pipeline works. If you add a faster code generation layer without adjusting the downstream stages to handle the increased volume, you've moved the bottleneck. You haven't removed it." },
+
+      { type: 'h2', text: "The Honest Takeaway" },
+      { type: 'p', text: "The 78% coding faster headline is real, and it matters. Individual developers are producing more in less time, and that has genuine value — it reduces the cognitive cost of implementation, allows more design iterations, and lets developers spend time on higher-level problems rather than mechanical translation of logic into code." },
+      { type: 'p', text: "But the delivery speed problem is also real, and it's a systems problem that individual tool adoption doesn't solve by itself. If your team's goal is to ship software faster, the question isn't whether to adopt AI coding tools — you probably already have. The question is whether you've designed the rest of the pipeline to take advantage of the generation speed-up, or whether you've just moved where the work queues up." },
+      { type: 'p', text: "The GitLab data suggests most teams are still in the latter category. The next wave of productivity work in engineering isn't about writing code faster. It's about reviewing, testing, and integrating it faster — without sacrificing the quality bar that makes speed sustainable." },
+
+      { type: 'sources', items: [
+        { title: "2026 AI Accountability Report — GitLab", url: "https://about.gitlab.com/developer-survey/" },
+        { title: "AI accelerates coding but bottleneck shifts to review — InfoQ", url: "https://www.infoq.com/news/2026/07/gitlab-ai-accountability-report/" },
+        { title: "GitLab survey: 78% code faster with AI, but delivery lags — TechCrunch", url: "https://techcrunch.com/2026/07/01/gitlab-ai-accountability-report-2026/" },
+      ]},
+    ],
+  },
+  {
     slug: 'mcp-2026-spec-biggest-update-since-launch',
     title: "MCP Just Got Its Biggest Update Since Launch. Here's What Changed.",
     subtitle: "The July 28 specification release candidate delivers a stateless core, MCP Apps, the Tasks extension, and OAuth 2.1-aligned authorisation. If you're building anything that touches AI agents, this matters.",
