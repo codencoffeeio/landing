@@ -21,6 +21,52 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 't3mp3st-ai-hacking-tool-explained',
+    title: "T3MP3ST: The Open-Source Tool That Turns AI Coding Assistants Into Security Testers",
+    subtitle: "A new open-source project lets you point your existing AI tools — Claude, Codex, even a fully offline model — at a target system and have them hunt for vulnerabilities automatically. Here's what it is, how it works, and why it matters.",
+    date: "July 7, 2026",
+    readTime: "6 min read",
+    tags: ["Security", "AI Agents", "Open Source", "Red Teaming"],
+    author: "Aira",
+    excerpt: "T3MP3ST is an open-source framework that turns your existing AI coding assistant into an automated security tester. It uses a team of eight specialised AI agents — each with a different job — to find vulnerabilities in websites, code, and cloud infrastructure. No extra API keys needed. All results are independently verifiable.",
+    content: [
+      { type: 'p', text: "Security testing has traditionally required either expensive human experts or expensive commercial tools. A new open-source project called T3MP3ST is trying to change that by turning the AI coding assistants you already use — Claude Code, Codex, or even a model running entirely on your own machine — into automated vulnerability hunters." },
+      { type: 'p', text: "The project comes from a well-known figure in the AI red-teaming community who goes by the handle elder-plinius. It's free, open-source under the AGPL-3.0 licence, and designed to be run with whatever AI model you already have access to. No new accounts, no extra subscriptions." },
+
+      { type: 'h2', text: "What Does It Actually Do?" },
+      { type: 'p', text: "At its core, T3MP3ST gives your AI assistant a structured job to do: find security weaknesses in a target system. But instead of just asking the AI a question, it organises the work the way a real security team would — with different specialists handling different parts of the job." },
+      { type: 'p', text: "The framework runs eight AI agents at once, each with a distinct role. One does reconnaissance — gathering information about the target. Another scans for known vulnerabilities. A third tries to exploit what the scanner finds. There's an agent responsible for moving laterally through a system once initial access is gained, one that handles data extraction, one that tries to cover tracks, one that coordinates the whole operation, and a final analyst that writes up the findings." },
+      { type: 'callout', title: "The eight agents and what they do", text: "Recon: gathers information about the target. Scanner: identifies known vulnerabilities. Exploiter: attempts to trigger those vulnerabilities. Infiltrator: tests for lateral movement. Exfiltrator: simulates data extraction. Ghost: tests detection evasion. Coordinator: manages the whole operation. Analyst: writes the final report." },
+      { type: 'p', text: "Each agent runs in a loop: observe the situation, reason about what to do next, take an action, check the result, repeat. They're not just generating text — they're using real tools. Running actual commands. Making real HTTP requests. The distinction matters: this is an AI that does security testing, not one that talks about it." },
+
+      { type: 'h2', text: "How Well Does It Actually Work?" },
+      { type: 'p', text: "This is where T3MP3ST does something unusual for an AI security tool: it publishes verifiable benchmarks rather than asking you to take its word for it. Every performance claim in the project can be independently checked by running a single command — npm run verify-claims — which re-derives all the numbers from committed test data." },
+      { type: 'p', text: "The results on those benchmarks are notable. On a suite of 104 web application security challenges, the framework achieved 90.1% — outperforming the 85% figure reported by XBOW, a well-known commercial web security AI. On Cybench, an academic set of 40 capture-the-flag security challenges, it solved 23 without any hints. On a set of 10 real-world vulnerabilities published after the AI model's training cutoff — meaning it couldn't have memorised the answers — it correctly identified the exact file, line, and vulnerability type for 8 out of 10, and found all 10 in some form." },
+      { type: 'p', text: "The important caveat: those benchmark numbers come from single-agent testing, not the full eight-agent swarm. The coordinated multi-agent architecture is still experimental. The individual components work; the orchestrated team is a work in progress." },
+
+      { type: 'h2', text: "Who Is This For?" },
+      { type: 'p', text: "T3MP3ST is built for security professionals and developers who want to test systems they own or have explicit permission to test. The framework is emphatic on this: it is for authorised use only, and once you set a target, the built-in tools refuse to make requests outside the scope you defined. You can't accidentally drift from testing your own application into probing systems you have no right to touch." },
+      { type: 'p', text: "The practical use cases include developers who want to audit their own applications before launch, security teams running internal penetration tests, and researchers working on capture-the-flag competitions. It's also useful as an educational tool — watching eight AI agents work through a security problem step by step is a genuinely interesting way to learn how attacks are structured." },
+      { type: 'p', text: "It's not a tool for casual users or for anyone without a technical background. Setting it up requires comfort with Node.js, and using it well requires understanding what the results mean. But for engineers who already know security testing, the barrier to getting started is lower than most commercial alternatives." },
+
+      { type: 'h2', text: "No Extra Accounts Required" },
+      { type: 'p', text: "One of T3MP3ST's more practical selling points is that it works with AI tools you probably already have. If you use Claude Code or Codex as your daily coding assistant, you can connect T3MP3ST to the same model without a separate API key or subscription. It sits on top of your existing AI setup rather than replacing it." },
+      { type: 'p', text: "If you'd rather not send any data to a cloud provider at all, the framework also supports fully local operation through Ollama, LM Studio, or any OpenAI-compatible local server. You can run the entire security testing operation on your own hardware with no external calls." },
+      { type: 'p', text: "The user interface is a web-based 'War Room' that runs at localhost once you start the server, giving you a dashboard view of what each agent is doing in real time. There's also a command-line interface and an HTTP API for integrating it into existing workflows." },
+
+      { type: 'h2', text: "Why This Is Worth Watching" },
+      { type: 'p', text: "Security testing has historically been expensive, slow, and dependent on scarce specialist expertise. Tools like T3MP3ST don't replace human security experts — the judgement required to understand context, assess business impact, and prioritise remediation is still very much a human job. But they change the economics of finding vulnerabilities in the first place." },
+      { type: 'p', text: "The verifiable benchmarks approach is particularly interesting as a model for the AI security space more broadly. Unverifiable performance claims have been a persistent problem in AI tooling — vendors report numbers in ways that are difficult to reproduce or compare. A framework that ships its test data alongside its code and lets you re-run the numbers yourself is a higher standard than most of the field is currently holding itself to." },
+      { type: 'p', text: "T3MP3ST is early-stage in some of its capabilities — the coordinated swarm architecture is explicitly marked experimental — but the underlying approach is sound, the benchmark results are real, and the open-source model means the community can extend and verify it in ways proprietary tools don't allow. For engineers interested in where AI and security intersect, it's worth spending an afternoon with." },
+
+      { type: 'sources', items: [
+        { title: "T3MP3ST — GitHub (elder-plinius)", url: "https://github.com/elder-plinius/T3MP3ST" },
+        { title: "Cybench: A Framework for Evaluating Cybersecurity Capabilities", url: "https://cybench.github.io" },
+        { title: "MITRE ATT&CK Framework", url: "https://attack.mitre.org" },
+      ]},
+    ],
+  },
+  {
     slug: 'cursor-teams-two-tiers-what-it-reveals-about-ai-coding',
     title: "Cursor Just Split Into Two Tiers — And It Reveals Something About How AI Coding Is Actually Being Used",
     subtitle: "The Standard vs Premium pricing split isn't just a billing change. It's a signal that the market is bifurcating between developers who use AI as a tool and developers who run agents all day.",
