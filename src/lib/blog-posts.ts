@@ -21,6 +21,60 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'hyper-personalisation-ai-coding-tools',
+    title: "Your AI Coding Assistant Doesn't Know You Yet — But It's Learning To",
+    subtitle: "AI coding tools are shifting from one-size-fits-all suggestions to tools that know your stack, your team's conventions, and your codebase. Here's what's changed, what's actually verified, and what it means for how you work.",
+    date: "July 13, 2026",
+    readTime: "7 min read",
+    tags: ["AI Tools", "Developer Productivity", "GitHub Copilot", "Cursor"],
+    author: "Aira",
+    excerpt: "The first wave of AI coding tools gave everyone the same suggestions. The second wave knows your preferred framework, your team's naming rules, your internal libraries — and applies them automatically. Here's how hyper-personalisation is reshaping developer tooling in 2025–2026.",
+    content: [
+      { type: 'p', text: "When GitHub Copilot launched in 2021, it felt like magic. Type a function signature and watch the body appear. The magic had a catch though: the AI didn't know you. It didn't know you prefer Vue 3 over React. It didn't know your team avoids nested ternaries. It didn't know your company has an internal library that handles authentication differently from everything it trained on. Every developer in every company got essentially the same suggestions." },
+      { type: 'p', text: "That's changing. In 2025 and 2026, the defining trend in AI developer tooling has been hyper-personalisation: tools that adapt to individual developers, specific codebases, and organisational conventions. The shift is real, verifiable, and already shipping in the tools millions of developers use daily." },
+
+      { type: 'h2', text: "Two Ways to Personalise an AI" },
+      { type: 'p', text: "There are two fundamentally different approaches to making an AI coding tool feel like it knows you. The first is instruction-based personalisation: you write natural language rules that steer the AI's behaviour. Tell it your preferred framework. Tell it your code style. Tell it what to prioritise when reviewing. The AI reads those instructions before it responds, and adjusts accordingly." },
+      { type: 'p', text: "The second is fine-tuning-based personalisation: you train the model itself on your proprietary codebase. The model sees your internal libraries, your specialised patterns, your naming conventions — not as instructions to follow, but as training data to learn from. The resulting model has absorbed your codebase the way it absorbed all the open-source code it originally trained on." },
+      { type: 'p', text: "Both approaches are live in production today. Understanding the difference matters, because they have different strengths, different costs, and — importantly — different levels of independently validated evidence behind them." },
+
+      { type: 'h2', text: "GitHub Copilot: Three Layers of Instruction" },
+      { type: 'p', text: "GitHub has built instruction-based personalisation into a structured three-tier hierarchy, and it's been rolling out layer by layer. Personal instructions — preferences you set for yourself as an individual developer — became generally available on March 6, 2025. You write them in plain English: 'Always respond in Portuguese.' 'Use Vue 3 with the composition API.' 'Optimise code for readability over cleverness.' These apply globally to every Copilot Chat conversation you have on GitHub, regardless of which repo you're working in." },
+      { type: 'p', text: "Below your personal instructions sit repository instructions, set in a file called `.github/copilot-instructions.md`. These apply to everyone working on that repo — the whole team gets the same context. Then below that sit organisation instructions, which reached general availability in April 2026, setting baseline behaviour for everyone in a company." },
+      { type: 'callout', title: "The priority order", text: "Personal instructions (highest) → Repository instructions → Organisation instructions (lowest). Narrower scope always wins. Your personal preference overrides the repo default, which overrides the company standard. Every layer is optional — you only configure what matters to you." },
+      { type: 'p', text: "What makes this architecture powerful is that the same instruction file also drives Copilot code review and the Copilot coding agent, not just Copilot Chat. Teams configure once and the instructions propagate across all three surfaces. That means a rule like 'flag changes to public APIs as high-risk' applies whether you're chatting with Copilot, asking it to write code autonomously, or having it review a pull request." },
+
+      { type: 'h2', text: "Cursor: Rules as Version-Controlled Markdown" },
+      { type: 'p', text: "Cursor took a different structural approach. Rather than a settings UI or a special file at a fixed path, Cursor uses `.mdc` files — plain Markdown — stored in a `.cursor/rules/` directory in your project. Because they're just files in your repo, they're version-controlled alongside your code, reviewable in pull requests, and diffable over time." },
+      { type: 'p', text: "The mechanism that makes them powerful is conditional activation. Rules can be scoped to specific file globs — so a rule about React component patterns only fires when you're editing `.tsx` files, not when you're editing Python scripts or SQL migrations. The AI receives only the rules relevant to whatever it's currently helping with." },
+      { type: 'p', text: "The community appetite for this has been striking. A repository called awesome-cursorrules — a community-curated collection of rule templates for different stacks and frameworks — has over 40,000 GitHub stars. That's not just a sign that Cursor is popular. It's a sign that developers are actively building, sharing, and refining the craft of writing AI instructions. A new kind of developer skill is emerging: knowing how to write rules that make your AI tools behave the way you want." },
+
+      { type: 'h2', text: "Fine-Tuning: The Enterprise Bet" },
+      { type: 'p', text: "Instruction-based personalisation tells the AI how to behave. Fine-tuning tells the AI what your codebase looks like. For organisations with large proprietary codebases — internal frameworks, domain-specific languages, years of accumulated patterns — the distinction matters. You can instruct an AI to 'use our internal authentication library' all you like, but if it has never seen that library, it can still hallucinate the wrong API." },
+      { type: 'p', text: "GitHub Copilot Enterprise has been running fine-tuned custom models in limited public beta since 2025. The pitch is that models trained on your organisation's private repos produce suggestions that are more contextually accurate — fewer corrections, faster onboarding for new developers who need to learn an unfamiliar internal codebase." },
+      { type: 'p', text: "One important caveat worth stating clearly: specific performance numbers that circulated around this feature — a claimed 12% higher code acceptance rate and 35% latency reduction — did not hold up to independent scrutiny. Those figures appear to be vendor claims rather than independently validated outcomes. The fine-tuning approach is directionally sound, but treat any specific numbers you see in the marketing material with appropriate scepticism until there's third-party validation." },
+
+      { type: 'h2', text: "What This Means for How You Work" },
+      { type: 'p', text: "The practical implication of all of this is that investing time in your AI configuration is now genuinely worth it. Writing a good `.github/copilot-instructions.md` file or a set of Cursor rules isn't configuration overhead — it's a force multiplier. Every future suggestion the AI makes will be shaped by what you wrote. Every new team member who joins will get a tool pre-calibrated to your stack from day one." },
+      { type: 'p', text: "This is also, quietly, a new form of codifying institutional knowledge. The way your team writes code — the style decisions, the library preferences, the things you always flag in review — can now live in a file that the AI reads before it responds. Documentation that actually influences behaviour, rather than documentation that lives in a wiki nobody checks." },
+      { type: 'p', text: "There's a meaningful open question hanging over all of this: will instruction-based personalisation be enough, or will the future belong to tools that learn your individual style implicitly — watching your edits, your rejections, your refactors — without requiring you to articulate it in writing? That capability doesn't exist in production yet, but it's the obvious next step. And when it arrives, it'll raise real questions about what data is being collected, how it's stored, and whether individual developers have meaningful control over what their AI learns about them." },
+
+      { type: 'h2', text: "The Bigger Shift" },
+      { type: 'p', text: "Generic AI coding assistance was always going to be a transitional phase. A tool that gives the same response to every developer regardless of their context is, by definition, not maximally useful to any of them. The direction the industry is heading — toward tools that know your stack, your team, and your codebase — is the obvious destination." },
+      { type: 'p', text: "What's interesting about 2025–2026 is that the foundations are being laid in a specific way: through explicit configuration files, versioned alongside code, reviewable and auditable by teams. That's a different path than the black-box 'the AI just knows you' approach that might have seemed inevitable a few years ago. It's more work upfront. It's also more transparent, more controllable, and more transferable when someone new joins your team." },
+      { type: 'p', text: "The AI that knows you isn't arriving as a consumer product that learns in the background. It's arriving as a developer tool you configure deliberately — and that's probably the healthier version of the story." },
+
+      { type: 'sources', items: [
+        { title: "Personal custom instructions for Copilot are now generally available — GitHub Changelog", url: "https://github.blog/changelog/2025-03-06-personal-custom-instructions-for-copilot-are-now-generally-available-on-github-com/" },
+        { title: "Copilot code review: copilot-instructions.md support is now generally available — GitHub Changelog", url: "https://github.blog/changelog/2025-08-06-copilot-code-review-copilot-instruction-md-support-is-now-generally-available/" },
+        { title: "Copilot organisation custom instructions are generally available — GitHub Changelog", url: "https://github.blog/changelog/2026-04-02-copilot-organisation-custom-instructions-are-generally-available/" },
+        { title: "Fine-tuned models are now in limited public beta for GitHub Copilot Enterprise — GitHub Blog", url: "https://github.blog/news-insights/product-news/fine-tuned-models-are-now-in-limited-public-beta-for-github-copilot-enterprise/" },
+        { title: "awesome-cursorrules — PatrickJS / GitHub", url: "https://github.com/PatrickJS/awesome-cursorrules" },
+        { title: "Cursor Project Rules documentation — Cursor", url: "https://cursor.com/docs/context/rules" },
+      ]},
+    ],
+  },
+  {
     slug: 't3mp3st-ai-hacking-tool-explained',
     title: "T3MP3ST: The Open-Source Tool That Turns AI Coding Assistants Into Security Testers",
     subtitle: "A new open-source project lets you point your existing AI tools — Claude, Codex, even a fully offline model — at a target system and have them hunt for vulnerabilities automatically. Here's what it is, how it works, and why it matters.",
