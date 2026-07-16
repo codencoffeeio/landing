@@ -21,6 +21,68 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'cursor-windows-app-vs-cli-honest-review-2026',
+    title: "Cursor on Windows Is Brilliant and Broken: What the Desktop App Gets Right, What the CLI Fixes, and What's Still a Mess",
+    subtitle: "Cursor is one of the most capable AI coding tools available. It's also shipped some of the most frustrating Windows-specific bugs in recent memory. Here's an honest look at both surfaces — the desktop app and the terminal CLI — from the perspective of developers actually using them.",
+    date: "July 13, 2026",
+    readTime: "8 min read",
+    tags: ["Cursor", "Developer Tools", "Windows", "AI Coding"],
+    author: "Aira",
+    excerpt: "Cursor's Windows desktop app has a bug that randomly uninstalls itself during updates. The CLI hangs indefinitely in headless mode. And yet developers keep choosing it — because when it works, nothing else comes close for multi-file agentic coding. Here's the full picture.",
+    content: [
+      { type: 'p', text: "Cursor occupies a strange position in 2026. It's the AI coding tool most developers point to when asked what genuinely changed how they work. It's also the tool they complain about the loudest. That tension isn't random — it reflects something real about where Cursor is right now: technically impressive, commercially successful, and still shipping bugs that would be embarrassing for a tool at this price point." },
+      { type: 'p', text: "If you're using Cursor on Windows, or considering switching to the terminal CLI instead of the desktop app, this is an honest account of both. Not from marketing materials — from the Cursor community forum, developer posts, and the kind of feedback that accumulates when enough people hit the same wall." },
+
+      { type: 'h2', text: "What Makes Cursor Worth Using at All" },
+      { type: 'p', text: "It's worth starting here, because the frustrations are real but they exist in the context of a tool that genuinely does things others don't." },
+      { type: 'p', text: "The standout capability is multi-file codebase awareness. Cursor indexes your entire project — functions, types, patterns, dependencies — and when you ask it to make a change, it can coordinate edits across 15 or 20 files in a single session. Developers describe updating all components using a deprecated API, or performing a complex architectural refactor, and having Cursor do the coordination work that would otherwise take hours of careful manual editing. That's not autocomplete. That's a different category of tool." },
+      { type: 'p', text: "Project Rules (formerly `.cursorrules`) extend this by letting you codify your team's conventions once. Your preferred libraries, your naming patterns, the things you always flag in review — Cursor reads them before every interaction. Combined with agentic mode, you can hand it a task and come back to working diffs rather than working prompts." },
+      { type: 'p', text: "When it works, Cursor is the thing people mean when they say AI is actually changing how software gets written. The problem is the Windows-specific experience, which has accumulated a specific set of bugs that undercut that experience badly." },
+
+      { type: 'h2', text: "The Windows Desktop App: Good Bones, Real Problems" },
+      { type: 'p', text: "The most widely reported Windows-specific frustration in 2025–2026 isn't a subtle performance difference — it's that Cursor's auto-updater can uninstall the application and fail to reinstall it, leaving you without a working IDE." },
+      { type: 'p', text: "The mechanism is this: Cursor's updater works by removing the current version first, then installing the new one. If anything interrupts the gap between those two steps — an antivirus scan locking a file, a WSL session that didn't close cleanly, a Windows restart during the process — the update stalls with neither version installed. Community forum threads from 2025 and 2026 show this happening repeatedly on the same machines, with developers reinstalling Cursor multiple times only to have it happen again." },
+      { type: 'callout', title: "The workaround that actually helps", text: "Disable auto-updates entirely. Download the latest installer manually from cursor.com and run it yourself. The manual installer doesn't trigger the background update queue, which is where the race condition lives. It's not a permanent fix, but it stops the cycle." },
+      { type: 'p', text: "Beyond the update bug, Windows performance is a documented issue. Startup times of up to 30 seconds have been reported on machines that run other applications without complaint. As conversation rounds with the AI accumulate in a session, the IDE becomes progressively more sluggish — not just slower AI responses, but sluggish UI, slow typing, slow scrolling. On Windows with WSL2 particularly, high GPU usage and UI freezing are recurring complaints." },
+      { type: 'p', text: "There are partial workarounds — adding the project folder to Windows Defender's exclusion list, running Cursor as administrator, reducing the number of open files — but these are friction that developers on macOS or Linux aren't dealing with to the same degree. The frustration in the community forums isn't that these problems exist; it's that they've persisted across multiple versions without a definitive fix." },
+      { type: 'p', text: "AI response delays are a separate category but compound the Windows experience. Even on paid plans, users report 20–60 second waits for simple code generation, and the reconnecting loop — where Cursor gets stuck in a retry cycle that can stretch to 10–15 minutes — has become a familiar sight. This isn't unique to Windows, but it's particularly painful when the application is also running sluggishly." },
+
+      { type: 'h2', text: "The Cursor CLI: Faster, Leaner, and Its Own Kind of Rough" },
+      { type: 'p', text: "Cursor's CLI — `cursor-agent` in headless/terminal mode — is a genuinely different experience. It's faster once initialised, meaningfully lower on memory (200–400 MB vs 800–1,200 MB for the full IDE), and designed for the kinds of tasks where you don't want a GUI: CI/CD pipelines, SSH sessions, scripted automation, long-running unattended tasks you want to kick off and walk away from." },
+      { type: 'p', text: "Developers who've adopted the CLI describe using it for a hybrid workflow: Cursor CLI for repetitive, context-heavy automation — PR reviews, bulk refactoring, security scanning — and the desktop IDE for anything that requires visual diffs, interactive debugging, or real-time editing. That split makes sense once you've spent time with both tools." },
+      { type: 'p', text: "The CLI also sidesteps the Windows-specific desktop bugs. You're not dealing with the auto-updater, the GPU usage creep, or the UI freeze on large repos. If you're running into Windows app instability, the CLI is a legitimate escape route for a meaningful portion of your workflow." },
+      { type: 'p', text: "But the CLI has its own set of documented problems, and it's worth being clear about them before assuming it's the answer to everything." },
+      { type: 'list', items: [
+        "The -p (print/headless) flag — designed to run the agent non-interactively and return output — frequently hangs indefinitely and never returns. Users report needing Ctrl+C to escape. This has been reported, partially fixed, and re-reported across multiple version updates.",
+        "Cold start latency of 8–15 seconds on first launch. Once initialised it's fast, but the initial wait adds up in scripted contexts where you're invoking it repeatedly.",
+        "Reconnecting loops in headless mode — the CLI gets stuck in a retry cycle rather than completing or failing cleanly.",
+        "Project Rules (skills) not loading in headless mode — the `.cursor/rules` files that work correctly in the desktop IDE are sometimes ignored when running headlessly.",
+        "Concurrent invocations fail — running two `cursor-agent` processes simultaneously in a non-TTY environment causes one to exit immediately with status 1, which breaks parallel automation setups.",
+      ]},
+      { type: 'p', text: "Most of these are reliability issues rather than fundamental design problems. The CLI is a relatively new surface — it launched in late 2024 and got a meaningful update in January 2026 with Plan Mode and Ask Mode additions. The rough edges reflect that it's still being actively developed. But if you're building a CI workflow that depends on `cursor-agent -p` reliably completing and releasing the terminal, the current state of that flag is a genuine blocker." },
+
+      { type: 'h2', text: "Which One to Use, and When" },
+      { type: 'p', text: "If you're on Windows and hitting the desktop app performance issues or the auto-update bug, the most practical path is a split workflow: use the desktop app for interactive work where you need visual diffs and real-time editing, and reach for the CLI for longer-running agentic tasks where you'd otherwise be sitting and watching a progress bar." },
+      { type: 'p', text: "If you're building automation on top of Cursor — scripted agents, CI integration, batch processing — the CLI is the right tool, but budget for the reliability issues. The `-p` flag hanging is a known problem; design your scripts to have a timeout and a retry, rather than assuming the process will always return cleanly." },
+      { type: 'p', text: "For the Windows auto-update issue specifically: disable automatic updates now, before it hits you. The community workaround of manual installs is inelegant but it works. Don't wait to find out what it's like to lose your IDE mid-session." },
+
+      { type: 'h2', text: "The Honest State of Things" },
+      { type: 'p', text: "Cursor in 2026 is a tool with a high ceiling and an uneven floor. The multi-file agentic capabilities are real and they're ahead of most alternatives. The Windows desktop bugs are also real and some of them — particularly the self-uninstalling auto-updater — have been open issues for over a year." },
+      { type: 'p', text: "The CLI is the more stable surface right now for automation work, and it's getting active development. But it's not a complete replacement for the IDE, and it has its own reliability issues that need design-around rather than trust." },
+      { type: 'p', text: "The developers who get the most out of Cursor in 2026 tend to be the ones who've accepted this duality: use the tool for what it genuinely does well, have workarounds ready for the known failure modes, and keep an eye on the changelog because the pace of change is fast. That's not an ideal state for production tooling. It is, accurately, the current state." },
+
+      { type: 'sources', items: [
+        { title: "Severe Performance Issues on Windows — Cursor Community Forum", url: "https://forum.cursor.com/t/severe-performance-issues-on-windows-slow-launch-repository-loading-delays-and-ui-freezing/160502" },
+        { title: "Bug: Windows auto-update constantly 'uninstalling' Cursor — Cursor Community Forum", url: "https://forum.cursor.com/t/bug-windows-auto-update-constantly-uninstalling-cursor/165583" },
+        { title: "cursor agent -p hangs indefinitely and never returns — Cursor Community Forum", url: "https://forum.cursor.com/t/cursor-agent-p-print-headless-mode-hangs-indefinitely-and-never-returns/150246" },
+        { title: "Cursor CLI headless mode does not release the terminal — Cursor Community Forum", url: "https://forum.cursor.com/t/cursor-cli-headless-mode-does-not-release-the-terminal/133624/7" },
+        { title: "Disappointing bugs/first impressions of headless CLI — Cursor Community Forum", url: "https://forum.cursor.com/t/disappointing-bugs-first-impressions-of-headless-cli/133509" },
+        { title: "Cursor CLI vs IDE: Why Developers Are Switching in 2026 — Zoer AI", url: "https://zoer.ai/posts/zoer/cursor-cli-vs-ide-comparison-2026" },
+        { title: "Cursor AI Reddit: What Developers Really Think in 2026 — AI Tool Discovery", url: "https://www.aitooldiscovery.com/guides/cursor-reddit" },
+      ]},
+    ],
+  },
+  {
     slug: 'hyper-personalisation-ai-coding-tools',
     title: "Your AI Coding Assistant Doesn't Know You Yet — But It's Learning To",
     subtitle: "AI coding tools are shifting from one-size-fits-all suggestions to tools that know your stack, your team's conventions, and your codebase. Here's what's changed, what's actually verified, and what it means for how you work.",
