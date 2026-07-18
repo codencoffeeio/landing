@@ -21,6 +21,103 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'github-copilot-kimi-k27-open-weight-model-security',
+    title: "GitHub Copilot Just Added Its First Open-Weight Model — And the Security Conversation That Comes With It",
+    subtitle: "Kimi K2.7 Code from Moonshot AI is now in Copilot's model picker. It's MIT-licensed, fully auditable, and hosted on Azure. It's also made by a Chinese company subject to Beijing's National Intelligence Law. Both things are true.",
+    date: "July 13, 2026",
+    readTime: "6 min read",
+    tags: ["GitHub Copilot", "Open Source", "AI Security", "Enterprise"],
+    author: "Aira",
+    excerpt: "On July 1, 2026, GitHub added Kimi K2.7 Code to Copilot's model picker — the first open-weight model in the roster. Full weights on Hugging Face, MIT-licensed, 1 trillion parameters. It changes what enterprise security teams can actually verify. It also raises a question that Azure hosting alone doesn't answer.",
+    content: [
+      { type: 'p', text: "Since GitHub Copilot launched, the model picker has been a closed-source menu. You chose between Anthropic's Claude, OpenAI's GPT-4o, Google's Gemini — models whose weights are proprietary, whose architectures are partially documented, and whose security properties you accept largely on the basis of vendor attestation. On July 1, 2026, that changed." },
+      { type: 'p', text: "Kimi K2.7 Code, made by Chinese AI lab Moonshot AI, is now generally available in Copilot's model picker. It's the first open-weight model GitHub has added to the roster. The full 1 trillion parameter weights are publicly available on Hugging Face under an MIT licence. GitHub is running a hosted copy on Azure infrastructure for Copilot users who don't want to manage their own deployment." },
+      { type: 'p', text: "This is a meaningful shift — but it comes with a complication that enterprise security teams are already working through, and it's worth understanding both sides clearly." },
+
+      { type: 'h2', text: "What Kimi K2.7 Code Actually Is" },
+      { type: 'p', text: "Kimi K2.7 Code uses a mixture-of-experts architecture: 1 trillion total parameters, but only 32 billion activate on any given token. That design gives it the capability ceiling of a very large model while keeping inference costs and latency closer to a 32B dense model. It's trained specifically for coding tasks — completions, explanations, refactoring, test generation — and benchmarks competitively against the closed-source models already in the Copilot picker." },
+      { type: 'p', text: "The MIT licence is broad. You can use it commercially, modify it, deploy it on your own infrastructure, and redistribute it. There are no usage restrictions. For enterprises that want to run Cursor-style AI coding assistance on their own servers — not routing through any external API — K2.7's public weights make that straightforward in a way that closed models don't." },
+
+      { type: 'h2', text: "Why Open Weights Change the Security Conversation" },
+      { type: 'p', text: "When you use a closed-source AI model in a coding tool, your security assurance comes from the vendor's documentation, their audit reports, and their contractual commitments. You can't inspect the model itself. You're trusting the vendor's claims about how the model was trained, what data it was trained on, and what it's likely to output." },
+      { type: 'p', text: "Open weights change this. Because the K2.7 weights are public, enterprise security teams can run their own evaluations. Red teams can probe it directly. Third-party auditors can assess it without coordinating with Moonshot AI. You can verify properties of the model that matter to your organisation — backdoor resistance, prompt injection behaviour, sensitivity to adversarial inputs — rather than relying on vendor attestation alone." },
+      { type: 'callout', title: "What 'open weights' actually enables", text: "With closed models: your security assurance is the vendor's documentation and audit reports. With open weights: your security team can evaluate the model directly, commission independent audits, run red-team exercises, and verify specific properties that matter to your deployment. You can also self-host and eliminate the API dependency entirely." },
+      { type: 'p', text: "For organisations in regulated industries where AI model provenance matters — financial services, healthcare, defence contractors — this is a substantively different posture. The ability to audit isn't just theoretical; it's the kind of assurance that compliance frameworks increasingly require." },
+
+      { type: 'h2', text: "The Question Azure Hosting Doesn't Fully Answer" },
+      { type: 'p', text: "Here's the complication: Moonshot AI is a Chinese company. Under the PRC's National Intelligence Law, Chinese companies and citizens can be compelled to cooperate with state intelligence activities — including providing data or access if requested. The law's reach is broad and its application is not always transparent." },
+      { type: 'p', text: "GitHub's deployment routes prompts through Microsoft Azure's US infrastructure. Your code and queries don't reach Moonshot's servers at inference time. That's a meaningful data-flow distinction, and it's the same arrangement that applies to any other Copilot model — your prompts go to GitHub/Microsoft, not to Anthropic or OpenAI's own infrastructure either." },
+      { type: 'p', text: "But the hosting arrangement is about where data flows at inference, not about what Beijing can legally ask of Moonshot with respect to the model itself. The weights are Moonshot's intellectual property, trained on data Moonshot assembled. The National Intelligence Law applies to Moonshot as a company regardless of where Microsoft runs the weights. Those are different questions, and conflating them gives false comfort in one direction or the other." },
+      { type: 'p', text: "This doesn't mean K2.7 is unsafe to use — closed-source models from US labs also operate under US intelligence laws and have their own non-public training data lineages. It means the security assessment for K2.7 is different from the security assessment for Claude or GPT-4o, not obviously better or worse across the board." },
+
+      { type: 'h2', text: "How GitHub Is Rolling It Out" },
+      { type: 'p', text: "For individual Copilot plans — Pro, Pro+, and Max — Kimi K2.7 Code is available immediately in the model picker, no configuration required. For Business and Enterprise plans, it's off by default. Administrators have to actively enable it in Copilot settings before anyone in the organisation can select it." },
+      { type: 'p', text: "The default-off for enterprise plans is the right call. It gives security and compliance teams time to assess the model before it becomes available to developers, rather than requiring them to act reactively after adoption has already happened. Organisations that have already assessed it and are comfortable can enable it; those that want to complete their own evaluation process can do so on their own timeline." },
+
+      { type: 'h2', text: "The Bigger Signal" },
+      { type: 'p', text: "Kimi K2.7 being in the Copilot picker matters beyond the specific model. It's GitHub signalling that the model roster is opening to open-weight models, and that Copilot is becoming a multi-provider platform in a fuller sense than 'we let you choose between three closed-source labs.'" },
+      { type: 'p', text: "If this works well, expect more open-weight models to follow. The compute economics of open weights are compelling — Microsoft pays inference cost but not licence fees. The auditability argument for regulated enterprise customers is real. And the competitive pressure from tools like Cursor (which already has a model-agnostic architecture) makes a more open roster a defensive move as much as an offensive one." },
+      { type: 'p', text: "For developers, the practical implication right now is straightforward: if you're on a personal Copilot plan, K2.7 is worth trying for coding tasks, particularly if you're curious how it compares to Claude or GPT-4o on your specific workflow. If you're making decisions for an enterprise deployment, the security assessment is more nuanced than 'it's on Azure, so it's fine' — but that nuance is manageable and the transparency that open weights provide is genuinely valuable." },
+
+      { type: 'sources', items: [
+        { title: "Kimi K2.7 Code is generally available in GitHub Copilot — GitHub Changelog", url: "https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot/" },
+        { title: "Open-Weight AI Enters GitHub Copilot: Kimi K2.7 Code — TechTimes", url: "https://www.techtimes.com/articles/319556/20260702/open-weight-ai-enters-github-copilot-kimi-k27-code-costs-less-audits-differently.htm" },
+        { title: "The First Open-Weight AI Model Just Landed in GitHub Copilot — Enterprise DNA", url: "https://enterprisedna.co/resources/news/kimi-k2-7-github-copilot-open-weight-enterprise-developers-2026/" },
+        { title: "GitHub Copilot July 2026: Kimi K2.7, Browser, Credit Caps — TokenMix Blog", url: "https://tokenmix.ai/blog/github-copilot-july-2026-update-kimi-browser-ai-credits" },
+        { title: "Kimi K2.7 Code Lands in GitHub Copilot — ChatForest", url: "https://chatforest.com/builders-log/kimi-k2-7-code-github-copilot-ga-five-lab-roster-july-2026-builder-guide/" },
+      ]},
+    ],
+  },
+  {
+    slug: 'spacex-buys-cursor-60-billion-what-it-means-for-developers',
+    title: "SpaceX Just Bought Cursor for $60 Billion. Here's What That Actually Means for Developers.",
+    subtitle: "The largest acquisition of a venture-backed startup ever closes the book on Cursor as an independent company. What it means for the Claude and GPT integrations you rely on, for the pricing you pay, and for who owns the AI coding market going forward.",
+    date: "July 13, 2026",
+    readTime: "7 min read",
+    tags: ["Cursor", "AI Industry", "Developer Tools", "Acquisitions"],
+    author: "Aira",
+    excerpt: "SpaceX agreed to buy Cursor's parent company Anysphere for $60 billion on June 16 — four days after SpaceX's record IPO and the largest startup acquisition in history. The deal makes Cursor a subsidiary of the SpaceX-xAI empire. Here's what that means for the tool you're using right now.",
+    content: [
+      { type: 'p', text: "On June 16, 2026 — four trading days after SpaceX's blockbuster $75 billion IPO, the largest in history — SpaceX announced it was buying Cursor's parent company Anysphere for $60 billion in stock. It's the largest acquisition of a venture-backed startup ever. Cursor, which four years ago didn't exist, is now worth more than most Fortune 500 companies." },
+      { type: 'p', text: "If you use Cursor daily, the deal raises some immediate practical questions: Will Claude and GPT-4o integrations survive under xAI ownership? What happens to pricing? And what does it mean that the most popular AI coding tool is now owned by Elon Musk's space company? Here's an honest account of what's confirmed, what's likely, and what remains genuinely uncertain." },
+
+      { type: 'h2', text: "How Cursor Got Here" },
+      { type: 'p', text: "Cursor's growth story is striking even by AI standards. The company reached roughly $4 billion in annualised revenue in under four years, with approximately $2.6 billion coming from enterprise B2B customers. Around two-thirds of the Fortune 500 have developers using it, generating an estimated 150 million lines of enterprise code daily." },
+      { type: 'p', text: "Despite those numbers, the competitive picture had been getting harder. Cursor was paying retail API pricing to Anthropic for Claude access, while Anthropic ran wholesale economics on its own Claude Code product. Cursor's market share in the AI coding category had slid from roughly 41% to around 26% even as its total revenue grew — Anthropic's own category share was climbing toward 50%. The business was strong but the strategic position was becoming structurally difficult." },
+      { type: 'p', text: "SpaceX had been circling. The company secured an option agreement with Anysphere on April 21, giving it the right to acquire Cursor for $60 billion or walk away for a combined breakup and deferred-services fee of around $10 billion. When the SpaceX IPO closed in mid-June, the economics of exercising that option became straightforward — SpaceX's surging stock made the all-stock deal effectively cheaper in relative terms." },
+      { type: 'quote', text: "SpaceX's $60B Cursor acquisition closed in just a few hours of trading after the IPO. The surging stock paid for it before most people had processed the IPO news.", attribution: "Fortune" },
+
+      { type: 'h2', text: "The xAI Connection" },
+      { type: 'p', text: "SpaceX merged with Elon Musk's AI company xAI earlier in 2026. The Cursor acquisition is an extension of that strategy — specifically, an attempt to close the gap between xAI's Grok models and the market leaders in AI coding. Grok has trailed Anthropic, OpenAI, Google, and Meta on coding benchmarks, and Cursor's distribution — 50,000+ enterprise clients — gives xAI a deployment channel that would otherwise take years to build." },
+      { type: 'p', text: "What makes this more than just a distribution play is the model development angle. Reports indicate that Cursor and xAI have been jointly training a new AI model intended to be released inside Cursor and Grok. The timeline for that is unclear, but the direction is: Cursor as the front-end for the next generation of xAI coding models." },
+
+      { type: 'h2', text: "The Question Every Cursor User Has: What Happens to Claude and GPT-4o?" },
+      { type: 'p', text: "This is the question that matters most for day-to-day users, and the honest answer is that it's not settled yet. The deal hasn't closed — it's expected to complete in Q3 2026, subject to regulatory approval. Until it closes, Cursor operates as an independent company and nothing changes." },
+      { type: 'p', text: "After it closes, the strategic incentives are pretty clear. xAI has direct financial interest in Grok being the primary model inside Cursor. Anthropic and OpenAI have direct financial interest in Claude and GPT remaining in Cursor's model picker. Those interests are opposed, and how they resolve will depend on what Cursor's enterprise customers demand, what Grok's coding performance actually reaches, and how the Cursor team negotiates the transition." },
+      { type: 'p', text: "The most likely short-term outcome is continuity: Claude, GPT-4o, and Gemini remain available while xAI works to make Grok a credible default. The least likely outcome is an immediate switch that risks alienating the enterprise customer base that makes Cursor valuable to SpaceX in the first place. But 'least likely' isn't 'impossible', and developers who have built workflows tightly around a specific model inside Cursor should be thinking about what their fallback looks like." },
+      { type: 'callout', title: "The practical implication right now", text: "Nothing changes before Q3 2026 when the deal closes. If you're building workflows that depend on a specific model inside Cursor, now is a reasonable time to ensure those workflows are portable — that your prompts, rules, and context files would work in a different tool if needed. Not because a switch is certain, but because it's no longer impossible." },
+
+      { type: 'h2', text: "What This Means for Pricing" },
+      { type: 'p', text: "Cursor's June 2025 shift to credit-based pricing already caused significant community backlash, with users reporting unexpected charges and poor communication around the change. The acquisition adds a new layer of uncertainty: pricing decisions will eventually be made by a company whose primary business is rockets and satellites, not developer tooling." },
+      { type: 'p', text: "In the near term, aggressive pricing changes would be strategically counterproductive — SpaceX is paying $60 billion for a business that runs on developer trust, and that trust evaporates quickly if pricing feels extractive. But 'near term' is doing a lot of work in that sentence. Once the Grok integration is mature and the enterprise contracts are locked in, the pricing leverage shifts." },
+      { type: 'p', text: "The most useful frame for current Cursor subscribers is to watch the enterprise contract terms, not the monthly plan pricing. The individual plan pricing is visible and politically sensitive. Enterprise pricing — multi-year commitments, model access, usage caps — is where the real changes will be negotiated, and those are less visible until they affect renewal conversations." },
+
+      { type: 'h2', text: "The Broader Market Signal" },
+      { type: 'p', text: "The Cursor acquisition caps off what has been a striking consolidation period in AI coding tools. The market that was genuinely competitive 18 months ago — Cursor, GitHub Copilot, Claude Code, Amazon Q, Codeium, Tabnine all competing on roughly similar terms — is now structured around a few major power centres: Microsoft/GitHub, Anthropic, OpenAI, Google, and now SpaceX/xAI." },
+      { type: 'p', text: "For developers, the consolidation has both a good and a bad side. The good side is that these tools are now backed by organisations with the resources to keep developing them aggressively. The bad side is that as independence disappears, so does the neutrality. Cursor under Anysphere had a clear incentive to be the best multi-model AI IDE it could be. Cursor under SpaceX-xAI has a different incentive structure, one that includes making Grok look good." },
+      { type: 'p', text: "That doesn't make Cursor a worse tool tomorrow. But it does mean the definition of 'best' inside the product will increasingly be shaped by factors beyond pure developer experience. That's worth knowing as you think about where to invest your configuration time and institutional knowledge over the next few years." },
+
+      { type: 'sources', items: [
+        { title: "SpaceX to acquire Cursor for $60B in stock, days after blockbuster IPO — TechCrunch", url: "https://techcrunch.com/2026/06/16/spacex-to-acquire-cursor-for-60b-in-stock-days-after-blockbuster-ipo/" },
+        { title: "SpaceX agrees to buy Cursor parent Anysphere for $60 billion — Quartz", url: "https://qz.com/spacex-buying-cursor-anysphere-60-billion-deal-061626" },
+        { title: "SpaceX Buys Cursor In Largest Startup Acquisition Ever At $60 Billion — Forbes", url: "https://www.forbes.com/sites/sandycarter/2026/06/16/spacex-buys-cursor-in-largest-startup-acquisition-ever-at-60-billion/" },
+        { title: "Elon's super currency: SpaceX' surging stock paid for the $60 billion Cursor acquisition — Fortune", url: "https://fortune.com/2026/06/16/elon-musk-spacex-ipo-ai-coding-startup-cursor-acquisition/" },
+        { title: "SpaceX Buys Cursor for $60B: What the Deal Means in 2026 — Digital Applied", url: "https://www.digitalapplied.com/blog/spacex-acquires-cursor-anysphere-60b-ai-coding-2026" },
+        { title: "SpaceX to acquire the AI coding startup Cursor for $60 billion — CNBC", url: "https://www.cnbc.com/2026/06/16/spacex-spcx-cursor-acquisition-ipo.html" },
+      ]},
+    ],
+  },
+  {
     slug: 'cursor-windows-app-vs-cli-honest-review-2026',
     title: "Cursor on Windows Is Brilliant and Broken: What the Desktop App Gets Right, What the CLI Fixes, and What's Still a Mess",
     subtitle: "Cursor is one of the most capable AI coding tools available. It's also shipped some of the most frustrating Windows-specific bugs in recent memory. Here's an honest look at both surfaces — the desktop app and the terminal CLI — from the perspective of developers actually using them.",
