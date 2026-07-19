@@ -1,4 +1,4 @@
-export type ResourceCategory = 'all' | 'ai-tools' | 'learning' | 'newsletters' | 'reading' | 'local';
+export type ResourceCategory = 'all' | 'ai-tools' | 'learning' | 'newsletters' | 'reading' | 'local' | 'podcasts';
 
 export interface Resource {
   name: string;
@@ -17,6 +17,7 @@ export const CATEGORY_LABELS: Record<ResourceCategory, string> = {
   newsletters: 'Newsletters',
   reading: 'Papers & Reading',
   local: 'NZ & Local',
+  podcasts: 'Podcasts',
 };
 
 export const RESOURCES: Resource[] = [
@@ -225,6 +226,51 @@ export const RESOURCES: Resource[] = [
     category: 'reading',
     tags: ['Overview', 'MIT', 'Generative AI'],
     free: false,
+  },
+
+  // ── Podcasts ───────────────────────────────────────────────────────────────
+  {
+    name: 'All-In Podcast',
+    description: "Four tech insiders — Chamath Palihapitiya, Jason Calacanis, David Sacks, and David Friedberg — talk markets, politics, AI, and startups with zero filter. Unscripted, opinionated, and consistently interesting.",
+    url: 'https://www.allinpodcast.co',
+    category: 'podcasts',
+    tags: ['Tech', 'AI', 'VC', 'Markets'],
+    free: true,
+    communityPick: true,
+  },
+  {
+    name: 'Big Technology Podcast',
+    description: "Alex Kantrowitz interviews the people shaping tech — founders, researchers, and executives. Strong on AI and its societal implications. Thoughtful and well-reported.",
+    url: 'https://www.bigtechnology.com/podcast',
+    category: 'podcasts',
+    tags: ['AI', 'Tech Industry', 'Interviews'],
+    free: true,
+    communityPick: true,
+  },
+  {
+    name: 'Dwarkesh Patel Podcast',
+    description: "Long-form conversations with some of the smartest people in AI, science, and history. Dwarkesh goes deep — interviews with researchers, historians, and founders that regularly run 3+ hours.",
+    url: 'https://www.dwarkeshpatel.com/podcast',
+    category: 'podcasts',
+    tags: ['AI Research', 'Long-form', 'Science'],
+    free: true,
+    communityPick: true,
+  },
+  {
+    name: 'Theo Von Podcast',
+    description: "Stand-up comedian Theo Von's long-form conversations — guests range from tech founders and scientists to athletes and musicians. Unexpectedly thoughtful, consistently funny.",
+    url: 'https://www.youtube.com/@TheoVon',
+    category: 'podcasts',
+    tags: ['Comedy', 'Long-form', 'Culture'],
+    free: true,
+  },
+  {
+    name: 'Y Combinator Podcast',
+    description: "The YC team and founders talk startups, product, and the future of technology. Covers AI extensively — from how founders are building with it to how it's changing what's fundable.",
+    url: 'https://www.ycombinator.com/library',
+    category: 'podcasts',
+    tags: ['Startups', 'AI', 'Founders', 'YC'],
+    free: true,
   },
 
   // ── NZ & Local ─────────────────────────────────────────────────────────────
