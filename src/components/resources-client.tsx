@@ -4,7 +4,7 @@ import { ExternalLink, Sparkles, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESOURCES, CATEGORY_LABELS, type ResourceCategory, type Resource } from "@/lib/resources";
 
-const CATEGORIES: ResourceCategory[] = ["all", "ai-tools", "learning", "newsletters", "reading", "local"];
+const CATEGORIES: ResourceCategory[] = ["all", "ai-tools", "learning", "newsletters", "reading", "podcasts", "local"];
 
 function ResourceCard({ resource: r, highlight }: { resource: Resource; highlight?: boolean }) {
   const categoryColour: Record<string, string> = {
@@ -13,6 +13,7 @@ function ResourceCard({ resource: r, highlight }: { resource: Resource; highligh
     "newsletters": "bg-purple-500/10 text-purple-400 border-purple-500/20",
     "reading": "bg-orange-500/10 text-orange-400 border-orange-500/20",
     "local": "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+    "podcasts": "bg-pink-500/10 text-pink-400 border-pink-500/20",
   };
 
   return (
