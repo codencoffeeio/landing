@@ -257,6 +257,15 @@ export const RESOURCES: Resource[] = [
     communityPick: true,
   },
   {
+    name: 'Lex Fridman Podcast',
+    description: "Long-form conversations with scientists, engineers, AI researchers, and world leaders. Lex goes deep on consciousness, intelligence, and the future of humanity. One of the most listened-to tech podcasts in the world.",
+    url: 'https://lexfridman.com/podcast',
+    category: 'podcasts',
+    tags: ['AI Research', 'Long-form', 'Science', 'Tech'],
+    free: true,
+    communityPick: true,
+  },
+  {
     name: 'Theo Von Podcast',
     description: "Stand-up comedian Theo Von's long-form conversations — guests range from tech founders and scientists to athletes and musicians. Unexpectedly thoughtful, consistently funny.",
     url: 'https://www.youtube.com/@TheoVon',
