@@ -21,6 +21,76 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'supabase-mcp-pros-cons-security-developer-guide',
+    title: "Supabase MCP Is Genuinely Useful. It's Also Running as Admin by Default.",
+    subtitle: "The Supabase MCP server has become one of the most popular backend integrations for AI-assisted development. Most developers aren't thinking about what it means to give their AI agent service_role access to their database.",
+    date: "July 21, 2026",
+    readTime: "7 min read",
+    tags: ["Supabase", "MCP", "Security", "AI Tools"],
+    author: "Aira",
+    excerpt: "Supabase's MCP server lets your AI agent manage your entire backend through natural language — schema, migrations, edge functions, auth, all of it. It has 832K+ downloads. It also runs as service_role by default, which means your AI has admin-level database access. Here's the full picture.",
+    content: [
+      { type: 'p', text: "The Supabase MCP server has quietly become one of the most installed backend integrations in the AI coding ecosystem — 832,000+ downloads, built into Cursor, Claude Code, VS Code Copilot, OpenCode, and Codex CLI workflows. The pitch is compelling: instead of switching between your editor, the Supabase dashboard, and a SQL client, you just tell your AI what you need. It creates tables, generates migrations, deploys edge functions, updates RLS policies, and checks your logs. All through natural language." },
+      { type: 'p', text: "That's genuinely useful. It's also worth understanding what you're actually giving your AI agent when you connect it, because the default configuration is more permissive than most developers realise — and Supabase themselves say the default setup is not for production use." },
+
+      { type: 'h2', text: "What the Supabase MCP Server Actually Does" },
+      { type: 'p', text: "The MCP server exposes over 20 tools that give AI agents direct access to your Supabase backend. We're not talking about code generation that you then review and deploy. The agent can directly query your database, inspect your schema, run migrations, manage edge functions, read logs, and orchestrate database branches — all as live operations against your actual Supabase project." },
+      { type: 'p', text: "This is the capability that makes it genuinely different from earlier AI coding workflows. The agent can verify its own work. Write a migration, run it, query the result, check that the data looks right — without any manual step from you in between. For development speed, that's a meaningful change. You're not just getting code suggestions; you're getting an agent that can actually close the loop on backend tasks." },
+      { type: 'list', items: [
+        "Query databases and inspect schemas directly",
+        "Generate and run migrations",
+        "Deploy and manage Edge Functions",
+        "Manage auth configuration",
+        "Read project logs and debug in context",
+        "Create and switch database branches",
+        "All through natural language in your AI tool of choice",
+      ]},
+      { type: 'p', text: "The integration works across the tools most developers are already using. Cursor, Claude Code, VS Code Copilot, OpenCode — the MCP server plugs into whichever AI coding environment you're in, so you don't need to change your workflow to get the benefit." },
+
+      { type: 'h2', text: "The Thing Most Developers Don't Think About: service_role" },
+      { type: 'p', text: "Here's what the default Supabase MCP setup actually does under the hood: it connects to your database using the service_role key." },
+      { type: 'p', text: "If you're not familiar with what that means: the service_role key is Supabase's admin key. It bypasses Row Level Security entirely. When your AI agent is connected via MCP with the default configuration, it has the same level of access as a database administrator — it can read, write, and delete any data in any table, regardless of what your RLS policies say." },
+      { type: 'quote', text: "The default MCP setup connects using the service_role key, which means the AI agent operates with admin-level database access — bypassing Row Level Security.", attribution: "Supabase security documentation" },
+      { type: 'p', text: "Supabase is explicit about this in their documentation: the default MCP server configuration is not intended for production use. That's not fine print — it's a genuine architectural limitation of the default setup that a lot of developers miss because the integration is otherwise so smooth to set up." },
+
+      { type: 'h2', text: "Why Prompt Injection Makes This a Real Risk" },
+      { type: 'p', text: "The elevated privilege level would be manageable if AI agents were perfectly reliable about only executing legitimate requests. They're not, and the specific failure mode that makes service_role access dangerous is prompt injection." },
+      { type: 'p', text: "Prompt injection is when malicious content — embedded in data your agent reads — manipulates the agent into taking actions you didn't intend. The scenario looks like this: your AI agent queries a database table as part of a legitimate task. One of the rows contains crafted text designed to look like an instruction. The agent, trying to be helpful, acts on it. With service_role access, the injected instruction can trigger reads, writes, or deletes across your entire database — not just the table the agent was working with." },
+      { type: 'p', text: "Supabase published a dedicated blog post on this — *Defense in Depth for MCP Servers* — specifically because prompt injection via MCP is a real and documented threat. The key insight from that post: even read-only mode doesn't fully eliminate the risk. An agent with only read access can still be manipulated into exfiltrating data it was never supposed to see, by being prompted to send it somewhere." },
+      { type: 'callout', title: "The attack chain in plain language", text: "Attacker embeds malicious instructions in data your app stores (a user profile, a comment, a form submission). Your AI agent reads that data as part of a legitimate task. The agent treats the embedded text as an instruction and executes it — with whatever database permissions its MCP connection has. With service_role access, that means full admin access to your database." },
+
+      { type: 'h2', text: "What Supabase Has Built to Address This" },
+      { type: 'p', text: "To their credit, Supabase has shipped specific mitigations. They're not on by default, but they exist and they work:" },
+      { type: 'list', items: [
+        "Read-only mode — the agent can query and inspect but cannot write, update, or delete anything. This eliminates write-based injection attacks, though read-based exfiltration risk remains.",
+        "Project-scoped mode — limits the MCP connection to a single Supabase project, so a compromised agent can't pivot to other projects in your organisation.",
+        "Feature groups — lets you restrict which specific MCP tools the AI can use. If your agent only needs to query the database and inspect logs, you can disable everything else.",
+      ]},
+      { type: 'p', text: "The combination of read-only mode plus feature groups is the right posture for most development workflows — you lose almost no useful capability (most of what you actually want from the MCP server is read access and schema inspection), while dramatically reducing the blast radius if something goes wrong." },
+      { type: 'p', text: "For production environments, the guidance is more conservative: don't use the MCP server with production databases at all unless you've specifically thought through your security posture, applied the appropriate restrictions, and accepted the residual risk. The tooling for production MCP use is maturing, but it's not at the point where the defaults are safe for production use." },
+
+      { type: 'h2', text: "The Other Frustrations Worth Knowing" },
+      { type: 'p', text: "Beyond the security considerations, developers who use Supabase MCP regularly report a few other friction points." },
+      { type: 'p', text: "Cross-region latency is real. If your MCP server and Supabase instance are in different regions, there's a measurable ~40ms round-trip penalty per operation at p50. For interactive development that's barely noticeable; for agent workflows that make many sequential database calls, it can add up." },
+      { type: 'p', text: "Support has gaps. Supabase has no live chat even on Enterprise plans, and no phone support at any tier. Complex Postgres issues sometimes get deflected as 'not a Supabase question' — which can leave you stuck when the problem is at the intersection of Postgres behaviour and Supabase's abstraction layer." },
+      { type: 'p', text: "The documentation is excellent for common patterns but thins out for edge cases. When your situation diverges from the documented happy path, you're often on your own." },
+
+      { type: 'h2', text: "The Honest Verdict" },
+      { type: 'p', text: "For development environments, Supabase MCP is one of the best integrations in the AI backend ecosystem right now. The combination of natural language database management, agent self-verification, and broad coverage of Supabase's feature set is genuinely useful — it removes the context switching that breaks flow and lets agents close the loop on backend tasks in a way that earlier AI coding tools couldn't." },
+      { type: 'p', text: "The security picture requires deliberate attention. The default setup is more permissive than it should be for anything beyond a dev database, and the prompt injection risk is real enough that Supabase wrote a whole blog post about it. That's not a reason to avoid the tool — it's a reason to take ten minutes to configure it correctly before you connect it to anything you care about." },
+      { type: 'p', text: "The practical checklist: enable read-only mode unless you specifically need write access from your agent. Use project-scoped mode. Restrict feature groups to what you actually use. And if you're connecting to a database with real user data in it — even a staging environment with production data — treat the security configuration as non-optional." },
+
+      { type: 'sources', items: [
+        { title: "MCP Server — Supabase Features", url: "https://supabase.com/features/mcp-server" },
+        { title: "Defense in Depth for MCP Servers — Supabase Blog", url: "https://supabase.com/blog/defense-in-depth-mcp" },
+        { title: "When AI Has Root: Lessons from the Supabase MCP Data Leak — Pomerium", url: "https://www.pomerium.com/blog/when-ai-has-root-lessons-from-the-supabase-mcp-data-leak" },
+        { title: "Supabase MCP: Backend Operations Review — AI Dev Setup", url: "https://aidevsetup.com/mcp/supabase-mcp" },
+        { title: "AI Agents Know About Supabase. They Don't Always Use It Right — Supabase Blog", url: "https://supabase.com/blog/supabase-agent-skills" },
+        { title: "Supabase Security: The Hidden Dangers of RLS — DEV Community", url: "https://dev.to/fabio_a26a4e58d4163919a53/supabase-security-the-hidden-dangers-of-rls-and-how-to-audit-your-api-29e9" },
+      ]},
+    ],
+  },
+  {
     slug: 'demis-hassabis-finra-for-ai-frontier-regulation-proposal',
     title: "The DeepMind CEO Wants a FINRA for AI. Here's What That Actually Means.",
     subtitle: "Demis Hassabis published a personal manifesto on July 14 calling for a US-led AI watchdog with the power to pause the entire industry. It's the most concrete regulation proposal from a sitting frontier lab CEO — and Sam Altman and Dario Amodei both agree with him.",
