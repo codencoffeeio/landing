@@ -21,6 +21,71 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'kimi-k3-moonshot-ai-open-weight-model-developer-guide',
+    title: "Kimi K3 Is the Largest Open-Weight Model Ever. Here's What Developers Need to Know.",
+    subtitle: "Moonshot AI dropped a 2.8 trillion parameter open-weight model on July 16 — the biggest open model in existence, beating Claude Opus 4.8 on benchmarks, and undercutting frontier model pricing. The full weights drop July 27.",
+    date: "July 21, 2026",
+    readTime: "6 min read",
+    tags: ["AI Models", "Open Source", "Kimi", "Developer Tools"],
+    author: "Aira",
+    excerpt: "Moonshot AI released Kimi K3 on July 16 — a 2.8 trillion parameter open-weight model that sits 4th overall on the Artificial Analysis leaderboard, leads the Frontend Code Arena, and has weights dropping publicly on July 27. Here's what it is, how it performs, and why it matters for developers.",
+    content: [
+      { type: 'p', text: "On July 16, 2026, Moonshot AI — a Beijing-based lab — released Kimi K3, the largest open-weight AI model ever built. At 2.8 trillion parameters, it's not just incrementally bigger than previous open models; it's in a class that didn't previously exist in the open-weight ecosystem. The full weights drop on July 27, which means anyone can download and run it." },
+      { type: 'p', text: "K3 isn't a research curiosity or a proof-of-concept. It's ranking 4th overall on independent benchmarks — behind only Anthropic's Fable 5 and OpenAI's GPT-5.6 Sol, and ahead of Claude Opus 4.8. It's already number one for frontend coding. And it's what's powering the Kimi K2.7 model that landed in GitHub Copilot earlier this month." },
+      { type: 'p', text: "Here's what developers need to understand about it." },
+
+      { type: 'h2', text: "The Model: What 2.8 Trillion Parameters Actually Means" },
+      { type: 'p', text: "2.8 trillion parameters sounds enormous because it is — but the architecture means you don't need 2.8 trillion parameters worth of compute to run it. K3 is a Mixture-of-Experts model: it has 896 experts, but only 16 activate per token. So at inference time, you're running the equivalent of a much smaller model while having the capacity of a massive one available for the router to draw from." },
+      { type: 'p', text: "The training architecture introduces two techniques Moonshot is highlighting: Kimi Delta Attention (KDA), a hybrid linear attention mechanism designed to handle very long contexts efficiently, and Attention Residuals. The result is a 1 million token context window — the same as what frontier labs are offering on their best closed models." },
+      { type: 'p', text: "Native visual understanding is baked in, not bolted on. K3 is multimodal from the ground up, handling images and text in the same context window rather than requiring a separate vision pipeline." },
+      { type: 'callout', title: "K3 at a glance", text: "2.8T total parameters · 16/896 experts active per token · 1M token context · Native vision · Built on Kimi Delta Attention · MIT-licensed open weights (July 27) · MXFP4 quantisation supported for efficient deployment" },
+
+      { type: 'h2', text: "How It Actually Benchmarks" },
+      { type: 'p', text: "K3 sits 4th on the Artificial Analysis Intelligence Index with a score of approximately 57 — behind Fable 5 and GPT-5.6 Sol, but ahead of Claude Opus 4.8. For context: Opus 4.8 is Anthropic's most capable model and costs $15 per million input tokens. K3 will be self-hostable from July 27." },
+      { type: 'p', text: "The headline benchmark result is Frontend Code Arena, where K3 ranks first overall with 1,679 points — beating Fable 5 (1,631), GPT-5.6 Sol (1,618), and every other model tested. For developers building UI, that's a directly relevant data point." },
+      { type: 'list', items: [
+        "Frontend Code Arena: #1 (1,679 points) — ahead of Fable 5 and GPT-5.6 Sol",
+        "Terminal-Bench: 88.3%",
+        "BrowseComp: 91.2%",
+        "GPQA-Diamond: 93.5%",
+        "Program Bench, SWE Marathon, SpreadsheetBench 2, Automation Bench: leads all tested models",
+        "Artificial Analysis Intelligence Index: 4th overall",
+      ]},
+      { type: 'p', text: "The areas where it trails: FrontierSWE and GDPval-AA Elo (Fable 5 leads) and DeepSWE (GPT-5.6 Sol leads). Pure reasoning at the hardest end of the spectrum is still the domain where Anthropic and OpenAI's closed models have an edge. But for coding, agentic tasks, and long-context work, the gap has closed to the point where K3 is a legitimate choice." },
+
+      { type: 'h2', text: "What kimi.com Offers as a Product" },
+      { type: 'p', text: "Kimi isn't just a model — it's a consumer and developer platform that's been building out for the past two years. If you go to kimi.com today, here's what you get:" },
+      { type: 'p', text: "OK Computer is their flagship agentic mode. It takes over browser and terminal to complete multi-step tasks autonomously — build websites, generate editable slides, process up to a million rows of data, run research-to-output workflows end to end. It's free with rate limits, which is unusual for a full computer-use agent." },
+      { type: 'p', text: "Deep Research runs autonomous multi-step research, pulling from web sources and producing structured cited reports — similar to what ChatGPT and Gemini offer, but available on K3's 1M context window which allows larger synthesis tasks." },
+      { type: 'p', text: "Kimi Code is their coding-specific agent. Given K3's frontend benchmark performance, this is worth watching — a coding agent running on a model that outperforms Fable 5 on front-end tasks is a meaningful combination." },
+      { type: 'p', text: "The free tier is generous: unlimited basic conversations with the full model, file uploads, and the long context window. The rate limits kick in on intensive features like OK Computer and Deep Research." },
+
+      { type: 'h2', text: "The Open Weights: What July 27 Actually Enables" },
+      { type: 'p', text: "When the K3 weights drop on July 27 under the MIT licence, a few things become possible that aren't possible with closed frontier models." },
+      { type: 'p', text: "Self-hosting: enterprises with the infrastructure can run K3 on their own hardware, with no data leaving their environment. For organisations with data residency requirements or security policies that prohibit sending code to external APIs, this is meaningful. MoE models at this scale require significant GPU memory — running K3 is not a consumer hardware proposition — but for well-resourced teams, the option now exists." },
+      { type: 'p', text: "Independent auditing: the weights being public means security teams can evaluate the model directly rather than relying on Moonshot's attestations. Given that K3 is already in GitHub Copilot (as K2.7) and will likely expand into more enterprise tools, that auditability is relevant to any compliance assessment." },
+      { type: 'p', text: "Fine-tuning: open weights mean the community can fine-tune K3 for specific domains. A 2.8T parameter base model with frontier performance that can be adapted to specialised use cases is a genuinely new capability for the open-source AI ecosystem." },
+
+      { type: 'h2', text: "The Context: China Closing the Gap" },
+      { type: 'p', text: "K3's release is part of a broader pattern that the developer community has been watching: the distance between the best open models and the best closed Western frontier models has compressed dramatically. In 2024, the gap was measured in capability years. In mid-2026, it's measured in months on specific benchmarks — and K3 has already passed the best Anthropic model on some tasks." },
+      { type: 'p', text: "That compression is happening despite US export controls on advanced chips, which limit what compute Moonshot AI can access for training. K3's architecture — MoE with efficient sparse activation — is partly a response to that constraint. When you can't buy more compute, you design models that extract more from the compute you have." },
+      { type: 'p', text: "For developers, the geopolitical backdrop matters for one practical reason: Moonshot AI is a Chinese company subject to PRC law, which affects how enterprises should think about data governance when using K3 via the Kimi API. Self-hosting on your own infrastructure — which the open weights enable — sidesteps that concern for inference, though not for the model's training provenance." },
+
+      { type: 'h2', text: "Worth Trying" },
+      { type: 'p', text: "If you haven't used Kimi before, July 27 is a reasonable time to start experimenting. You can either access K3 through kimi.com directly, use it through GitHub Copilot's model picker (as K2.7), or — from July 27 — run the weights yourself." },
+      { type: 'p', text: "The areas where it's worth testing first: frontend code generation (where it leads all models), long-context document work (1M tokens), and agentic tasks via OK Computer. The areas where you should still reach for Fable 5 or GPT-5.6 Sol: complex multi-step reasoning at the hardest end of the spectrum, and anything where you have concerns about the data governance implications of using a model from a Chinese lab." },
+
+      { type: 'sources', items: [
+        { title: "Kimi K3 Tech Blog: Open Frontier Intelligence — Moonshot AI", url: "https://www.kimi.com/blog/kimi-k3" },
+        { title: "China's Moonshot AI releases Kimi K3, the largest open-source model ever — VentureBeat", url: "https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems" },
+        { title: "China's 2.8-trillion-parameter Kimi K3 beats Claude Fable 5 in Frontend Code Arena — Tom's Hardware", url: "https://www.tomshardware.com/tech-industry/artificial-intelligence/moonshot-releases-2-8-trillion-parameter-kimi-k3" },
+        { title: "Kimi K3: Moonshot AI's 2.8T Open-Weight Model — Codersera", url: "https://codersera.com/blog/kimi-k3-complete-guide-2026/" },
+        { title: "Kimi K3, and what we can still learn from the pelican benchmark — Simon Willison", url: "https://simonwillison.net/2026/Jul/16/kimi-k3/" },
+        { title: "Kimi K3 Model Overview: MXFP4 Quantization and Open Weights — Hugging Face", url: "https://huggingface.co/blog/ResterChed/kimi-k3-model-overview-mxfp4-quantization-open-wei" },
+      ]},
+    ],
+  },
+  {
     slug: 'supabase-mcp-pros-cons-security-developer-guide',
     title: "Supabase MCP Is Genuinely Useful. It's Also Running as Admin by Default.",
     subtitle: "The Supabase MCP server has become one of the most popular backend integrations for AI-assisted development. Most developers aren't thinking about what it means to give their AI agent service_role access to their database.",
